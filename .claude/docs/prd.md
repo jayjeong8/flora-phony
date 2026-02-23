@@ -149,3 +149,143 @@ PRD를 바탕으로 개발자가 즉시 구현 로직을 설계할 수 있도록
 
 ---
 
+디자인 가이드와 기술적 구현의 핵심인 `Tone.js` 샘플 코드를 정리해 드립니다. 이 두 자료는 개발자와 디자이너가 프로젝트의 '톤앤매너'와 '작동 원리'를 즉시 이해하는 데 큰 도움이 될 것입니다.
+
+---
+
+## 1. UI/UX 디자인 가이드 (Visual Identity)
+
+20대 타겟의 미니멀하고 감성적인 웹 앱을 위한 가이드입니다.
+
+### **Color Palette**
+
+* **Background (Canvas):** `#F9F7F2` (Off-white / 따뜻한 종이 질감)
+* **Primary Plant Green:** `#6B8E23` (Olive Drab / 차분한 자연의 녹색)
+* **Accent (UI Elements):** `#D4A373` (Terra Cotta / 부드러운 흙색)
+* **Text:** `#333333` (Dark Grey / 가독성 높은 짙은 회색)
+
+### **Typography**
+
+* **Main Title:** *Gaegu* 또는 *Quicksand* (둥글고 친근한 느낌의 구글 폰트)
+* **Body/UI:** *Montserrat* 
+
+### **Layout Structure**
+
+1. **Top Bar:** 로고와 'About', 'Clear' 버튼 배치.
+2. **Center Canvas:** 식물이 심어지는 넓은 여백의 공간.
+3. **Bottom Seed Bar:** 식물 아이콘들이 가로로 나열된 플로팅 바. 아이콘은 단순한 선(Line art) 위주로 구성.
+4. **Interaction:** 식물을 캔버스에 드롭할 때 미세한 파동(Ripple) 효과 발생.
+
+---
+
+## 2. Tone.js 기반 사운드 구현 코드 (Technical Sample)
+
+식물을 심었을 때 소리가 동기화되어 재생되고, 위치에 따라 소리가 좌우로 나뉘는 핵심 로직입니다.
+
+```javascript
+// 1. 오디오 엔진 초기화 및 마스터 볼륨 설정
+const limiter = new Tone.Limiter(-1).toDestination(); // 소리 깨짐 방지
+const mainVolume = new Tone.Volume(-10).connect(limiter);
+
+// 2. 식물별 사운드 플레이어 생성 (예시: Lofi Piano)
+// 모든 루프는 동일한 BPM(80)과 길이를 가져야 함
+const plantSounds = {
+  'p1': {
+    url: '/assets/audio/piano_loop.mp3',
+    player: new Tone.Player().cache = true,
+    panner: new Tone.Panner(0).connect(mainVolume) // 초기 위치 중앙
+  },
+  'p2': {
+    url: '/assets/audio/rain_loop.mp3',
+    player: new Tone.Player().cache = true,
+    panner: new Tone.Panner(0).connect(mainVolume)
+  }
+};
+
+// 3. 식물 배치 함수 (드롭 이벤트 시 호출)
+async function addPlant(type, xPercent) {
+  await Tone.start(); // 브라우저 오디오 정책 대응
+  
+  const sound = plantSounds[type];
+  
+  // X 좌표에 따른 스테레오 패닝 설정 (-1 ~ 1)
+  const panValue = (xPercent / 100) * 2 - 1; 
+  sound.panner.pan.rampTo(panValue, 0.5);
+
+  // 루프 설정 및 마스터 클록에 맞춰 재생
+  if (sound.player.state !== 'started') {
+    sound.player.load(sound.url).then(() => {
+      sound.player.loop = true;
+      sound.player.connect(sound.panner);
+      sound.player.start(Tone.Transport.nextSubdivision("4n")); // 박자에 맞춰 시작
+    });
+  } else {
+    // 이미 재생 중이라면 개수에 따른 볼륨 증가 로직 추가 가능
+    sound.player.volume.value += 2; 
+  }
+}
+
+// 4. 전체 시작 버튼 (Transport 제어)
+Tone.Transport.bpm.value = 80;
+Tone.Transport.start();
+
+```
+
+---
+
+## 3. 구현 팁 (Pro-tip)
+
+* **Seamless Looping:** 사운드 파일의 시작과 끝이 튀지 않도록 제로 크로싱(Zero-crossing) 처리가 된 파일이어야 합니다.
+* **Performance:** 식물이 많아질수록 CPU 점유율이 올라가므로, 동일 식물은 `Player` 인스턴스를 늘리는 대신 기존 `Player`의 볼륨만 조절하는 방식을 추천합니다.
+
+---
+
+북미와 유럽의 20대(Gen Z)는 **'감성적인 비주얼'**과 **'기능적 휴식(Functional Relaxation)'**에 민감합니다. 화려한 광고 문구보다는 담백하면서도 세련된, SNS 공유 욕구를 자극하는 영문 마케팅 카피를 제안합니다.
+
+---
+
+## 1. 메인 헤드라인 (Hero Section)
+
+사용자가 웹사이트에 접속하자마자 가장 먼저 보게 될 강렬한 한 줄입니다.
+
+* **Option A (감성형):** "Plants don't just grow. They sing."
+* **Option B (기능형):** "Craft your own Lo-fi garden. Let the nature play your mood."
+* **Option C (미니멀):** "Your Garden, Your Soundscape, Your Peace."
+
+---
+
+## 2. 서브 카피 (Sub-headline)
+
+서비스의 핵심 가치를 짧게 설명하여 체류 시간을 늘립니다.
+
+* "Drag, drop, and listen. Every sprout adds a beat, every leaf adds a melody. Build a living orchestra in your browser."
+* "No green thumb required. Just a soul that needs a break. Create a unique ambient mix by simply planting a virtual garden."
+
+---
+
+## 3. 핵심 기능 설명 (Key Features - 3-Column Layout)
+
+웹사이트 중간 섹션에 아이콘과 함께 배치할 짧은 문구입니다.
+
+| **Visual Harmony** | **Procedural Audio** | **Share Your Zen** |
+| --- | --- | --- |
+| 미니멀한 일러스트로 나만의 디지털 오아시스를 디자인하세요. | 심는 위치와 양에 따라 실시간으로 변하는 입체 음향을 경험하세요. | 당신만의 유니크한 가든 사운드 링크를 친구들에게 선물하세요. |
+| *Design your digital oasis with minimalist aesthetics.* | *Experience 3D audio that evolves with every seed you sow.* | *Send your unique garden link to anyone, anywhere.* |
+
+---
+
+## 4. 행동 유도 버튼 (Call to Action - CTA)
+
+클릭을 유도하는 버튼 문구입니다.
+
+* **[ Plant Your First Note ]** (음악적 컨셉 강조)
+* **[ Enter the Harmony ]** (몰입감 강조)
+
+---
+
+## 💡 마케팅 팁 (Gen Z 타겟팅)
+
+* **'Lo-fi' 키워드 활용:** 미국 20대에게 Lo-fi는 '집중'과 '휴식'의 대명사입니다. 검색 엔진 최적화(SEO)나 태그에 반드시 포함하세요.
+* **다크 모드 지원:** 저녁 시간에 휴식을 취하며 접속하는 사용자가 많으므로, 눈이 편안한 테마임을 강조하는 것도 좋습니다.
+
+---
