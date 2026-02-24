@@ -4,6 +4,21 @@ export enum PlantType {
   PulseMoss = "pulse-moss",
   BellFlower = "bell-flower",
   WindWood = "wind-wood",
+  HazeLily = "haze-lily",
+  RustleIvy = "rustle-ivy",
+  TideSeaweed = "tide-seaweed",
+  ShimmerSage = "shimmer-sage",
+  EchoVine = "echo-vine",
+  DriftWillow = "drift-willow",
+  HumLotus = "hum-lotus",
+  EmberThorn = "ember-thorn",
+  CrystalCactus = "crystal-cactus",
+  ChirpClover = "chirp-clover",
+  TwangBamboo = "twang-bamboo",
+  FrostOrchid = "frost-orchid",
+  SparkDaisy = "spark-daisy",
+  GrooveRoot = "groove-root",
+  BubbleKelp = "bubble-kelp",
 }
 
 export interface PlantDefinition {
