@@ -7,8 +7,12 @@ import { useCallback, useRef } from "react";
 import { useCanvasSize } from "@/hooks/use-canvas-size";
 import { useGardenActions, useSelectedPlantType } from "@/hooks/use-garden";
 
-const Stage = dynamic(() => import("react-konva").then((mod) => mod.Stage), { ssr: false });
-const Layer = dynamic(() => import("react-konva").then((mod) => mod.Layer), { ssr: false });
+const Stage = dynamic(() => import("react-konva").then((mod) => ({ default: mod.Stage })), {
+  ssr: false,
+});
+const Layer = dynamic(() => import("react-konva").then((mod) => ({ default: mod.Layer })), {
+  ssr: false,
+});
 
 interface GardenCanvasProps {
   renderPlants?: (size: { width: number; height: number }) => React.ReactNode;
