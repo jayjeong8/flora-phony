@@ -1,11 +1,12 @@
 import * as Tone from "tone";
 import { AUDIO_REGISTRY } from "@/data/audio-registry";
 import { selectVolumeForType } from "@/stores/selectors";
+import type { SynthNode } from "@/types/audio";
 import type { PlantType } from "@/types/plant";
 import { audioContextManager } from "./audio-context";
 
 interface PlantAudioNode {
-  source: Tone.ToneAudioNode;
+  synthNode: SynthNode;
   panner: Tone.Panner;
   gain: Tone.Gain;
 }
@@ -79,12 +80,12 @@ export class PlantSoundManager {
     const panner = new Tone.Panner(panValue);
     const gain = new Tone.Gain(0);
 
-    const source = asset.createNode();
-    source.connect(panner);
+    const synthNode = asset.createNode();
+    synthNode.output.connect(panner);
     panner.connect(gain);
     gain.connect(masterOutput);
 
-    this.nodes.set(type, { source, panner, gain });
+    this.nodes.set(type, { synthNode, panner, gain });
   }
 
   private fadeOutAndStop(type: PlantType): void {
@@ -102,7 +103,7 @@ export class PlantSoundManager {
       if (this.nodes.get(type) === capturedNode) {
         this.disposeNode(type);
       } else {
-        capturedNode.source.dispose();
+        capturedNode.synthNode.dispose();
         capturedNode.panner.dispose();
         capturedNode.gain.dispose();
       }
@@ -114,7 +115,7 @@ export class PlantSoundManager {
     const node = this.nodes.get(type);
     if (!node) return;
 
-    node.source.dispose();
+    node.synthNode.dispose();
     node.panner.dispose();
     node.gain.dispose();
     this.nodes.delete(type);
