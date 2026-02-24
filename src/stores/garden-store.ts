@@ -18,7 +18,7 @@ function generateId(): string {
 }
 
 export const useGardenStore = create<GardenState & GardenActions>()(
-  persist<GardenState & GardenActions, [], [], PersistedGardenState>(
+  persist(
     (set) => ({
       plants: [],
       selectedPlantType: null,
@@ -66,7 +66,7 @@ export const useGardenStore = create<GardenState & GardenActions>()(
     {
       name: "flora-phony-garden",
       storage: createDebouncedStorage(),
-      partialize: (state) => ({
+      partialize: (state): PersistedGardenState => ({
         plants: state.plants,
         masterVolume: state.masterVolume,
       }),
