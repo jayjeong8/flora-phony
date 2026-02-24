@@ -2,7 +2,7 @@
 
 import type Konva from "konva";
 import { useEffect, useRef, useState } from "react";
-import { Circle, Group, Text } from "react-konva";
+import { Circle, Group, Line, Text } from "react-konva";
 import { PLANT_REGISTRY } from "@/data/plant-registry";
 import type { PlantInstance } from "@/types/garden";
 
@@ -12,6 +12,7 @@ interface PlantSpriteProps {
   y: number;
   isSelected: boolean;
   onSelect: (id: string) => void;
+  onRemove: (id: string) => void;
   onDragEnd: (id: string, xPercent: number, yPercent: number) => void;
   canvasWidth: number;
   canvasHeight: number;
@@ -23,6 +24,7 @@ export function PlantSprite({
   y,
   isSelected,
   onSelect,
+  onRemove,
   onDragEnd,
   canvasWidth,
   canvasHeight,
@@ -93,6 +95,32 @@ export function PlantSprite({
     >
       {/* Selection ring */}
       {isSelected && <Circle radius={24} stroke="#6B8E23" strokeWidth={2} dash={[4, 4]} />}
+
+      {/* Delete button */}
+      {isSelected && (
+        <Group
+          x={17}
+          y={-17}
+          onClick={(e) => {
+            e.cancelBubble = true;
+            onRemove(plant.id);
+          }}
+          onTap={(e) => {
+            e.cancelBubble = true;
+            onRemove(plant.id);
+          }}
+          onMouseDown={(e) => {
+            e.cancelBubble = true;
+          }}
+          onTouchStart={(e) => {
+            e.cancelBubble = true;
+          }}
+        >
+          <Circle radius={8} fill="#e74c3c" stroke="white" strokeWidth={1.5} />
+          <Line points={[-3, -3, 3, 3]} stroke="white" strokeWidth={1.5} lineCap="round" />
+          <Line points={[3, -3, -3, 3]} stroke="white" strokeWidth={1.5} lineCap="round" />
+        </Group>
+      )}
 
       {/* Plant visual (circle placeholder with initial) */}
       <Circle radius={18} fill={definition.color} opacity={0.8} />
