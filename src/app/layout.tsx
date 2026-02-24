@@ -1,20 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Flora Phony",
-  description: "Flora Phony",
+  title: "FloraPhony — Your Garden, Your Soundscape",
+  description:
+    "Plants don't just grow. They sing. Craft your own Lo-fi garden and let nature play your mood.",
+  keywords: ["lo-fi", "ambient", "garden", "soundscape", "music", "relaxation"],
+  openGraph: {
+    title: "FloraPhony — Your Garden, Your Soundscape",
+    description:
+      "Plants don't just grow. They sing. Craft your own Lo-fi garden and let nature play your mood.",
+    type: "website",
+    siteName: "FloraPhony",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FloraPhony — Your Garden, Your Soundscape",
+    description:
+      "Plants don't just grow. They sing. Craft your own Lo-fi garden and let nature play your mood.",
+  },
 };
 
 export default function RootLayout({
@@ -24,7 +28,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Quicksand:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }
