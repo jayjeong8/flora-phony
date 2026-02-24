@@ -37,6 +37,7 @@ function createLofiFernSynth(): Tone.ToneAudioNode {
   ];
 
   const loop = new Tone.Loop((time) => {
+    synth.releaseAll(time);
     const chord = chords[Math.floor(Math.random() * chords.length)];
     synth.triggerAttackRelease(chord, "2n", time);
   }, "1m");
@@ -172,6 +173,7 @@ function createShimmerSageSynth(): Tone.ToneAudioNode {
   let chordIndex = 0;
 
   const loop = new Tone.Loop((time) => {
+    synth.releaseAll(time);
     synth.triggerAttackRelease(chords[chordIndex % chords.length], "2n", time);
     chordIndex++;
   }, "1m");
@@ -222,6 +224,7 @@ function createDriftWillowSynth(): Tone.ToneAudioNode {
   let chordIndex = 0;
 
   const loop = new Tone.Loop((time) => {
+    synth.releaseAll(time);
     synth.triggerAttackRelease(chords[chordIndex % chords.length], "1m", time);
     chordIndex++;
   }, "2m");
