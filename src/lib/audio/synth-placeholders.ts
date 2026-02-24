@@ -9,7 +9,7 @@ function createRainReedSynth(): Tone.ToneAudioNode {
     baseFrequency: 400,
     octaves: 2,
   }).start();
-  const gain = new Tone.Gain(0.12);
+  const gain = new Tone.Gain(0.05);
   noise.connect(filter);
   filter.connect(gain);
   noise.start();
@@ -25,7 +25,7 @@ function createLofiFernSynth(): Tone.ToneAudioNode {
   });
   synth.maxPolyphony = 4;
   const reverb = new Tone.Reverb({ decay: 3, wet: 0.5 });
-  const gain = new Tone.Gain(0.4);
+  const gain = new Tone.Gain(0.5);
   synth.connect(reverb);
   reverb.connect(gain);
 
@@ -73,7 +73,7 @@ function createBellFlowerSynth(): Tone.ToneAudioNode {
     volume: -15,
   });
   const reverb = new Tone.Reverb({ decay: 4, wet: 0.6 });
-  const gain = new Tone.Gain(0.3);
+  const gain = new Tone.Gain(0.5);
   synth.connect(reverb);
   reverb.connect(gain);
 
@@ -96,7 +96,7 @@ function createWindWoodSynth(): Tone.ToneAudioNode {
     envelope: { attack: 0.001, decay: 0.2, sustain: 0, release: 0.1 },
     volume: -10,
   });
-  const gain = new Tone.Gain(0.3);
+  const gain = new Tone.Gain(0.35);
   membrane.connect(gain);
 
   const pattern = [1, 0, 1, 0, 0, 1, 0, 1];
