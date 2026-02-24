@@ -14,7 +14,16 @@ export function SnapshotButton({ containerRef }: SnapshotButtonProps) {
     const container = containerRef.current;
     if (!container) return;
 
-    const dataUrl = await toPng(container, { pixelRatio: 2 });
+    const dataUrl = await toPng(container, {
+      pixelRatio: 2,
+      skipFonts: true,
+      filter: (node) => {
+        if (node instanceof HTMLLinkElement && node.href?.includes("fonts.googleapis.com")) {
+          return false;
+        }
+        return true;
+      },
+    });
     const link = document.createElement("a");
     link.download = `flora-phony-garden-${Date.now()}.png`;
     link.href = dataUrl;
