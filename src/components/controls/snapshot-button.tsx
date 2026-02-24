@@ -22,6 +22,9 @@ export function SnapshotButton({ containerRef }: SnapshotButtonProps) {
         if (node instanceof HTMLLinkElement && node.href?.includes("fonts.googleapis.com")) {
           return false;
         }
+        if (node instanceof HTMLElement && node.classList.contains("garden-bg-noise")) {
+          return false;
+        }
         return true;
       },
     });
