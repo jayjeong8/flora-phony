@@ -372,6 +372,81 @@ function createFrostOrchidSynth(): Tone.ToneAudioNode {
   return gain;
 }
 
+function createSparkDaisySynth(): Tone.ToneAudioNode {
+  const synth = new Tone.MetalSynth({
+    frequency: 300,
+    envelope: { attack: 0.001, decay: 0.4, release: 0.2 },
+    harmonicity: 5.1,
+    modulationIndex: 16,
+    resonance: 3000,
+    octaves: 1,
+    volume: -22,
+  });
+  const gain = new Tone.Gain(0.3);
+  synth.connect(gain);
+
+  const pattern = [1, 0, 0, 1, 0, 0, 0, 1];
+  let step = 0;
+
+  const loop = new Tone.Loop((time) => {
+    if (pattern[step % pattern.length]) {
+      synth.triggerAttackRelease("16n", time);
+    }
+    step++;
+  }, "4n");
+  loop.start(0);
+
+  return gain;
+}
+
+function createGrooveRootSynth(): Tone.ToneAudioNode {
+  const synth = new Tone.MembraneSynth({
+    pitchDecay: 0.05,
+    octaves: 6,
+    envelope: { attack: 0.001, decay: 0.4, sustain: 0, release: 0.3 },
+    volume: -10,
+  });
+  const filter = new Tone.Filter({ frequency: 100, type: "lowpass" });
+  const gain = new Tone.Gain(0.35);
+  synth.connect(filter);
+  filter.connect(gain);
+
+  const pattern = [1, 0, 0, 0, 1, 0, 0, 0];
+  let step = 0;
+
+  const loop = new Tone.Loop((time) => {
+    if (pattern[step % pattern.length]) {
+      synth.triggerAttackRelease("C1", "8n", time);
+    }
+    step++;
+  }, "8n");
+  loop.start(0);
+
+  return gain;
+}
+
+function createBubbleKelpSynth(): Tone.ToneAudioNode {
+  const synth = new Tone.Synth({
+    oscillator: { type: "sine" },
+    envelope: { attack: 0.005, decay: 0.15, sustain: 0, release: 0.1 },
+    volume: -15,
+  });
+  const gain = new Tone.Gain(0.35);
+  synth.connect(gain);
+
+  const notes = ["C5", "E5", "G5", "C6"];
+
+  const loop = new Tone.Loop((time) => {
+    if (Math.random() < 0.4) {
+      const note = notes[Math.floor(Math.random() * notes.length)];
+      synth.triggerAttackRelease(note, "32n", time);
+    }
+  }, "8n");
+  loop.start(0);
+
+  return gain;
+}
+
 export const SYNTH_PLACEHOLDERS: Record<PlantType, AudioAsset> = {
   [PlantType.RainReed]: {
     mode: "synth",
@@ -440,5 +515,17 @@ export const SYNTH_PLACEHOLDERS: Record<PlantType, AudioAsset> = {
   [PlantType.FrostOrchid]: {
     mode: "synth",
     createNode: createFrostOrchidSynth,
+  },
+  [PlantType.SparkDaisy]: {
+    mode: "synth",
+    createNode: createSparkDaisySynth,
+  },
+  [PlantType.GrooveRoot]: {
+    mode: "synth",
+    createNode: createGrooveRootSynth,
+  },
+  [PlantType.BubbleKelp]: {
+    mode: "synth",
+    createNode: createBubbleKelpSynth,
   },
 };
