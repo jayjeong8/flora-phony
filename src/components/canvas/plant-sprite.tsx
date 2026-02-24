@@ -142,7 +142,7 @@ export function PlantSprite({
             e.cancelBubble = true;
           }}
         >
-          <Circle radius={8} fill="#b5654a" stroke="white" strokeWidth={1.5} />
+          <Circle radius={8} fill="rgb(241, 159, 93)" stroke="white" strokeWidth={1.5} />
           <Line points={[-3, -3, 3, 3]} stroke="white" strokeWidth={1.5} lineCap="round" />
           <Line points={[3, -3, -3, 3]} stroke="white" strokeWidth={1.5} lineCap="round" />
         </Group>

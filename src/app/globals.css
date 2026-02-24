@@ -74,7 +74,7 @@
   --muted-foreground: #7a7a6e;
   --accent: #d4a373;
   --accent-foreground: #ffffff;
-  --destructive: #b5654a;
+  --destructive: rgb(241, 159, 93);
   --border: #d9d3c7;
   --input: #d9d3c7;
   --ring: #6b8e23;
