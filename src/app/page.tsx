@@ -1,10 +1,16 @@
 "use client";
 
 import type Konva from "konva";
+import dynamic from "next/dynamic";
 import { useCallback, useRef, useState } from "react";
 import { AudioGateModal } from "@/components/audio-gate-modal";
-import { GardenCanvas } from "@/components/canvas/garden-canvas";
 import { PlantSprite } from "@/components/canvas/plant-sprite";
+
+const GardenCanvas = dynamic(
+  () => import("@/components/canvas/garden-canvas").then((mod) => ({ default: mod.GardenCanvas })),
+  { ssr: false },
+);
+
 import { ControlPanel } from "@/components/controls/control-panel";
 import { ShareButton } from "@/components/controls/share-button";
 import { SnapshotButton } from "@/components/controls/snapshot-button";

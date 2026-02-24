@@ -1,20 +1,10 @@
 "use client";
 
 import type Konva from "konva";
-import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
+import { Circle, Group, Text } from "react-konva";
 import { PLANT_REGISTRY } from "@/data/plant-registry";
 import type { PlantInstance } from "@/types/garden";
-
-const Group = dynamic(() => import("react-konva").then((mod) => ({ default: mod.Group })), {
-  ssr: false,
-});
-const Circle = dynamic(() => import("react-konva").then((mod) => ({ default: mod.Circle })), {
-  ssr: false,
-});
-const Text = dynamic(() => import("react-konva").then((mod) => ({ default: mod.Text })), {
-  ssr: false,
-});
 
 interface PlantSpriteProps {
   plant: PlantInstance;
