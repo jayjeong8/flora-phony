@@ -54,18 +54,20 @@ export function GardenCanvas({ renderPlants, snapshotRef }: GardenCanvasProps) {
   return (
     <div ref={mergedRef} className="relative h-full w-full bg-flora-bg">
       <GardenBackground />
-      {size.width > 0 && size.height > 0 && (
-        <Stage
-          ref={stageRef}
-          width={size.width}
-          height={size.height}
-          onClick={handleStageClick}
-          onTap={handleStageClick}
-          className={selectedPlantType ? "cursor-crosshair" : "cursor-default"}
-        >
-          <Layer>{renderPlants?.(size)}</Layer>
-        </Stage>
-      )}
+      <div className="absolute inset-0 z-10">
+        {size.width > 0 && size.height > 0 && (
+          <Stage
+            ref={stageRef}
+            width={size.width}
+            height={size.height}
+            onClick={handleStageClick}
+            onTap={handleStageClick}
+            className={selectedPlantType ? "cursor-crosshair" : "cursor-default"}
+          >
+            <Layer>{renderPlants?.(size)}</Layer>
+          </Stage>
+        )}
+      </div>
     </div>
   );
 }
