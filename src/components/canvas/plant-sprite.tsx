@@ -125,8 +125,8 @@ export function PlantSprite({
       {/* Delete button */}
       {isSelected && (
         <Group
-          x={SPRITE_WIDTH / 2 + 2}
-          y={-(SPRITE_HEIGHT / 2 + 2)}
+          x={(Math.max(SPRITE_WIDTH, SPRITE_HEIGHT) / 2 + 6) * Math.SQRT1_2}
+          y={-(Math.max(SPRITE_WIDTH, SPRITE_HEIGHT) / 2 + 6) * Math.SQRT1_2}
           onClick={(e) => {
             e.cancelBubble = true;
             onRemove(plant.id);
