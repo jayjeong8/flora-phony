@@ -25,13 +25,13 @@ export function ClearConfirmModal({ open, onOpenChange, onConfirm }: ClearConfir
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md">
-        <DialogHeader className="text-center sm:text-center">
+        <DialogHeader>
           <DialogTitle className="font-display text-2xl text-flora-green">Clear Garden</DialogTitle>
           <DialogDescription>
             All planted flowers will be removed. This action cannot be undone.
           </DialogDescription>
         </DialogHeader>
-        <DialogFooter className="sm:justify-center">
+        <DialogFooter>
           <Button variant="outline" onClick={() => onOpenChange(false)}>
             Cancel
           </Button>
