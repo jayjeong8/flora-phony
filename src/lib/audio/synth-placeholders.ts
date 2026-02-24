@@ -374,7 +374,6 @@ function createFrostOrchidSynth(): Tone.ToneAudioNode {
 
 function createSparkDaisySynth(): Tone.ToneAudioNode {
   const synth = new Tone.MetalSynth({
-    frequency: 300,
     envelope: { attack: 0.001, decay: 0.4, release: 0.2 },
     harmonicity: 5.1,
     modulationIndex: 16,
