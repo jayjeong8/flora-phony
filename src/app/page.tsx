@@ -84,7 +84,7 @@ export default function Home() {
   return (
     // biome-ignore lint/a11y/noNoninteractiveTabindex: canvas needs keyboard events
     // biome-ignore lint/a11y/noStaticElementInteractions: keyboard handler for plant deletion
-    <div onKeyDown={handleKeyDown} tabIndex={0} className="outline-none">
+    <div onKeyDown={handleKeyDown} tabIndex={0} className="h-svh overflow-hidden outline-none">
       <AudioGateModal />
 
       <GardenLayout onAboutClick={() => setAboutOpen(true)} onClearClick={handleClear}>

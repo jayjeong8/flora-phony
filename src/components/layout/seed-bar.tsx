@@ -15,7 +15,7 @@ export function SeedBar() {
   };
 
   return (
-    <div className="fixed bottom-4 left-1/2 z-40 flex max-w-3xl -translate-x-1/2 gap-2 overflow-x-auto rounded-2xl border border-flora-border bg-white/80 px-4 py-2.5 shadow-lg backdrop-blur-md scrollbar-hide">
+    <div className="fixed bottom-4 left-1/2 z-40 flex max-w-3xl -translate-x-1/2 gap-2 overflow-x-auto overscroll-x-contain rounded-2xl border border-flora-border bg-white/80 px-4 py-2.5 shadow-lg backdrop-blur-md scrollbar-hide">
       {PLANT_LIST.map((plant) => (
         <button
           key={plant.id}
