@@ -7,6 +7,21 @@ const PLANT_TYPE_TO_ID: Record<PlantType, number> = {
   [PlantType.PulseMoss]: 2,
   [PlantType.BellFlower]: 3,
   [PlantType.WindWood]: 4,
+  [PlantType.HazeLily]: 5,
+  [PlantType.RustleIvy]: 6,
+  [PlantType.TideSeaweed]: 7,
+  [PlantType.ShimmerSage]: 8,
+  [PlantType.EchoVine]: 9,
+  [PlantType.DriftWillow]: 10,
+  [PlantType.HumLotus]: 11,
+  [PlantType.EmberThorn]: 12,
+  [PlantType.CrystalCactus]: 13,
+  [PlantType.ChirpClover]: 14,
+  [PlantType.TwangBamboo]: 15,
+  [PlantType.FrostOrchid]: 16,
+  [PlantType.SparkDaisy]: 17,
+  [PlantType.GrooveRoot]: 18,
+  [PlantType.BubbleKelp]: 19,
 };
 
 const ID_TO_PLANT_TYPE: Record<number, PlantType> = {
@@ -15,6 +30,21 @@ const ID_TO_PLANT_TYPE: Record<number, PlantType> = {
   2: PlantType.PulseMoss,
   3: PlantType.BellFlower,
   4: PlantType.WindWood,
+  5: PlantType.HazeLily,
+  6: PlantType.RustleIvy,
+  7: PlantType.TideSeaweed,
+  8: PlantType.ShimmerSage,
+  9: PlantType.EchoVine,
+  10: PlantType.DriftWillow,
+  11: PlantType.HumLotus,
+  12: PlantType.EmberThorn,
+  13: PlantType.CrystalCactus,
+  14: PlantType.ChirpClover,
+  15: PlantType.TwangBamboo,
+  16: PlantType.FrostOrchid,
+  17: PlantType.SparkDaisy,
+  18: PlantType.GrooveRoot,
+  19: PlantType.BubbleKelp,
 };
 
 export function serialize(plants: PlantInstance[]): string {
