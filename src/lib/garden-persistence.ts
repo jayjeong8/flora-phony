@@ -1,4 +1,4 @@
-import type { StateStorage } from "zustand/middleware";
+import { createJSONStorage, type PersistStorage, type StateStorage } from "zustand/middleware";
 import type { PlantInstance } from "@/types/garden";
 import { PlantType } from "@/types/plant";
 
@@ -6,10 +6,10 @@ const DEBOUNCE_MS = 500;
 
 const VALID_PLANT_TYPES = new Set<string>(Object.values(PlantType));
 
-export function createDebouncedStorage(): StateStorage {
+export function createDebouncedStorage<S>(): PersistStorage<S> | undefined {
   let timer: ReturnType<typeof setTimeout> | null = null;
 
-  return {
+  const rawStorage: StateStorage = {
     getItem(name: string): string | null {
       return localStorage.getItem(name);
     },
@@ -24,6 +24,8 @@ export function createDebouncedStorage(): StateStorage {
       localStorage.removeItem(name);
     },
   };
+
+  return createJSONStorage<S>(() => rawStorage);
 }
 
 function isValidPlant(p: unknown): p is PlantInstance {

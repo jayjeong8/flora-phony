@@ -13,18 +13,19 @@ export function useGardenUrl() {
 
     const params = new URLSearchParams(window.location.search);
     const gardenParam = params.get("garden");
-    if (!gardenParam) return;
-
-    const plants = deserialize(gardenParam);
-    if (plants.length === 0) return;
-
-    const store = useGardenStore.getState();
-    store.clearAll();
-    for (const plant of plants) {
-      store.addPlant(plant.plantType, plant.x, plant.y);
+    if (gardenParam) {
+      const plants = deserialize(gardenParam);
+      if (plants.length > 0) {
+        const store = useGardenStore.getState();
+        store.clearAll();
+        for (const plant of plants) {
+          store.addPlant(plant.plantType, plant.x, plant.y);
+        }
+      }
+      window.history.replaceState({}, "", window.location.pathname);
+    } else {
+      useGardenStore.persist.rehydrate();
     }
-
-    window.history.replaceState({}, "", window.location.pathname);
   }, []);
 
   const generateShareUrl = useCallback((): string => {
