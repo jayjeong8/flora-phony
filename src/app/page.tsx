@@ -36,6 +36,13 @@ export default function Home() {
   const selectedPlantId = useSelectedPlantId();
   const { removePlant, movePlant, selectPlant, clearAll } = useGardenActions();
 
+  const handlePlantRemove = useCallback(
+    (id: string) => {
+      removePlant(id);
+    },
+    [removePlant],
+  );
+
   const handlePlantDragEnd = useCallback(
     (id: string, xPercent: number, yPercent: number) => {
       if (xPercent < 0 || yPercent < 0) {
@@ -86,6 +93,7 @@ export default function Home() {
                 y={(plant.y / 100) * size.height}
                 isSelected={selectedPlantId === plant.id}
                 onSelect={handlePlantSelect}
+                onRemove={handlePlantRemove}
                 onDragEnd={handlePlantDragEnd}
                 canvasWidth={size.width}
                 canvasHeight={size.height}
