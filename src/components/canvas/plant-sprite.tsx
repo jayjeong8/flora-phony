@@ -6,8 +6,8 @@ import { Circle, Group, Image as KonvaImage, Line } from "react-konva";
 import { PLANT_REGISTRY } from "@/data/plant-registry";
 import type { PlantInstance } from "@/types/garden";
 
-const SPRITE_WIDTH = 32;
-const SPRITE_HEIGHT = 40;
+const SPRITE_WIDTH = 48;
+const SPRITE_HEIGHT = 60;
 
 function usePlantImage(svgPath: string) {
   const [image, setImage] = useState<HTMLImageElement | null>(null);

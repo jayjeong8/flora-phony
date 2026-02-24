@@ -32,9 +32,9 @@ export function SeedBar() {
           <Image
             src={plant.svgPath}
             alt={plant.name}
-            width={28}
-            height={35}
-            className="h-[35px] w-7"
+            width={42}
+            height={52}
+            className="h-[52px] w-[42px]"
           />
           <span className="text-[10px] font-medium text-flora-text-muted">{plant.label}</span>
         </button>
