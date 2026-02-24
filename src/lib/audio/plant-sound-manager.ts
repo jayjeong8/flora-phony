@@ -13,6 +13,7 @@ interface PlantAudioNode {
 export class PlantSoundManager {
   private nodes: Map<PlantType, PlantAudioNode> = new Map();
   private counts: Map<PlantType, number> = new Map();
+  private fadeOutTimers: Map<PlantType, ReturnType<typeof setTimeout>> = new Map();
 
   addPlantSound(type: PlantType, panValue: number): void {
     const currentCount = this.counts.get(type) ?? 0;
@@ -59,6 +60,11 @@ export class PlantSoundManager {
   }
 
   dispose(): void {
+    for (const timer of this.fadeOutTimers.values()) {
+      clearTimeout(timer);
+    }
+    this.fadeOutTimers.clear();
+
     for (const [type] of this.nodes) {
       this.disposeNode(type);
     }
@@ -87,9 +93,21 @@ export class PlantSoundManager {
 
     node.gain.gain.rampTo(0, 0.5);
 
-    setTimeout(() => {
-      this.disposeNode(type);
+    const existingTimer = this.fadeOutTimers.get(type);
+    if (existingTimer) clearTimeout(existingTimer);
+
+    const capturedNode = node;
+    const timer = setTimeout(() => {
+      this.fadeOutTimers.delete(type);
+      if (this.nodes.get(type) === capturedNode) {
+        this.disposeNode(type);
+      } else {
+        capturedNode.source.dispose();
+        capturedNode.panner.dispose();
+        capturedNode.gain.dispose();
+      }
     }, 600);
+    this.fadeOutTimers.set(type, timer);
   }
 
   private disposeNode(type: PlantType): void {
