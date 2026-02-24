@@ -42,13 +42,16 @@ class AudioContextManager {
 
   setMasterVolume(value: number): void {
     if (this.masterVolume) {
-      const db = value <= 0 ? -Infinity : 20 * Math.log10(value);
+      const clamped = Math.max(0, Math.min(1, value));
+      const db = clamped <= 0 ? -Infinity : 20 * Math.log10(clamped);
       this.masterVolume.volume.rampTo(db, 0.1);
     }
   }
 
   dispose(): void {
-    Tone.getTransport().stop();
+    if (this._isReady) {
+      Tone.getTransport().stop();
+    }
     this.masterVolume?.dispose();
     this.limiter?.dispose();
     this.masterVolume = null;
