@@ -7,8 +7,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Quicksand", ui-sans-serif, system-ui, sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -45,82 +45,241 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
+  /* Flora Phony custom colors */
+  --color-flora-bg: #f9f7f2;
+  --color-flora-bg-subtle: #f3ede4;
+  --color-flora-green: #6b8e23;
+  --color-flora-green-light: #8fb339;
+  --color-flora-terra: #d4a373;
+  --color-flora-terra-light: #e4c9a8;
+  --color-flora-text: #333333;
+  --color-flora-text-muted: #7a7a6e;
+  --color-flora-border: #d9d3c7;
 }
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #f9f7f2;
+  --foreground: #333333;
+  --card: #ffffff;
+  --card-foreground: #333333;
+  --popover: #ffffff;
+  --popover-foreground: #333333;
+  --primary: #6b8e23;
+  --primary-foreground: #ffffff;
+  --secondary: #f3ede4;
+  --secondary-foreground: #333333;
+  --muted: #f3ede4;
+  --muted-foreground: #7a7a6e;
+  --accent: #d4a373;
+  --accent-foreground: #ffffff;
+  --destructive: rgb(241, 159, 93);
+  --border: #d9d3c7;
+  --input: #d9d3c7;
+  --ring: #6b8e23;
+  --chart-1: #6b8e23;
+  --chart-2: #d4a373;
+  --chart-3: #8fb339;
+  --chart-4: #e4c9a8;
+  --chart-5: #7a7a6e;
+  --sidebar: #f3ede4;
+  --sidebar-foreground: #333333;
+  --sidebar-primary: #6b8e23;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #d4a373;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #d9d3c7;
+  --sidebar-ring: #6b8e23;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  html,
+  body {
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ── Garden Background Layers ── */
+
+.garden-bg-washes {
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 20%, rgba(107, 142, 35, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 80% 30%, rgba(107, 142, 35, 0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 45% at 50% 70%, rgba(212, 163, 115, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 55% at 25% 80%, rgba(243, 237, 228, 0.14) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 50% at 70% 60%, rgba(107, 142, 35, 0.13) 0%, transparent 70%);
+  animation: garden-wash-drift 30s ease-in-out infinite alternate;
+}
+
+.garden-bg-ground {
+  background: linear-gradient(
+    to bottom,
+    transparent 55%,
+    rgba(107, 142, 35, 0.06) 70%,
+    rgba(212, 163, 115, 0.1) 85%,
+    rgba(160, 120, 70, 0.14) 100%
+  );
+}
+
+.garden-bg-noise {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+  opacity: 0.4;
+}
+
+.garden-bg-dots {
+  background:
+    radial-gradient(circle 1.5px at 30px 40px, rgba(107, 142, 35, 0.18) 1.5px, transparent 1.5px),
+    radial-gradient(circle 1px at 50px 20px, rgba(212, 163, 115, 0.15) 1px, transparent 1px);
+  background-size:
+    97px 89px,
+    73px 67px;
+}
+
+.garden-bg-particles {
+  position: relative;
+}
+
+.garden-bg-particles::before,
+.garden-bg-particles::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.garden-bg-particles::before {
+  width: 8px;
+  height: 8px;
+  background: rgba(107, 142, 35, 0.25);
+  filter: blur(3px);
+  top: 20%;
+  left: 30%;
+  animation: garden-float-1 28s ease-in-out infinite;
+}
+
+.garden-bg-particles::after {
+  width: 7px;
+  height: 7px;
+  background: rgba(212, 163, 115, 0.2);
+  filter: blur(3px);
+  top: 60%;
+  left: 65%;
+  animation: garden-float-2 35s ease-in-out infinite;
+}
+
+@keyframes garden-wash-drift {
+  0% {
+    background-position:
+      0% 0%,
+      100% 0%,
+      50% 100%,
+      0% 100%,
+      100% 50%;
+  }
+  100% {
+    background-position:
+      5% 3%,
+      95% 5%,
+      45% 95%,
+      5% 97%,
+      92% 55%;
+  }
+}
+
+@keyframes garden-float-1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.15;
+  }
+  25% {
+    transform: translate(40px, -30px) scale(1.2);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translate(-20px, -50px) scale(0.9);
+    opacity: 0.1;
+  }
+  75% {
+    transform: translate(30px, 20px) scale(1.1);
+    opacity: 0.2;
+  }
+}
+
+@keyframes garden-float-2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.12;
+  }
+  33% {
+    transform: translate(-35px, 25px) scale(1.15);
+    opacity: 0.2;
+  }
+  66% {
+    transform: translate(25px, -40px) scale(0.85);
+    opacity: 0.08;
+  }
+}
+
+/* ── Garden Decorative Elements ── */
+
+.garden-vine-left {
+  animation: garden-vine-sway 12s ease-in-out infinite;
+  transform-origin: bottom left;
+}
+
+.garden-vine-right {
+  animation: garden-vine-sway 14s ease-in-out infinite reverse;
+  transform-origin: bottom right;
+}
+
+.garden-flowers circle {
+  animation: garden-flower-pulse 8s ease-in-out infinite;
+}
+
+.garden-flowers g:nth-child(2n) circle {
+  animation-delay: -3s;
+}
+
+.garden-flowers g:nth-child(3n) circle {
+  animation-delay: -5s;
+}
+
+@keyframes garden-vine-sway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(1.5deg);
+  }
+}
+
+@keyframes garden-flower-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
   }
 }
