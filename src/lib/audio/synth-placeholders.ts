@@ -1,8 +1,8 @@
 import * as Tone from "tone";
-import type { AudioAsset } from "@/types/audio";
+import type { AudioAsset, SynthNode } from "@/types/audio";
 import { PlantType } from "@/types/plant";
 
-function createRainReedSynth(): Tone.ToneAudioNode {
+function createRainReedSynth(): SynthNode {
   const noise = new Tone.Noise("white");
   const filter = new Tone.AutoFilter({
     frequency: 0.2,
@@ -13,10 +13,18 @@ function createRainReedSynth(): Tone.ToneAudioNode {
   noise.connect(filter);
   filter.connect(gain);
   noise.start();
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      noise.stop();
+      noise.dispose();
+      filter.dispose();
+      gain.dispose();
+    },
+  };
 }
 
-function createLofiFernSynth(): Tone.ToneAudioNode {
+function createLofiFernSynth(): SynthNode {
   const synth = new Tone.PolySynth(Tone.FMSynth, {
     harmonicity: 2,
     modulationIndex: 1.5,
@@ -43,10 +51,20 @@ function createLofiFernSynth(): Tone.ToneAudioNode {
   }, "1m");
   loop.start(0);
 
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      synth.releaseAll();
+      synth.dispose();
+      reverb.dispose();
+      gain.dispose();
+    },
+  };
 }
 
-function createPulseMossSynth(): Tone.ToneAudioNode {
+function createPulseMossSynth(): SynthNode {
   const synth = new Tone.Synth({
     oscillator: { type: "sine" },
     envelope: { attack: 0.1, decay: 0.6, sustain: 0.3, release: 0.8 },
@@ -64,10 +82,18 @@ function createPulseMossSynth(): Tone.ToneAudioNode {
   }, "2n");
   loop.start(0);
 
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      synth.dispose();
+      gain.dispose();
+    },
+  };
 }
 
-function createBellFlowerSynth(): Tone.ToneAudioNode {
+function createBellFlowerSynth(): SynthNode {
   const synth = new Tone.Synth({
     oscillator: { type: "triangle" },
     envelope: { attack: 0.01, decay: 1.5, sustain: 0, release: 1 },
@@ -87,10 +113,19 @@ function createBellFlowerSynth(): Tone.ToneAudioNode {
   }, "4n");
   loop.start(0);
 
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      synth.dispose();
+      reverb.dispose();
+      gain.dispose();
+    },
+  };
 }
 
-function createWindWoodSynth(): Tone.ToneAudioNode {
+function createWindWoodSynth(): SynthNode {
   const membrane = new Tone.MembraneSynth({
     pitchDecay: 0.01,
     octaves: 4,
@@ -111,20 +146,36 @@ function createWindWoodSynth(): Tone.ToneAudioNode {
   }, "8n");
   loop.start(0);
 
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      membrane.dispose();
+      gain.dispose();
+    },
+  };
 }
 
-function createHazeLilySynth(): Tone.ToneAudioNode {
+function createHazeLilySynth(): SynthNode {
   const noise = new Tone.Noise("brown");
   const filter = new Tone.Filter({ frequency: 300, type: "lowpass" });
   const gain = new Tone.Gain(0.06);
   noise.connect(filter);
   filter.connect(gain);
   noise.start();
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      noise.stop();
+      noise.dispose();
+      filter.dispose();
+      gain.dispose();
+    },
+  };
 }
 
-function createRustleIvySynth(): Tone.ToneAudioNode {
+function createRustleIvySynth(): SynthNode {
   const noise = new Tone.Noise("pink");
   const autoFilter = new Tone.AutoFilter({
     frequency: 0.1,
@@ -135,10 +186,18 @@ function createRustleIvySynth(): Tone.ToneAudioNode {
   noise.connect(autoFilter);
   autoFilter.connect(gain);
   noise.start();
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      noise.stop();
+      noise.dispose();
+      autoFilter.dispose();
+      gain.dispose();
+    },
+  };
 }
 
-function createTideSeaweedSynth(): Tone.ToneAudioNode {
+function createTideSeaweedSynth(): SynthNode {
   const noise = new Tone.Noise("white");
   const autoFilter = new Tone.AutoFilter({
     frequency: 0.04,
@@ -150,10 +209,18 @@ function createTideSeaweedSynth(): Tone.ToneAudioNode {
   noise.connect(autoFilter);
   autoFilter.connect(gain);
   noise.start();
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      noise.stop();
+      noise.dispose();
+      autoFilter.dispose();
+      gain.dispose();
+    },
+  };
 }
 
-function createShimmerSageSynth(): Tone.ToneAudioNode {
+function createShimmerSageSynth(): SynthNode {
   const synth = new Tone.PolySynth(Tone.Synth, {
     oscillator: { type: "sine" },
     envelope: { attack: 1, decay: 2, sustain: 0.8, release: 2 },
@@ -179,16 +246,30 @@ function createShimmerSageSynth(): Tone.ToneAudioNode {
   }, "1m");
   loop.start(0);
 
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      synth.releaseAll();
+      synth.dispose();
+      tremolo.dispose();
+      gain.dispose();
+    },
+  };
 }
 
-function createEchoVineSynth(): Tone.ToneAudioNode {
+function createEchoVineSynth(): SynthNode {
   const synth = new Tone.Synth({
     oscillator: { type: "sine" },
     envelope: { attack: 0.5, decay: 1, sustain: 0.6, release: 2 },
     volume: -18,
   });
-  const delay = new Tone.PingPongDelay({ delayTime: "4n", feedback: 0.4, wet: 0.5 });
+  const delay = new Tone.PingPongDelay({
+    delayTime: "4n",
+    feedback: 0.4,
+    wet: 0.5,
+  });
   const gain = new Tone.Gain(0.35);
   synth.connect(delay);
   delay.connect(gain);
@@ -202,10 +283,19 @@ function createEchoVineSynth(): Tone.ToneAudioNode {
   }, "1m");
   loop.start(0);
 
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      synth.dispose();
+      delay.dispose();
+      gain.dispose();
+    },
+  };
 }
 
-function createDriftWillowSynth(): Tone.ToneAudioNode {
+function createDriftWillowSynth(): SynthNode {
   const synth = new Tone.PolySynth(Tone.AMSynth, {
     harmonicity: 2,
     envelope: { attack: 1.5, decay: 2, sustain: 0.7, release: 3 },
@@ -230,10 +320,20 @@ function createDriftWillowSynth(): Tone.ToneAudioNode {
   }, "2m");
   loop.start(0);
 
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      synth.releaseAll();
+      synth.dispose();
+      reverb.dispose();
+      gain.dispose();
+    },
+  };
 }
 
-function createHumLotusSynth(): Tone.ToneAudioNode {
+function createHumLotusSynth(): SynthNode {
   const synth = new Tone.AMSynth({
     harmonicity: 1.5,
     envelope: { attack: 2, decay: 3, sustain: 0.8, release: 4 },
@@ -253,10 +353,19 @@ function createHumLotusSynth(): Tone.ToneAudioNode {
   }, "2m");
   loop.start(0);
 
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      synth.dispose();
+      reverb.dispose();
+      gain.dispose();
+    },
+  };
 }
 
-function createEmberThornSynth(): Tone.ToneAudioNode {
+function createEmberThornSynth(): SynthNode {
   const synth = new Tone.Synth({
     oscillator: { type: "sawtooth" },
     envelope: { attack: 2, decay: 4, sustain: 0.9, release: 3 },
@@ -274,10 +383,20 @@ function createEmberThornSynth(): Tone.ToneAudioNode {
   }, "2m");
   loop.start(0);
 
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      synth.dispose();
+      distortion.dispose();
+      filter.dispose();
+      gain.dispose();
+    },
+  };
 }
 
-function createCrystalCactusSynth(): Tone.ToneAudioNode {
+function createCrystalCactusSynth(): SynthNode {
   const synth = new Tone.FMSynth({
     harmonicity: 6,
     modulationIndex: 3,
@@ -298,10 +417,19 @@ function createCrystalCactusSynth(): Tone.ToneAudioNode {
   }, "4n");
   loop.start(0);
 
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      synth.dispose();
+      reverb.dispose();
+      gain.dispose();
+    },
+  };
 }
 
-function createChirpCloverSynth(): Tone.ToneAudioNode {
+function createChirpCloverSynth(): SynthNode {
   const synth = new Tone.PluckSynth({
     attackNoise: 1,
     dampening: 4000,
@@ -320,10 +448,18 @@ function createChirpCloverSynth(): Tone.ToneAudioNode {
   }, "4n.");
   loop.start(0);
 
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      synth.dispose();
+      gain.dispose();
+    },
+  };
 }
 
-function createTwangBambooSynth(): Tone.ToneAudioNode {
+function createTwangBambooSynth(): SynthNode {
   const synth = new Tone.PluckSynth({
     attackNoise: 2,
     dampening: 3000,
@@ -347,16 +483,28 @@ function createTwangBambooSynth(): Tone.ToneAudioNode {
   }, "8n");
   loop.start(0);
 
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      synth.dispose();
+      gain.dispose();
+    },
+  };
 }
 
-function createFrostOrchidSynth(): Tone.ToneAudioNode {
+function createFrostOrchidSynth(): SynthNode {
   const synth = new Tone.Synth({
     oscillator: { type: "sine" },
     envelope: { attack: 0.01, decay: 1.5, sustain: 0, release: 2 },
     volume: -20,
   });
-  const delay = new Tone.FeedbackDelay({ delayTime: "8n.", feedback: 0.3, wet: 0.4 });
+  const delay = new Tone.FeedbackDelay({
+    delayTime: "8n.",
+    feedback: 0.3,
+    wet: 0.4,
+  });
   const reverb = new Tone.Reverb({ decay: 5, wet: 0.5 });
   const gain = new Tone.Gain(0.35);
   synth.connect(delay);
@@ -372,10 +520,20 @@ function createFrostOrchidSynth(): Tone.ToneAudioNode {
   }, "2n");
   loop.start(0);
 
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      synth.dispose();
+      delay.dispose();
+      reverb.dispose();
+      gain.dispose();
+    },
+  };
 }
 
-function createSparkDaisySynth(): Tone.ToneAudioNode {
+function createSparkDaisySynth(): SynthNode {
   const synth = new Tone.MetalSynth({
     envelope: { attack: 0.001, decay: 0.4, release: 0.2 },
     harmonicity: 5.1,
@@ -398,10 +556,18 @@ function createSparkDaisySynth(): Tone.ToneAudioNode {
   }, "4n");
   loop.start(0);
 
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      synth.dispose();
+      gain.dispose();
+    },
+  };
 }
 
-function createGrooveRootSynth(): Tone.ToneAudioNode {
+function createGrooveRootSynth(): SynthNode {
   const synth = new Tone.MembraneSynth({
     pitchDecay: 0.05,
     octaves: 6,
@@ -424,10 +590,19 @@ function createGrooveRootSynth(): Tone.ToneAudioNode {
   }, "8n");
   loop.start(0);
 
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      synth.dispose();
+      filter.dispose();
+      gain.dispose();
+    },
+  };
 }
 
-function createBubbleKelpSynth(): Tone.ToneAudioNode {
+function createBubbleKelpSynth(): SynthNode {
   const synth = new Tone.Synth({
     oscillator: { type: "sine" },
     envelope: { attack: 0.005, decay: 0.15, sustain: 0, release: 0.1 },
@@ -446,7 +621,15 @@ function createBubbleKelpSynth(): Tone.ToneAudioNode {
   }, "8n");
   loop.start(0);
 
-  return gain;
+  return {
+    output: gain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      synth.dispose();
+      gain.dispose();
+    },
+  };
 }
 
 export const SYNTH_PLACEHOLDERS: Record<PlantType, AudioAsset> = {
