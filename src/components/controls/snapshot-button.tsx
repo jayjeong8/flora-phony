@@ -16,6 +16,7 @@ export function SnapshotButton({ containerRef }: SnapshotButtonProps) {
 
     const dataUrl = await toPng(container, {
       pixelRatio: 2,
+      backgroundColor: "#f9f7f2",
       skipFonts: true,
       filter: (node) => {
         if (node instanceof HTMLLinkElement && node.href?.includes("fonts.googleapis.com")) {
