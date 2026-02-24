@@ -101,3 +101,128 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* ── Garden Background Layers ── */
+
+.garden-bg-washes {
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 20%, rgba(107, 142, 35, 0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 80% 30%, rgba(107, 142, 35, 0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 45% at 50% 70%, rgba(212, 163, 115, 0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 55% at 25% 80%, rgba(243, 237, 228, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 50% at 70% 60%, rgba(107, 142, 35, 0.06) 0%, transparent 70%);
+  animation: garden-wash-drift 30s ease-in-out infinite alternate;
+}
+
+.garden-bg-ground {
+  background: linear-gradient(
+    to bottom,
+    transparent 60%,
+    rgba(107, 142, 35, 0.03) 75%,
+    rgba(212, 163, 115, 0.05) 85%,
+    rgba(160, 120, 70, 0.07) 100%
+  );
+}
+
+.garden-bg-noise {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+  opacity: 0.4;
+}
+
+.garden-bg-dots {
+  background:
+    radial-gradient(circle 1px at 30px 40px, rgba(107, 142, 35, 0.12) 1px, transparent 1px),
+    radial-gradient(circle 0.8px at 50px 20px, rgba(212, 163, 115, 0.1) 0.8px, transparent 0.8px);
+  background-size:
+    97px 89px,
+    73px 67px;
+}
+
+.garden-bg-particles {
+  position: relative;
+}
+
+.garden-bg-particles::before,
+.garden-bg-particles::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.garden-bg-particles::before {
+  width: 6px;
+  height: 6px;
+  background: rgba(107, 142, 35, 0.15);
+  filter: blur(2px);
+  top: 20%;
+  left: 30%;
+  animation: garden-float-1 28s ease-in-out infinite;
+}
+
+.garden-bg-particles::after {
+  width: 5px;
+  height: 5px;
+  background: rgba(212, 163, 115, 0.12);
+  filter: blur(2px);
+  top: 60%;
+  left: 65%;
+  animation: garden-float-2 35s ease-in-out infinite;
+}
+
+@keyframes garden-wash-drift {
+  0% {
+    background-position:
+      0% 0%,
+      100% 0%,
+      50% 100%,
+      0% 100%,
+      100% 50%;
+  }
+  100% {
+    background-position:
+      5% 3%,
+      95% 5%,
+      45% 95%,
+      5% 97%,
+      92% 55%;
+  }
+}
+
+@keyframes garden-float-1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.15;
+  }
+  25% {
+    transform: translate(40px, -30px) scale(1.2);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translate(-20px, -50px) scale(0.9);
+    opacity: 0.1;
+  }
+  75% {
+    transform: translate(30px, 20px) scale(1.1);
+    opacity: 0.2;
+  }
+}
+
+@keyframes garden-float-2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.12;
+  }
+  33% {
+    transform: translate(-35px, 25px) scale(1.15);
+    opacity: 0.2;
+  }
+  66% {
+    transform: translate(25px, -40px) scale(0.85);
+    opacity: 0.08;
+  }
+}
