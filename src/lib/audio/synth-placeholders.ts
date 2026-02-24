@@ -180,6 +180,100 @@ function createShimmerSageSynth(): Tone.ToneAudioNode {
   return gain;
 }
 
+function createEchoVineSynth(): Tone.ToneAudioNode {
+  const synth = new Tone.Synth({
+    oscillator: { type: "sine" },
+    envelope: { attack: 0.5, decay: 1, sustain: 0.6, release: 2 },
+    volume: -18,
+  });
+  const delay = new Tone.PingPongDelay({ delayTime: "4n", feedback: 0.4, wet: 0.5 });
+  const gain = new Tone.Gain(0.35);
+  synth.connect(delay);
+  delay.connect(gain);
+
+  const notes = ["C3", "E3", "G3", "A3"];
+  let noteIndex = 0;
+
+  const loop = new Tone.Loop((time) => {
+    synth.triggerAttackRelease(notes[noteIndex % notes.length], "2n", time);
+    noteIndex++;
+  }, "1m");
+  loop.start(0);
+
+  return gain;
+}
+
+function createDriftWillowSynth(): Tone.ToneAudioNode {
+  const synth = new Tone.PolySynth(Tone.AMSynth, {
+    harmonicity: 2,
+    envelope: { attack: 1.5, decay: 2, sustain: 0.7, release: 3 },
+    volume: -20,
+  });
+  synth.maxPolyphony = 4;
+  const reverb = new Tone.Reverb({ decay: 5, wet: 0.6 });
+  const gain = new Tone.Gain(0.35);
+  synth.connect(reverb);
+  reverb.connect(gain);
+
+  const chords = [
+    ["C3", "E3", "G3", "B3"],
+    ["F3", "A3", "C4", "E4"],
+  ];
+  let chordIndex = 0;
+
+  const loop = new Tone.Loop((time) => {
+    synth.triggerAttackRelease(chords[chordIndex % chords.length], "1m", time);
+    chordIndex++;
+  }, "2m");
+  loop.start(0);
+
+  return gain;
+}
+
+function createHumLotusSynth(): Tone.ToneAudioNode {
+  const synth = new Tone.AMSynth({
+    harmonicity: 1.5,
+    envelope: { attack: 2, decay: 3, sustain: 0.8, release: 4 },
+    volume: -20,
+  });
+  const reverb = new Tone.Reverb({ decay: 8, wet: 0.7 });
+  const gain = new Tone.Gain(0.3);
+  synth.connect(reverb);
+  reverb.connect(gain);
+
+  const notes = ["G3", "C4"];
+  let noteIndex = 0;
+
+  const loop = new Tone.Loop((time) => {
+    synth.triggerAttackRelease(notes[noteIndex % notes.length], "2m", time);
+    noteIndex++;
+  }, "2m");
+  loop.start(0);
+
+  return gain;
+}
+
+function createEmberThornSynth(): Tone.ToneAudioNode {
+  const synth = new Tone.Synth({
+    oscillator: { type: "sawtooth" },
+    envelope: { attack: 2, decay: 4, sustain: 0.9, release: 3 },
+    volume: -22,
+  });
+  const distortion = new Tone.Distortion({ distortion: 0.3, wet: 0.4 });
+  const filter = new Tone.Filter({ frequency: 400, type: "lowpass" });
+  const gain = new Tone.Gain(0.25);
+  synth.connect(distortion);
+  distortion.connect(filter);
+  filter.connect(gain);
+
+  const loop = new Tone.Loop((time) => {
+    synth.triggerAttackRelease("C2", "2m", time);
+  }, "2m");
+  loop.start(0);
+
+  return gain;
+}
+
 export const SYNTH_PLACEHOLDERS: Record<PlantType, AudioAsset> = {
   [PlantType.RainReed]: {
     mode: "synth",
@@ -216,5 +310,21 @@ export const SYNTH_PLACEHOLDERS: Record<PlantType, AudioAsset> = {
   [PlantType.ShimmerSage]: {
     mode: "synth",
     createNode: createShimmerSageSynth,
+  },
+  [PlantType.EchoVine]: {
+    mode: "synth",
+    createNode: createEchoVineSynth,
+  },
+  [PlantType.DriftWillow]: {
+    mode: "synth",
+    createNode: createDriftWillowSynth,
+  },
+  [PlantType.HumLotus]: {
+    mode: "synth",
+    createNode: createHumLotusSynth,
+  },
+  [PlantType.EmberThorn]: {
+    mode: "synth",
+    createNode: createEmberThornSynth,
   },
 };
