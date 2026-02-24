@@ -113,6 +113,73 @@ function createWindWoodSynth(): Tone.ToneAudioNode {
   return gain;
 }
 
+function createHazeLilySynth(): Tone.ToneAudioNode {
+  const noise = new Tone.Noise("brown");
+  const filter = new Tone.Filter({ frequency: 300, type: "lowpass" });
+  const gain = new Tone.Gain(0.06);
+  noise.connect(filter);
+  filter.connect(gain);
+  noise.start();
+  return gain;
+}
+
+function createRustleIvySynth(): Tone.ToneAudioNode {
+  const noise = new Tone.Noise("pink");
+  const autoFilter = new Tone.AutoFilter({
+    frequency: 0.1,
+    baseFrequency: 800,
+    octaves: 3,
+  }).start();
+  const gain = new Tone.Gain(0.05);
+  noise.connect(autoFilter);
+  autoFilter.connect(gain);
+  noise.start();
+  return gain;
+}
+
+function createTideSeaweedSynth(): Tone.ToneAudioNode {
+  const noise = new Tone.Noise("white");
+  const autoFilter = new Tone.AutoFilter({
+    frequency: 0.04,
+    baseFrequency: 200,
+    octaves: 4,
+    depth: 1,
+  }).start();
+  const gain = new Tone.Gain(0.04);
+  noise.connect(autoFilter);
+  autoFilter.connect(gain);
+  noise.start();
+  return gain;
+}
+
+function createShimmerSageSynth(): Tone.ToneAudioNode {
+  const synth = new Tone.PolySynth(Tone.Synth, {
+    oscillator: { type: "sine" },
+    envelope: { attack: 1, decay: 2, sustain: 0.8, release: 2 },
+    volume: -18,
+  });
+  synth.maxPolyphony = 2;
+  const tremolo = new Tone.Tremolo({ frequency: 4, depth: 0.6 }).start();
+  const gain = new Tone.Gain(0.4);
+  synth.connect(tremolo);
+  tremolo.connect(gain);
+
+  const chords = [
+    ["E4", "G4"],
+    ["G4", "B4"],
+    ["E4", "A4"],
+  ];
+  let chordIndex = 0;
+
+  const loop = new Tone.Loop((time) => {
+    synth.triggerAttackRelease(chords[chordIndex % chords.length], "2n", time);
+    chordIndex++;
+  }, "1m");
+  loop.start(0);
+
+  return gain;
+}
+
 export const SYNTH_PLACEHOLDERS: Record<PlantType, AudioAsset> = {
   [PlantType.RainReed]: {
     mode: "synth",
@@ -133,5 +200,21 @@ export const SYNTH_PLACEHOLDERS: Record<PlantType, AudioAsset> = {
   [PlantType.WindWood]: {
     mode: "synth",
     createNode: createWindWoodSynth,
+  },
+  [PlantType.HazeLily]: {
+    mode: "synth",
+    createNode: createHazeLilySynth,
+  },
+  [PlantType.RustleIvy]: {
+    mode: "synth",
+    createNode: createRustleIvySynth,
+  },
+  [PlantType.TideSeaweed]: {
+    mode: "synth",
+    createNode: createTideSeaweedSynth,
+  },
+  [PlantType.ShimmerSage]: {
+    mode: "synth",
+    createNode: createShimmerSageSynth,
   },
 };
