@@ -1,6 +1,5 @@
 "use client";
 
-import type Konva from "konva";
 import dynamic from "next/dynamic";
 import { useCallback, useRef, useState } from "react";
 import { AudioGateModal } from "@/components/audio-gate-modal";
@@ -26,7 +25,7 @@ export default function Home() {
   const { isAudioReady } = useAudioContext();
   const [aboutOpen, setAboutOpen] = useState(false);
   const [clearConfirmOpen, setClearConfirmOpen] = useState(false);
-  const stageRef = useRef<Konva.Stage>(null);
+  const canvasContainerRef = useRef<HTMLDivElement>(null);
 
   // Initialize URL restoration
   useGardenUrl();
@@ -90,6 +89,7 @@ export default function Home() {
 
       <GardenLayout onAboutClick={() => setAboutOpen(true)} onClearClick={handleClear}>
         <GardenCanvas
+          snapshotRef={canvasContainerRef}
           renderPlants={(size) =>
             plants.map((plant) => (
               <PlantSprite
@@ -112,7 +112,7 @@ export default function Home() {
 
         <div className="fixed right-4 top-32 z-30 flex flex-col gap-1 rounded-xl border border-flora-border bg-white/80 p-2 shadow-md backdrop-blur-md">
           <ShareButton />
-          <SnapshotButton stageRef={stageRef} />
+          <SnapshotButton containerRef={canvasContainerRef} />
         </div>
       </GardenLayout>
 
