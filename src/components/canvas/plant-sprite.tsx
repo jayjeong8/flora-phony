@@ -2,9 +2,27 @@
 
 import type Konva from "konva";
 import { useEffect, useRef, useState } from "react";
-import { Circle, Group, Line, Text } from "react-konva";
+import { Circle, Group, Image as KonvaImage, Line } from "react-konva";
 import { PLANT_REGISTRY } from "@/data/plant-registry";
 import type { PlantInstance } from "@/types/garden";
+
+const SPRITE_WIDTH = 32;
+const SPRITE_HEIGHT = 40;
+
+function usePlantImage(svgPath: string) {
+  const [image, setImage] = useState<HTMLImageElement | null>(null);
+
+  useEffect(() => {
+    const img = new window.Image();
+    img.src = svgPath;
+    img.onload = () => setImage(img);
+    return () => {
+      img.onload = null;
+    };
+  }, [svgPath]);
+
+  return image;
+}
 
 interface PlantSpriteProps {
   plant: PlantInstance;
@@ -32,6 +50,7 @@ export function PlantSprite({
   const groupRef = useRef<Konva.Group>(null);
   const [scale, setScale] = useState(0);
   const definition = PLANT_REGISTRY[plant.plantType];
+  const plantImage = usePlantImage(definition.svgPath);
 
   // Planting bounce animation
   useEffect(() => {
@@ -94,13 +113,20 @@ export function PlantSprite({
       offsetY={0}
     >
       {/* Selection ring */}
-      {isSelected && <Circle radius={24} stroke="#6B8E23" strokeWidth={2} dash={[4, 4]} />}
+      {isSelected && (
+        <Circle
+          radius={Math.max(SPRITE_WIDTH, SPRITE_HEIGHT) / 2 + 6}
+          stroke="#6B8E23"
+          strokeWidth={2}
+          dash={[4, 4]}
+        />
+      )}
 
       {/* Delete button */}
       {isSelected && (
         <Group
-          x={17}
-          y={-17}
+          x={SPRITE_WIDTH / 2 + 2}
+          y={-(SPRITE_HEIGHT / 2 + 2)}
           onClick={(e) => {
             e.cancelBubble = true;
             onRemove(plant.id);
@@ -122,21 +148,16 @@ export function PlantSprite({
         </Group>
       )}
 
-      {/* Plant visual (circle placeholder with initial) */}
-      <Circle radius={18} fill={definition.color} opacity={0.8} />
-      <Text
-        text={definition.label[0]}
-        fontSize={14}
-        fontFamily="Quicksand"
-        fill="white"
-        fontStyle="bold"
-        align="center"
-        verticalAlign="middle"
-        width={36}
-        height={36}
-        offsetX={18}
-        offsetY={18}
-      />
+      {/* Plant SVG image */}
+      {plantImage && (
+        <KonvaImage
+          image={plantImage}
+          width={SPRITE_WIDTH}
+          height={SPRITE_HEIGHT}
+          offsetX={SPRITE_WIDTH / 2}
+          offsetY={SPRITE_HEIGHT / 2}
+        />
+      )}
     </Group>
   );
 }
