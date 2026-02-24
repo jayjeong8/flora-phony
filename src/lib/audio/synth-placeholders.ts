@@ -9,7 +9,7 @@ function createRainReedSynth(): Tone.ToneAudioNode {
     baseFrequency: 400,
     octaves: 2,
   }).start();
-  const gain = new Tone.Gain(0.3);
+  const gain = new Tone.Gain(0.12);
   noise.connect(filter);
   filter.connect(gain);
   noise.start();
