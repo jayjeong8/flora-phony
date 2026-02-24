@@ -6,9 +6,15 @@ import { useEffect, useRef, useState } from "react";
 import { PLANT_REGISTRY } from "@/data/plant-registry";
 import type { PlantInstance } from "@/types/garden";
 
-const Group = dynamic(() => import("react-konva").then((mod) => mod.Group), { ssr: false });
-const Circle = dynamic(() => import("react-konva").then((mod) => mod.Circle), { ssr: false });
-const Text = dynamic(() => import("react-konva").then((mod) => mod.Text), { ssr: false });
+const Group = dynamic(() => import("react-konva").then((mod) => ({ default: mod.Group })), {
+  ssr: false,
+});
+const Circle = dynamic(() => import("react-konva").then((mod) => ({ default: mod.Circle })), {
+  ssr: false,
+});
+const Text = dynamic(() => import("react-konva").then((mod) => ({ default: mod.Text })), {
+  ssr: false,
+});
 
 interface PlantSpriteProps {
   plant: PlantInstance;
