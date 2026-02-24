@@ -58,8 +58,10 @@ export function serialize(plants: PlantInstance[]): string {
     .join("|");
 }
 
+const MAX_ENCODED_LENGTH = 500;
+
 export function deserialize(encoded: string): PlantInstance[] {
-  if (!encoded || encoded.trim() === "") return [];
+  if (!encoded || encoded.trim() === "" || encoded.length > MAX_ENCODED_LENGTH) return [];
 
   const plants: PlantInstance[] = [];
   const parts = encoded.split("|");
