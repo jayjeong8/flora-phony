@@ -21,7 +21,7 @@ class AudioContextManager {
     await Tone.start();
 
     this.limiter = new Tone.Limiter(-1).toDestination();
-    this.masterVolume = new Tone.Volume(-10).connect(this.limiter);
+    this.masterVolume = new Tone.Volume(0).connect(this.limiter);
 
     Tone.getTransport().bpm.value = 80;
     Tone.getTransport().start();
