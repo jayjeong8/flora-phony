@@ -22,13 +22,11 @@ export function useSelectedPlantId() {
 
 export function usePlantCounts(): Record<PlantType, number> {
   const plants = useGardenStore((state) => state.plants);
-  return {
-    [PlantType.RainReed]: selectPlantCountByType(plants, PlantType.RainReed),
-    [PlantType.LofiFern]: selectPlantCountByType(plants, PlantType.LofiFern),
-    [PlantType.PulseMoss]: selectPlantCountByType(plants, PlantType.PulseMoss),
-    [PlantType.BellFlower]: selectPlantCountByType(plants, PlantType.BellFlower),
-    [PlantType.WindWood]: selectPlantCountByType(plants, PlantType.WindWood),
-  };
+  const counts = {} as Record<PlantType, number>;
+  for (const type of Object.values(PlantType)) {
+    counts[type] = selectPlantCountByType(plants, type);
+  }
+  return counts;
 }
 
 export function useGardenActions() {
