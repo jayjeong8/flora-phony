@@ -22,7 +22,7 @@ export function ShareButton() {
   }, [generateShareUrl]);
 
   return (
-    <Button variant="ghost" size="sm" onClick={handleShare} className="gap-1.5">
+    <Button variant="ghost" size="sm" onClick={handleShare} className="justify-start gap-1.5">
       {copied ? (
         <>
           <Check className="h-4 w-4 text-flora-green" />

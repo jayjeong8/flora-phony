@@ -35,7 +35,7 @@ export function SnapshotButton({ containerRef }: SnapshotButtonProps) {
   }, [containerRef]);
 
   return (
-    <Button variant="ghost" size="sm" onClick={handleSnapshot} className="gap-1.5">
+    <Button variant="ghost" size="sm" onClick={handleSnapshot} className="justify-start gap-1.5">
       <Camera className="h-4 w-4" />
       <span className="text-xs">Snapshot</span>
     </Button>

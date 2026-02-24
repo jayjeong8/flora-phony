@@ -110,7 +110,7 @@ export default function Home() {
 
         <ControlPanel />
 
-        <div className="fixed left-4 top-32 z-30 flex flex-col gap-1 rounded-xl border border-flora-border bg-white/80 p-2 shadow-md backdrop-blur-md">
+        <div className="fixed right-4 top-32 z-30 flex flex-col gap-1 rounded-xl border border-flora-border bg-white/80 p-2 shadow-md backdrop-blur-md">
           <ShareButton />
           <SnapshotButton containerRef={canvasContainerRef} />
         </div>
