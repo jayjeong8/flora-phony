@@ -274,6 +274,104 @@ function createEmberThornSynth(): Tone.ToneAudioNode {
   return gain;
 }
 
+function createCrystalCactusSynth(): Tone.ToneAudioNode {
+  const synth = new Tone.FMSynth({
+    harmonicity: 6,
+    modulationIndex: 3,
+    envelope: { attack: 0.01, decay: 0.8, sustain: 0, release: 0.5 },
+    volume: -18,
+  });
+  const reverb = new Tone.Reverb({ decay: 3, wet: 0.4 });
+  const gain = new Tone.Gain(0.4);
+  synth.connect(reverb);
+  reverb.connect(gain);
+
+  const notes = ["C5", "E5", "G5", "A5", "G5", "E5"];
+  let noteIndex = 0;
+
+  const loop = new Tone.Loop((time) => {
+    synth.triggerAttackRelease(notes[noteIndex % notes.length], "8n", time);
+    noteIndex++;
+  }, "4n");
+  loop.start(0);
+
+  return gain;
+}
+
+function createChirpCloverSynth(): Tone.ToneAudioNode {
+  const synth = new Tone.PluckSynth({
+    attackNoise: 1,
+    dampening: 4000,
+    resonance: 0.9,
+    volume: -12,
+  });
+  const gain = new Tone.Gain(0.4);
+  synth.connect(gain);
+
+  const notes = ["E5", "G5", "A5", "C6", "D6"];
+  let noteIndex = 0;
+
+  const loop = new Tone.Loop((time) => {
+    synth.triggerAttackRelease(notes[noteIndex % notes.length], "8n", time);
+    noteIndex++;
+  }, "4n.");
+  loop.start(0);
+
+  return gain;
+}
+
+function createTwangBambooSynth(): Tone.ToneAudioNode {
+  const synth = new Tone.PluckSynth({
+    attackNoise: 2,
+    dampening: 3000,
+    resonance: 0.85,
+    volume: -10,
+  });
+  const gain = new Tone.Gain(0.35);
+  synth.connect(gain);
+
+  const notes = ["C4", "D4", "E4", "G4", "A4"];
+  let noteIndex = 0;
+  const pattern = [1, 0, 1, 1, 0, 1, 0, 1];
+  let step = 0;
+
+  const loop = new Tone.Loop((time) => {
+    if (pattern[step % pattern.length]) {
+      synth.triggerAttackRelease(notes[noteIndex % notes.length], "8n", time);
+      noteIndex++;
+    }
+    step++;
+  }, "8n");
+  loop.start(0);
+
+  return gain;
+}
+
+function createFrostOrchidSynth(): Tone.ToneAudioNode {
+  const synth = new Tone.Synth({
+    oscillator: { type: "sine" },
+    envelope: { attack: 0.01, decay: 1.5, sustain: 0, release: 2 },
+    volume: -20,
+  });
+  const delay = new Tone.FeedbackDelay({ delayTime: "8n.", feedback: 0.3, wet: 0.4 });
+  const reverb = new Tone.Reverb({ decay: 5, wet: 0.5 });
+  const gain = new Tone.Gain(0.35);
+  synth.connect(delay);
+  delay.connect(reverb);
+  reverb.connect(gain);
+
+  const notes = ["C6", "E6", "G6", "B5", "G5", "E6"];
+  let noteIndex = 0;
+
+  const loop = new Tone.Loop((time) => {
+    synth.triggerAttackRelease(notes[noteIndex % notes.length], "8n", time);
+    noteIndex++;
+  }, "2n");
+  loop.start(0);
+
+  return gain;
+}
+
 export const SYNTH_PLACEHOLDERS: Record<PlantType, AudioAsset> = {
   [PlantType.RainReed]: {
     mode: "synth",
@@ -326,5 +424,21 @@ export const SYNTH_PLACEHOLDERS: Record<PlantType, AudioAsset> = {
   [PlantType.EmberThorn]: {
     mode: "synth",
     createNode: createEmberThornSynth,
+  },
+  [PlantType.CrystalCactus]: {
+    mode: "synth",
+    createNode: createCrystalCactusSynth,
+  },
+  [PlantType.ChirpClover]: {
+    mode: "synth",
+    createNode: createChirpCloverSynth,
+  },
+  [PlantType.TwangBamboo]: {
+    mode: "synth",
+    createNode: createTwangBambooSynth,
+  },
+  [PlantType.FrostOrchid]: {
+    mode: "synth",
+    createNode: createFrostOrchidSynth,
   },
 };
