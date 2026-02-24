@@ -4,6 +4,10 @@ import type { PlantType } from "@/types/plant";
 
 const MAX_PLANTS = 100;
 
+function clampCoord(v: number): number {
+  return Math.max(0, Math.min(100, v));
+}
+
 let nextId = 1;
 function generateId(): string {
   return `plant-${nextId++}-${Date.now()}`;
@@ -21,8 +25,8 @@ export const useGardenStore = create<GardenState & GardenActions>((set) => ({
       const newPlant: PlantInstance = {
         id: generateId(),
         plantType,
-        x,
-        y,
+        x: clampCoord(x),
+        y: clampCoord(y),
         createdAt: Date.now(),
       };
       return { plants: [...state.plants, newPlant] };
@@ -36,7 +40,9 @@ export const useGardenStore = create<GardenState & GardenActions>((set) => ({
 
   movePlant: (id: string, x: number, y: number) =>
     set((state) => ({
-      plants: state.plants.map((p) => (p.id === id ? { ...p, x, y } : p)),
+      plants: state.plants.map((p) =>
+        p.id === id ? { ...p, x: clampCoord(x), y: clampCoord(y) } : p,
+      ),
     })),
 
   clearAll: () =>
