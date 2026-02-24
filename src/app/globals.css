@@ -234,3 +234,47 @@
     opacity: 0.08;
   }
 }
+
+/* ── Garden Decorative Elements ── */
+
+.garden-vine-left {
+  animation: garden-vine-sway 12s ease-in-out infinite;
+  transform-origin: bottom left;
+}
+
+.garden-vine-right {
+  animation: garden-vine-sway 14s ease-in-out infinite reverse;
+  transform-origin: bottom right;
+}
+
+.garden-flowers circle {
+  animation: garden-flower-pulse 8s ease-in-out infinite;
+}
+
+.garden-flowers g:nth-child(2n) circle {
+  animation-delay: -3s;
+}
+
+.garden-flowers g:nth-child(3n) circle {
+  animation-delay: -5s;
+}
+
+@keyframes garden-vine-sway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(1.5deg);
+  }
+}
+
+@keyframes garden-flower-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
