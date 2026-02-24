@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Rounded square background - Olive Drab -->
+  <rect width="512" height="512" rx="112" fill="#6B8E23"/>
+
+  <!-- Subtle inner glow -->
+  <rect x="16" y="16" width="480" height="480" rx="100" fill="#7AA028" opacity="0.3"/>
+
+  <!-- Stem -->
+  <path d="M256 410 C256 340 256 300 256 230" stroke="#F9F7F2" stroke-width="26" fill="none" stroke-linecap="round"/>
+
+  <!-- Left leaf - elegant curve -->
+  <path d="M256 290 C216 262 188 218 204 170 C226 212 244 254 256 290Z" fill="#F9F7F2"/>
+
+  <!-- Right leaf - elegant curve, slightly higher -->
+  <path d="M256 235 C296 207 324 163 308 115 C286 157 268 197 256 235Z" fill="#F9F7F2"/>
+
+  <!-- Left sound arc -->
+  <path d="M120 330 Q86 256 120 182" stroke="#F9F7F2" stroke-width="18" fill="none" stroke-linecap="round" opacity="0.35"/>
+  <path d="M80 360 Q36 256 80 152" stroke="#F9F7F2" stroke-width="14" fill="none" stroke-linecap="round" opacity="0.18"/>
+
+  <!-- Right sound arc -->
+  <path d="M392 330 Q426 256 392 182" stroke="#F9F7F2" stroke-width="18" fill="none" stroke-linecap="round" opacity="0.35"/>
+  <path d="M432 360 Q476 256 432 152" stroke="#F9F7F2" stroke-width="14" fill="none" stroke-linecap="round" opacity="0.18"/>
+
+  <!-- Small terra cotta soil/seed at base -->
+  <ellipse cx="256" cy="420" rx="36" ry="14" fill="#D4A373" opacity="0.8"/>
+</svg>
