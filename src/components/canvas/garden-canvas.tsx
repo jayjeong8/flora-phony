@@ -4,18 +4,30 @@ import type Konva from "konva";
 import type React from "react";
 import { useCallback, useRef } from "react";
 import { Layer, Stage } from "react-konva";
+import { GardenBackground } from "@/components/canvas/garden-background";
 import { useCanvasSize } from "@/hooks/use-canvas-size";
 import { useGardenActions, useSelectedPlantType } from "@/hooks/use-garden";
 
 interface GardenCanvasProps {
   renderPlants?: (size: { width: number; height: number }) => React.ReactNode;
+  snapshotRef?: React.RefObject<HTMLDivElement | null>;
 }
 
-export function GardenCanvas({ renderPlants }: GardenCanvasProps) {
+export function GardenCanvas({ renderPlants, snapshotRef }: GardenCanvasProps) {
   const { containerRef, size } = useCanvasSize();
   const stageRef = useRef<Konva.Stage>(null);
   const selectedPlantType = useSelectedPlantType();
   const { addPlant, selectPlant } = useGardenActions();
+
+  const mergedRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      (containerRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
+      if (snapshotRef && "current" in snapshotRef) {
+        (snapshotRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
+      }
+    },
+    [containerRef, snapshotRef],
+  );
 
   const handleStageClick = useCallback(
     (e: Konva.KonvaEventObject<MouseEvent | TouchEvent>) => {
@@ -40,7 +52,8 @@ export function GardenCanvas({ renderPlants }: GardenCanvasProps) {
   );
 
   return (
-    <div ref={containerRef} className="h-full w-full">
+    <div ref={mergedRef} className="relative h-full w-full bg-flora-bg">
+      <GardenBackground />
       {size.width > 0 && size.height > 0 && (
         <Stage
           ref={stageRef}
