@@ -13,6 +13,6 @@ export function selectPanValue(x: number): number {
 export function selectVolumeForType(count: number): number {
   if (count <= 0) return 0;
   // Log scale: baseVolume * log2(count + 1) / log2(6)
-  const baseVolume = 0.7;
+  const baseVolume = 1;
   return baseVolume * (Math.log2(count + 1) / Math.log2(6));
 }

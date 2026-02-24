@@ -51,8 +51,7 @@ export class PlantSoundManager {
     if (!node) return;
 
     const volume = selectVolumeForType(count);
-    const db = volume <= 0 ? -Infinity : 20 * Math.log10(volume);
-    node.gain.gain.rampTo(Tone.dbToGain(db), 0.2);
+    node.gain.gain.rampTo(volume, 0.2);
   }
 
   setMasterVolume(value: number): void {
