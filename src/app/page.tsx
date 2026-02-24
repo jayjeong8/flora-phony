@@ -16,6 +16,7 @@ import { ShareButton } from "@/components/controls/share-button";
 import { SnapshotButton } from "@/components/controls/snapshot-button";
 import { GardenLayout } from "@/components/layout/garden-layout";
 import { AboutModal } from "@/components/modals/about-modal";
+import { ClearConfirmModal } from "@/components/modals/clear-confirm-modal";
 import { useAudioContext } from "@/hooks/use-audio-context";
 import { useAudioSync } from "@/hooks/use-audio-sync";
 import { useGardenActions, useGardenPlants, useSelectedPlantId } from "@/hooks/use-garden";
@@ -24,6 +25,7 @@ import { useGardenUrl } from "@/hooks/use-garden-url";
 export default function Home() {
   const { isAudioReady } = useAudioContext();
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [clearConfirmOpen, setClearConfirmOpen] = useState(false);
   const stageRef = useRef<Konva.Stage>(null);
 
   // Initialize URL restoration
@@ -63,8 +65,12 @@ export default function Home() {
 
   const handleClear = useCallback(() => {
     if (plants.length === 0) return;
+    setClearConfirmOpen(true);
+  }, [plants.length]);
+
+  const handleClearConfirm = useCallback(() => {
     clearAll();
-  }, [clearAll, plants.length]);
+  }, [clearAll]);
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
@@ -111,6 +117,11 @@ export default function Home() {
       </GardenLayout>
 
       <AboutModal open={aboutOpen} onOpenChange={setAboutOpen} />
+      <ClearConfirmModal
+        open={clearConfirmOpen}
+        onOpenChange={setClearConfirmOpen}
+        onConfirm={handleClearConfirm}
+      />
     </div>
   );
 }
