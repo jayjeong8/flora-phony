@@ -2,7 +2,7 @@ import { create } from "zustand";
 import type { GardenActions, GardenState, PlantInstance } from "@/types/garden";
 import type { PlantType } from "@/types/plant";
 
-const MAX_PLANTS = 20;
+const MAX_PLANTS = 100;
 
 let nextId = 1;
 function generateId(): string {
