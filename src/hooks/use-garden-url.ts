@@ -23,13 +23,14 @@ export function useGardenUrl() {
     for (const plant of plants) {
       store.addPlant(plant.plantType, plant.x, plant.y);
     }
+
+    window.history.replaceState({}, "", window.location.pathname);
   }, []);
 
   const generateShareUrl = useCallback((): string => {
     const plants = useGardenStore.getState().plants;
     const encoded = serialize(plants);
-    const url = new URL(window.location.href);
-    url.search = "";
+    const url = new URL(window.location.origin + window.location.pathname);
     if (encoded) {
       url.searchParams.set("garden", encoded);
     }
