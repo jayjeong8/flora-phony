@@ -5,6 +5,7 @@ import type React from "react";
 import { useCallback, useRef } from "react";
 import { Layer, Stage } from "react-konva";
 import { GardenBackground } from "@/components/canvas/garden-background";
+import { OnboardingHint } from "@/components/canvas/onboarding-hint";
 import { useCanvasSize } from "@/hooks/use-canvas-size";
 import { useGardenActions, useSelectedPlantType } from "@/hooks/use-garden";
 
@@ -54,6 +55,7 @@ export function GardenCanvas({ renderPlants, snapshotRef }: GardenCanvasProps) {
   return (
     <div ref={mergedRef} className="relative h-full w-full bg-flora-bg">
       <GardenBackground />
+      <OnboardingHint />
       <div className="absolute inset-0 z-10">
         {size.width > 0 && size.height > 0 && (
           <Stage
