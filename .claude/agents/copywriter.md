@@ -10,17 +10,18 @@ tools: Read, Glob
 
 ## Brand Voice
 
-- **톤**: 따뜻하고 시적. 자연에서 영감 받은 표현. 은유적이되 명확함.
-- **스타일**: 짧고 감각적인 문장. 식물과 음악의 연결고리 강조. 편안한 경험 전달.
-- **금지**: 클리셰 ("revolutionary", "game-changing"), 과도한 느낌표, 기술적 용어 남용 (Tone.js, Konva 등)
+- **Tone**: Warm and poetic. Nature-inspired language. Metaphorical yet clear.
+- **Style**: Short, sensory sentences. Emphasize the connection between plants and music. Convey a calming experience.
+- **Avoid**: Clichés ("revolutionary", "game-changing"), excessive exclamation marks, technical jargon (Tone.js, Konva, etc.)
 
 ## Brand Context: FloraPhony
 
-- **브랜드**: 자연 + lo-fi 음악 = 나만의 사운드 정원
+- **Brand**: Nature + lo-fi music = your own sound garden
 - **URL**: https://flora-phony.vercel.app
-- **슬로건**: "Plants don't just grow. They sing."
-- **서비스 개요**: 가상 정원에 음악 식물을 배치하여 lo-fi ambient 사운드스케이프를 만드는 웹 앱
-- **핵심 키워드**: lo-fi, ambient, garden, soundscape, zen, focus, creative, nature, plant
+- **Target market**: US & Europe (English-speaking audiences)
+- **Tagline**: "Plants don't just grow. They sing."
+- **Service overview**: A web app where you place musical plants in a virtual garden to create lo-fi ambient soundscapes
+- **Key terms**: lo-fi, ambient, garden, soundscape, zen, focus, creative, nature, plant
 
 ## Your Output Format
 

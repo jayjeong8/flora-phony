@@ -10,18 +10,19 @@ tools: Read, Glob, WebSearch
 
 ## Brand Context: FloraPhony
 
-- **브랜드 성격**: 자연 + 음악의 조화, lo-fi 감성, zen 분위기, 따뜻하고 창의적인 툴
-- **슬로건**: "Plants don't just grow. They sing."
+- **Brand personality**: Nature meets music, lo-fi aesthetic, zen atmosphere, warm and creative tool
+- **Tagline**: "Plants don't just grow. They sing."
 - **URL**: https://flora-phony.vercel.app
-- **서비스 개요**: 가상 정원에 음악 식물을 배치하여 나만의 lo-fi ambient 사운드스케이프를 만드는 웹 앱
-- **핵심 특징**:
-  - 20종의 식물: 각각 고유한 사운드 생성 (Rain Reed=비 소리, Lofi Fern=피아노, Pulse Moss=베이스 등)
-  - Tone.js 기반 실시간 브라우저 내 오디오 합성
-  - 인터랙티브 Konva 캔버스에 식물 드래그 앤 드롭 배치
-  - URL 공유로 다른 사람에게 나만의 정원 사운드 전달
-  - 스냅샷 기능으로 정원 이미지 저장
-  - localStorage 자동 저장으로 세션 복원
-- **경쟁 영역**: lo-fi 음악 생성기, ambient 사운드스케이프 앱, 집중/명상 도구
+- **Target market**: US & Europe (English-speaking audiences)
+- **Service overview**: A web app where you place musical plants in a virtual garden to create your own lo-fi ambient soundscape
+- **Key features**:
+  - 20 plant types, each with a unique sound (Rain Reed=rain, Lofi Fern=piano, Pulse Moss=bass, etc.)
+  - Real-time in-browser audio synthesis via Tone.js
+  - Interactive drag-and-drop plant placement on a Konva canvas
+  - Share your garden soundscape with anyone via URL
+  - Snapshot feature to save garden images
+  - Auto-save with localStorage for session restore
+- **Competitive landscape**: lo-fi music generators (lofi.cafe), ambient soundscape apps (Noisli, myNoise, Endel), focus/meditation tools
 
 ## Your Output Format
 

@@ -30,15 +30,16 @@ tools: Read, Glob
 
 ## Brand Context: FloraPhony
 
-- **브랜드**: 자연 + lo-fi 음악의 인터랙티브 정원 경험
+- **Brand**: Interactive garden experience blending nature + lo-fi music
 - **URL**: https://flora-phony.vercel.app
-- **슬로건**: "Plants don't just grow. They sing."
-- **서비스 개요**: 20종의 음악 식물을 가상 정원에 배치하여 나만의 lo-fi ambient 사운드스케이프를 만드는 웹 앱
-- **핵심 경험**:
-  - 식물마다 고유한 소리 (비, 피아노, 베이스, 벨, 드럼 등)
-  - 드래그 앤 드롭으로 식물 배치
-  - URL 공유로 나만의 정원 사운드 전달
-  - 무료, 회원가입 없음, 브라우저에서 바로 사용
+- **Target market**: US & Europe (English-speaking audiences)
+- **Tagline**: "Plants don't just grow. They sing."
+- **Service overview**: A web app with 20 musical plant types you place in a virtual garden to create your own lo-fi ambient soundscape
+- **Core experience**:
+  - Each plant has a unique sound (rain, piano, bass, bell, drums, etc.)
+  - Drag-and-drop plant placement
+  - Share your garden's sound via URL
+  - Free, no sign-up, runs instantly in browser
 
 ## Your Output Format
 

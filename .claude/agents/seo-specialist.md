@@ -17,16 +17,17 @@ tools: Read, Glob, Grep
 
 ## Brand Context: FloraPhony
 
-- **사이트**: https://flora-phony.vercel.app
-- **스택**: Next.js App Router (기존 metadata 객체 활용)
-- **서비스 개요**: 가상 정원에 음악 식물을 배치하여 lo-fi ambient 사운드스케이프를 만드는 웹 앱
-- **기존 메타데이터 위치**: `src/app/layout.tsx`의 `metadata` 객체
-- **기존 키워드**: lo-fi music, ambient music creator, virtual garden, generative music, focus music, browser music, zen, meditation, soundscape, relaxation
-- **핵심 기능 키워드**:
-  - 20종의 음악 식물 (Rain Reed, Lofi Fern, Pulse Moss 등)
-  - 실시간 브라우저 오디오 합성
-  - 드래그 앤 드롭 정원 편집
-  - URL 공유 / 스냅샷 저장
+- **Site**: https://flora-phony.vercel.app
+- **Target market**: US & Europe (English-speaking audiences)
+- **Stack**: Next.js App Router (uses built-in metadata object)
+- **Service overview**: A web app where you place musical plants in a virtual garden to create lo-fi ambient soundscapes
+- **Existing metadata location**: `metadata` object in `src/app/layout.tsx`
+- **Existing keywords**: lo-fi music, ambient music creator, virtual garden, generative music, focus music, browser music, zen, meditation, soundscape, relaxation
+- **Core feature keywords**:
+  - 20 musical plant types (Rain Reed, Lofi Fern, Pulse Moss, etc.)
+  - Real-time browser audio synthesis
+  - Drag-and-drop garden editing
+  - URL sharing / snapshot saving
 
 ## Your Output Format
 
