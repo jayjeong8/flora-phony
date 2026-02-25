@@ -8,7 +8,7 @@ const jsonLd = {
       name: "FloraPhony",
       url: siteUrl,
       description:
-        "Plants don't just grow. They sing. Craft your own Lo-fi garden and let nature play your mood.",
+        "Plant musical flowers, mix ambient layers, and grow your own lo-fi soundscape — all in your browser. 20 unique sound plants, drag-and-drop garden, no sign-up needed. Try FloraPhony free.",
       applicationCategory: "MultimediaApplication",
       operatingSystem: "Any",
       offers: {
@@ -32,6 +32,43 @@ const jsonLd = {
         target: `${siteUrl}/?garden={search_term_string}`,
         "query-input": "required name=search_term_string",
       },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is FloraPhony free?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes, FloraPhony is completely free. No sign-up, no download, no hidden costs. Open your browser and start planting sounds immediately.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Does FloraPhony work on mobile?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "FloraPhony works on mobile browsers but is designed desktop-first for the best drag-and-drop experience. We recommend using a desktop or laptop browser for full enjoyment.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can I share my garden with friends?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Absolutely! Click the Share button to copy a unique URL that captures your entire garden layout and soundscape. Anyone who opens the link hears exactly what you built — no account needed.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What makes FloraPhony different from lo-fi YouTube streams?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Unlike passive lo-fi streams, FloraPhony lets you compose your own soundscape by dragging and dropping 20 unique musical plants onto a canvas. Every garden is unique, generative, and shareable via a single URL.",
+          },
+        },
+      ],
     },
   ],
 };
