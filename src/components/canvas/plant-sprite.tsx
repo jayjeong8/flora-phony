@@ -3,6 +3,7 @@
 import type Konva from "konva";
 import { useEffect, useRef, useState } from "react";
 import { Circle, Group, Image as KonvaImage, Line } from "react-konva";
+import { PLANT_ANIMATIONS } from "@/data/plant-animations";
 import { PLANT_REGISTRY } from "@/data/plant-registry";
 import type { PlantInstance } from "@/types/garden";
 
@@ -48,15 +49,17 @@ export function PlantSprite({
   canvasHeight,
 }: PlantSpriteProps) {
   const groupRef = useRef<Konva.Group>(null);
-  const [scale, setScale] = useState(0);
+  const animRef = useRef<Konva.Group>(null);
+  const [spawnScale, setSpawnScale] = useState(0);
+  const phaseRef = useRef(Math.random() * Math.PI * 2);
   const definition = PLANT_REGISTRY[plant.plantType];
+  const animConfig = PLANT_ANIMATIONS[plant.plantType];
   const plantImage = usePlantImage(definition.svgPath);
 
   // Planting bounce animation
   useEffect(() => {
     if (!groupRef.current) return;
 
-    // Animate scale from 0 to 1 with bounce
     let frame: number;
     const startTime = performance.now();
     const duration = 400;
@@ -68,7 +71,7 @@ export function PlantSprite({
       // Ease-out bounce
       const t = 1 - (1 - progress) ** 3;
       const bounceScale = t > 0.8 ? 1 : t * 1.15;
-      setScale(Math.min(bounceScale, 1));
+      setSpawnScale(Math.min(bounceScale, 1));
 
       if (progress < 1) {
         frame = requestAnimationFrame(animate);
@@ -78,6 +81,54 @@ export function PlantSprite({
     frame = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(frame);
   }, []);
+
+  // Idle animation loop (runs independently on the inner group)
+  useEffect(() => {
+    const animGroup = animRef.current;
+    if (!animGroup) return;
+
+    const phase = phaseRef.current;
+    let frame: number;
+
+    const animate = (time: number) => {
+      let rotation = 0;
+      let scaleOffset = 0;
+      let floatY = 0;
+      let swayX = 0;
+
+      if (animConfig.rotation) {
+        rotation =
+          animConfig.rotation.amplitude *
+          Math.sin((time / animConfig.rotation.period) * Math.PI * 2 + phase);
+      }
+      if (animConfig.scale) {
+        scaleOffset =
+          animConfig.scale.amplitude *
+          Math.sin((time / animConfig.scale.period) * Math.PI * 2 + phase);
+      }
+      if (animConfig.float) {
+        floatY =
+          animConfig.float.amplitude *
+          Math.sin((time / animConfig.float.period) * Math.PI * 2 + phase * 1.3);
+      }
+      if (animConfig.sway) {
+        swayX =
+          animConfig.sway.amplitude *
+          Math.sin((time / animConfig.sway.period) * Math.PI * 2 + phase * 0.7);
+      }
+
+      animGroup.rotation(rotation);
+      animGroup.scaleX(1 + scaleOffset);
+      animGroup.scaleY(1 + scaleOffset);
+      animGroup.y(floatY);
+      animGroup.x(swayX);
+
+      frame = requestAnimationFrame(animate);
+    };
+
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
+  }, [animConfig]);
 
   const handleDragEnd = (e: Konva.KonvaEventObject<DragEvent>) => {
     const node = e.target;
@@ -104,8 +155,8 @@ export function PlantSprite({
       x={x}
       y={y}
       draggable
-      scaleX={scale}
-      scaleY={scale}
+      scaleX={spawnScale}
+      scaleY={spawnScale}
       onDragEnd={handleDragEnd}
       onClick={() => onSelect(plant.id)}
       onTap={() => onSelect(plant.id)}
@@ -148,16 +199,18 @@ export function PlantSprite({
         </Group>
       )}
 
-      {/* Plant SVG image */}
-      {plantImage && (
-        <KonvaImage
-          image={plantImage}
-          width={SPRITE_WIDTH}
-          height={SPRITE_HEIGHT}
-          offsetX={SPRITE_WIDTH / 2}
-          offsetY={SPRITE_HEIGHT / 2}
-        />
-      )}
+      {/* Animated plant image */}
+      <Group ref={animRef}>
+        {plantImage && (
+          <KonvaImage
+            image={plantImage}
+            width={SPRITE_WIDTH}
+            height={SPRITE_HEIGHT}
+            offsetX={SPRITE_WIDTH / 2}
+            offsetY={SPRITE_HEIGHT / 2}
+          />
+        )}
+      </Group>
     </Group>
   );
 }
