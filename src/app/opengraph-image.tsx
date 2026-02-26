@@ -1,12 +1,32 @@
 import { ImageResponse } from "next/og";
 import { PLANT_REGISTRY } from "@/data/plant-registry";
 import { deserialize } from "@/lib/garden-serializer";
+import type { PlantType } from "@/types/plant";
 
 export const runtime = "edge";
 
 export const alt = "FloraPhony — Free Lo-fi Garden Music Generator & Ambient Soundscape Creator";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://flora-phony.vercel.app";
+
+async function fetchPlantSvgDataUris(types: PlantType[]): Promise<(string | null)[]> {
+  return Promise.all(
+    types.map(async (type) => {
+      const def = PLANT_REGISTRY[type];
+      if (!def) return null;
+      try {
+        const res = await fetch(new URL(def.svgPath, siteUrl));
+        if (!res.ok) return null;
+        const text = await res.text();
+        return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(text)}`;
+      } catch {
+        return null;
+      }
+    }),
+  );
+}
 
 export default async function OgImage({
   searchParams,
@@ -19,7 +39,10 @@ export default async function OgImage({
   const hasGarden = plants.length > 0;
 
   const uniqueTypes = [...new Set(plants.map((p) => p.plantType))];
+  const displayTypes = uniqueTypes.slice(0, 8);
   const plantNames = uniqueTypes.slice(0, 5).map((t) => PLANT_REGISTRY[t]?.name ?? t);
+
+  const svgDataUris = hasGarden ? await fetchPlantSvgDataUris(displayTypes) : [];
 
   return new ImageResponse(
     <div
@@ -50,8 +73,8 @@ export default async function OgImage({
       {/* Leaf icon */}
       <div
         style={{
-          fontSize: 72,
-          marginBottom: 16,
+          fontSize: 64,
+          marginBottom: 12,
           display: "flex",
         }}
       >
@@ -64,7 +87,7 @@ export default async function OgImage({
           fontSize: 56,
           fontWeight: 700,
           color: "#6B8E23",
-          marginBottom: 16,
+          marginBottom: 12,
           display: "flex",
         }}
       >
@@ -72,7 +95,13 @@ export default async function OgImage({
       </div>
 
       {hasGarden ? (
-        <>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <div
             style={{
               fontSize: 28,
@@ -83,6 +112,34 @@ export default async function OgImage({
           >
             A garden with {plants.length} plant{plants.length !== 1 ? "s" : ""}
           </div>
+
+          {/* Plant SVG preview row */}
+          {svgDataUris.filter(Boolean).length > 0 && (
+            <div
+              style={{
+                display: "flex",
+                gap: 20,
+                marginTop: 24,
+                alignItems: "flex-end",
+              }}
+            >
+              {svgDataUris.map(
+                (uri, i) =>
+                  uri && (
+                    // biome-ignore lint/performance/noImgElement: Satori/ImageResponse requires native <img>, not Next.js Image
+                    <img
+                      key={displayTypes[i]}
+                      src={uri}
+                      width={60}
+                      height={75}
+                      alt=""
+                      style={{ objectFit: "contain" }}
+                    />
+                  ),
+              )}
+            </div>
+          )}
+
           <div
             style={{
               fontSize: 20,
@@ -95,9 +152,15 @@ export default async function OgImage({
             {plantNames.join(" · ")}
             {uniqueTypes.length > 5 ? ` +${uniqueTypes.length - 5} more` : ""}
           </div>
-        </>
+        </div>
       ) : (
-        <>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           {/* Tagline */}
           <div
             style={{
@@ -121,8 +184,21 @@ export default async function OgImage({
           >
             Free Lo-fi Garden Music Generator
           </div>
-        </>
+        </div>
       )}
+
+      {/* Ground stripe */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: 6,
+          left: 0,
+          right: 0,
+          height: 40,
+          background: "linear-gradient(to top, rgba(212,163,115,0.15), transparent)",
+          display: "flex",
+        }}
+      />
 
       {/* Decorative bottom bar */}
       <div
