@@ -1,9 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40" fill="none">
   <path d="M16 38V22" stroke="#D4A0A0" stroke-width="2" stroke-linecap="round"/>
+  <!-- Back petals -->
+  <path d="M16 20C16 20 8 16 6 12C5 10 7 9 10 11C10 8 12 7 14 9Q15 14 16 20Z" fill="#D4A0A0" opacity="0.65"/>
+  <path d="M16 20C16 20 24 16 26 12C27 10 25 9 22 11C22 8 20 7 18 9Q17 14 16 20Z" fill="#D4A0A0" opacity="0.65"/>
+  <!-- Front petal -->
   <path d="M16 22C16 22 12 18 12 14C12 12 14 12 16 14C18 12 20 12 20 14C20 18 16 22 16 22Z" fill="#D4A0A0"/>
-  <path d="M16 20C16 20 8 16 6 12C5 10 7 9 10 11C10 8 12 7 14 9C14 9 16 16 16 20Z" fill="#D4A0A0" opacity="0.7"/>
-  <path d="M16 20C16 20 24 16 26 12C27 10 25 9 22 11C22 8 20 7 18 9C18 9 16 16 16 20Z" fill="#D4A0A0" opacity="0.7"/>
-  <circle cx="16" cy="14" r="1.5" fill="#E8C4C4"/>
-  <path d="M12 30L8 32" stroke="#D4A0A0" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-  <path d="M20 30L24 32" stroke="#D4A0A0" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+  <!-- Petal highlights -->
+  <path d="M16 20Q12 16 9 13C8.5 11.5 10 11 11.5 12.5Q14 16 16 18Z" fill="#E8C4C4" opacity="0.35"/>
+  <path d="M16 20Q20 16 23 13C23.5 11.5 22 11 20.5 12.5Q18 16 16 18Z" fill="#E8C4C4" opacity="0.35"/>
+  <path d="M16 20C16 20 13.5 17 13.5 14.5C13.5 13.5 14.5 13 16 14.5C17.5 13 18.5 13.5 18.5 14.5C18.5 17 16 20 16 20Z" fill="#E8C4C4" opacity="0.4"/>
+  <!-- Center -->
+  <circle cx="16" cy="14" r="1.8" fill="#E8C4C4"/>
+  <circle cx="16" cy="14" r="0.8" fill="#D4A0A0" opacity="0.5"/>
+  <!-- Lily pad leaves -->
+  <ellipse cx="10" cy="34" rx="5" ry="2.5" fill="#D4A0A0" opacity="0.4"/>
+  <ellipse cx="22" cy="34" rx="5" ry="2.5" fill="#D4A0A0" opacity="0.4"/>
+  <ellipse cx="10.5" cy="33.5" rx="2.5" ry="1.2" fill="#E8C4C4" opacity="0.3"/>
+  <ellipse cx="22.5" cy="33.5" rx="2.5" ry="1.2" fill="#E8C4C4" opacity="0.3"/>
 </svg>

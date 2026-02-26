@@ -1,9 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40" fill="none">
-  <path d="M16 38V14" stroke="#6B8E23" stroke-width="2" stroke-linecap="round"/>
-  <path d="M16 14C12 10 6 10 4 12" stroke="#6B8E23" stroke-width="2" stroke-linecap="round" fill="none"/>
-  <path d="M16 18C12 14 8 14 6 16" stroke="#6B8E23" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-  <path d="M16 14C20 10 26 10 28 12" stroke="#6B8E23" stroke-width="2" stroke-linecap="round" fill="none"/>
-  <path d="M16 18C20 14 24 14 26 16" stroke="#6B8E23" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-  <path d="M16 22C13 19 10 19 8 20" stroke="#6B8E23" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-  <path d="M16 22C19 19 22 19 24 20" stroke="#6B8E23" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  <!-- Main stem -->
+  <path d="M16 38V6" stroke="#6B8E23" stroke-width="2" stroke-linecap="round"/>
+  <!-- Fiddlehead curl -->
+  <path d="M16 6Q14 3 16 2Q18 3 17 5" stroke="#6B8E23" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  <!-- Frond pairs — top (smallest) -->
+  <path d="M15 10Q11 8 8 10Q11 11 15 12Z" fill="#6B8E23" opacity="0.85"/>
+  <path d="M17 10Q21 8 24 10Q21 11 17 12Z" fill="#6B8E23" opacity="0.85"/>
+  <!-- Middle-top -->
+  <path d="M15 16Q10 13 6 15Q10 17 15 18Z" fill="#6B8E23" opacity="0.8"/>
+  <path d="M17 16Q22 13 26 15Q22 17 17 18Z" fill="#6B8E23" opacity="0.8"/>
+  <!-- Middle -->
+  <path d="M15 22Q10 19 5 21Q10 23 15 24Z" fill="#6B8E23" opacity="0.75"/>
+  <path d="M17 22Q22 19 27 21Q22 23 17 24Z" fill="#6B8E23" opacity="0.75"/>
+  <!-- Bottom (largest) -->
+  <path d="M15 28Q10 25 4 27Q10 29 15 30Z" fill="#6B8E23" opacity="0.7"/>
+  <path d="M17 28Q22 25 28 27Q22 29 17 30Z" fill="#6B8E23" opacity="0.7"/>
+  <!-- Frond highlights -->
+  <path d="M14.5 10.5Q12 9 10 10Q12 10.8 14.5 11.5Z" fill="#8FB339" opacity="0.4"/>
+  <path d="M17.5 10.5Q20 9 22 10Q20 10.8 17.5 11.5Z" fill="#8FB339" opacity="0.4"/>
+  <path d="M14.5 16.5Q11 14.5 8 15.5Q11 16.8 14.5 17.5Z" fill="#8FB339" opacity="0.4"/>
+  <path d="M17.5 16.5Q21 14.5 24 15.5Q21 16.8 17.5 17.5Z" fill="#8FB339" opacity="0.4"/>
+  <path d="M14.5 22.5Q11 20.5 7 21.5Q11 22.8 14.5 23.5Z" fill="#8FB339" opacity="0.35"/>
+  <path d="M17.5 22.5Q21 20.5 25 21.5Q21 22.8 17.5 23.5Z" fill="#8FB339" opacity="0.35"/>
+  <!-- Accent dots -->
+  <circle cx="7" cy="12" r="1" fill="#8FB339" opacity="0.5"/>
+  <circle cx="25" cy="12" r="1" fill="#8FB339" opacity="0.5"/>
 </svg>
