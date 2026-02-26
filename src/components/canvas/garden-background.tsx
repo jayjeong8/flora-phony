@@ -19,16 +19,16 @@ export function GardenBackground() {
         <path
           d="M0 180 C100 140, 200 155, 300 145 S500 130, 600 140 S800 155, 900 138 S1100 150, 1200 160 L1200 220 L0 220Z"
           fill="#c4a882"
-          opacity="0.08"
+          opacity="0.20"
         />
         <path
           d="M0 190 C150 165, 250 170, 400 162 S600 155, 750 165 S950 170, 1100 158 L1200 170 L1200 220 L0 220Z"
           fill="#a07850"
-          opacity="0.06"
+          opacity="0.15"
         />
 
         {/* Grass blades — scattered along the bottom */}
-        <g opacity="0.18" fill="none" stroke="#6b8e23" strokeWidth="1.5" strokeLinecap="round">
+        <g opacity="0.30" fill="none" stroke="#6b8e23" strokeWidth="1.5" strokeLinecap="round">
           <path d="M40 180 Q38 155, 45 135" />
           <path d="M48 182 Q52 158, 42 130" />
           <path d="M55 180 Q55 150, 60 128" />
@@ -64,7 +64,7 @@ export function GardenBackground() {
         </g>
 
         {/* Lighter grass behind */}
-        <g opacity="0.1" fill="none" stroke="#8fb339" strokeWidth="1" strokeLinecap="round">
+        <g opacity="0.20" fill="none" stroke="#8fb339" strokeWidth="1" strokeLinecap="round">
           <path d="M80 185 Q75 160, 85 140" />
           <path d="M180 178 Q175 152, 188 132" />
           <path d="M290 174 Q285 148, 298 128" />
@@ -80,42 +80,42 @@ export function GardenBackground() {
         {/* Small wildflowers */}
         <g className="garden-flowers">
           {/* Daisy-like flowers */}
-          <g transform="translate(90, 148)" opacity="0.3">
+          <g transform="translate(90, 148)" opacity="0.45">
             <circle r="3" fill="#d4a373" />
             <circle r="1.2" fill="#e4c9a8" />
           </g>
-          <g transform="translate(260, 138)" opacity="0.25">
+          <g transform="translate(260, 138)" opacity="0.38">
             <circle r="2.5" fill="#6b8e23" />
             <circle r="1" fill="#8fb339" />
           </g>
-          <g transform="translate(390, 142)" opacity="0.3">
+          <g transform="translate(390, 142)" opacity="0.45">
             <circle r="3.5" fill="#d4a373" />
             <circle r="1.4" fill="#f9f7f2" />
           </g>
-          <g transform="translate(520, 135)" opacity="0.22">
+          <g transform="translate(520, 135)" opacity="0.35">
             <circle r="2.8" fill="#c97b5a" />
             <circle r="1.1" fill="#e4c9a8" />
           </g>
-          <g transform="translate(680, 140)" opacity="0.28">
+          <g transform="translate(680, 140)" opacity="0.42">
             <circle r="3" fill="#8fb339" />
             <circle r="1.2" fill="#f9f7f2" />
           </g>
-          <g transform="translate(810, 132)" opacity="0.25">
+          <g transform="translate(810, 132)" opacity="0.38">
             <circle r="3.2" fill="#d4a373" />
             <circle r="1.3" fill="#e4c9a8" />
           </g>
-          <g transform="translate(970, 138)" opacity="0.3">
+          <g transform="translate(970, 138)" opacity="0.45">
             <circle r="2.6" fill="#6b8e23" />
             <circle r="1" fill="#8fb339" />
           </g>
-          <g transform="translate(1110, 145)" opacity="0.22">
+          <g transform="translate(1110, 145)" opacity="0.35">
             <circle r="3" fill="#c97b5a" />
             <circle r="1.2" fill="#f9f7f2" />
           </g>
         </g>
 
         {/* Pebbles / stepping stones */}
-        <g opacity="0.07">
+        <g opacity="0.15">
           <ellipse cx="170" cy="195" rx="12" ry="6" fill="#8a7d6b" transform="rotate(-8 170 195)" />
           <ellipse cx="410" cy="200" rx="9" ry="5" fill="#9a8d7b" transform="rotate(5 410 200)" />
           <ellipse
@@ -151,7 +151,7 @@ export function GardenBackground() {
         width="180"
         height="240"
         viewBox="0 0 180 240"
-        style={{ opacity: 0.15 }}
+        style={{ opacity: 0.25 }}
         role="none"
       >
         <g fill="none" stroke="#6b8e23" strokeWidth="1.5" strokeLinecap="round">
@@ -179,7 +179,7 @@ export function GardenBackground() {
         width="180"
         height="240"
         viewBox="0 0 180 240"
-        style={{ opacity: 0.15 }}
+        style={{ opacity: 0.25 }}
         role="none"
       >
         <g fill="none" stroke="#6b8e23" strokeWidth="1.5" strokeLinecap="round">
@@ -206,7 +206,7 @@ export function GardenBackground() {
         preserveAspectRatio="xMidYMid slice"
         role="none"
       >
-        <g opacity="0.06" fill="#6b8e23">
+        <g opacity="0.12" fill="#6b8e23">
           <ellipse cx="100" cy="60" rx="12" ry="5" transform="rotate(-40 100 60)" />
           <ellipse cx="350" cy="90" rx="10" ry="4" transform="rotate(30 350 90)" />
           <ellipse cx="750" cy="50" rx="11" ry="4.5" transform="rotate(-25 750 50)" />
@@ -216,7 +216,7 @@ export function GardenBackground() {
           <ellipse cx="550" cy="250" rx="7" ry="3" transform="rotate(-20 550 250)" />
         </g>
         {/* Tiny seed/petal shapes drifting */}
-        <g opacity="0.05" fill="#d4a373">
+        <g opacity="0.10" fill="#d4a373">
           <circle cx="180" cy="180" r="2" />
           <circle cx="480" cy="120" r="1.5" />
           <circle cx="820" cy="200" r="2.5" />

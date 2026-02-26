@@ -31,7 +31,7 @@ export function ClearConfirmModal({ open, onOpenChange, onConfirm }: ClearConfir
             All planted flowers will be removed. This action cannot be undone.
           </DialogDescription>
         </DialogHeader>
-        <DialogFooter>
+        <DialogFooter className="gap-2 sm:gap-0">
           <Button variant="outline" onClick={() => onOpenChange(false)}>
             Cancel
           </Button>

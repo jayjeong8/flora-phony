@@ -1,5 +1,5 @@
 import type { PlantDefinition } from "@/types/plant";
-import { PlantType } from "@/types/plant";
+import { PlantCategory, PlantType } from "@/types/plant";
 
 export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
   [PlantType.RainReed]: {
@@ -10,6 +10,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#7BA7BC",
     svgPath: "/plants/rain-reed.svg",
     audioPath: "/audio/rain-reed.ogg",
+    category: PlantCategory.Ambient,
   },
   [PlantType.LofiFern]: {
     id: PlantType.LofiFern,
@@ -19,6 +20,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#6B8E23",
     svgPath: "/plants/lofi-fern.svg",
     audioPath: "/audio/lofi-fern.ogg",
+    category: PlantCategory.Melodic,
   },
   [PlantType.PulseMoss]: {
     id: PlantType.PulseMoss,
@@ -28,6 +30,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#4A7C59",
     svgPath: "/plants/pulse-moss.svg",
     audioPath: "/audio/pulse-moss.ogg",
+    category: PlantCategory.Rhythmic,
   },
   [PlantType.BellFlower]: {
     id: PlantType.BellFlower,
@@ -37,6 +40,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#C9A0DC",
     svgPath: "/plants/bell-flower.svg",
     audioPath: "/audio/bell-flower.ogg",
+    category: PlantCategory.Melodic,
   },
   [PlantType.WindWood]: {
     id: PlantType.WindWood,
@@ -46,6 +50,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#8B6914",
     svgPath: "/plants/wind-wood.svg",
     audioPath: "/audio/wind-wood.ogg",
+    category: PlantCategory.Rhythmic,
   },
   [PlantType.HazeLily]: {
     id: PlantType.HazeLily,
@@ -55,6 +60,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#C4A882",
     svgPath: "/plants/haze-lily.svg",
     audioPath: "/audio/haze-lily.ogg",
+    category: PlantCategory.Ambient,
   },
   [PlantType.RustleIvy]: {
     id: PlantType.RustleIvy,
@@ -64,6 +70,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#7A9E7E",
     svgPath: "/plants/rustle-ivy.svg",
     audioPath: "/audio/rustle-ivy.ogg",
+    category: PlantCategory.Ambient,
   },
   [PlantType.TideSeaweed]: {
     id: PlantType.TideSeaweed,
@@ -73,6 +80,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#6B8F9E",
     svgPath: "/plants/tide-seaweed.svg",
     audioPath: "/audio/tide-seaweed.ogg",
+    category: PlantCategory.Ambient,
   },
   [PlantType.ShimmerSage]: {
     id: PlantType.ShimmerSage,
@@ -82,6 +90,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#A3B18A",
     svgPath: "/plants/shimmer-sage.svg",
     audioPath: "/audio/shimmer-sage.ogg",
+    category: PlantCategory.Ambient,
   },
   [PlantType.EchoVine]: {
     id: PlantType.EchoVine,
@@ -91,6 +100,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#5B9279",
     svgPath: "/plants/echo-vine.svg",
     audioPath: "/audio/echo-vine.ogg",
+    category: PlantCategory.Pads,
   },
   [PlantType.DriftWillow]: {
     id: PlantType.DriftWillow,
@@ -100,6 +110,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#8E9AAF",
     svgPath: "/plants/drift-willow.svg",
     audioPath: "/audio/drift-willow.ogg",
+    category: PlantCategory.Pads,
   },
   [PlantType.HumLotus]: {
     id: PlantType.HumLotus,
@@ -109,6 +120,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#D4A0A0",
     svgPath: "/plants/hum-lotus.svg",
     audioPath: "/audio/hum-lotus.ogg",
+    category: PlantCategory.Pads,
   },
   [PlantType.EmberThorn]: {
     id: PlantType.EmberThorn,
@@ -118,6 +130,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#C45B28",
     svgPath: "/plants/ember-thorn.svg",
     audioPath: "/audio/ember-thorn.ogg",
+    category: PlantCategory.Pads,
   },
   [PlantType.CrystalCactus]: {
     id: PlantType.CrystalCactus,
@@ -127,6 +140,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#70C1B3",
     svgPath: "/plants/crystal-cactus.svg",
     audioPath: "/audio/crystal-cactus.ogg",
+    category: PlantCategory.Melodic,
   },
   [PlantType.ChirpClover]: {
     id: PlantType.ChirpClover,
@@ -136,6 +150,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#95B46A",
     svgPath: "/plants/chirp-clover.svg",
     audioPath: "/audio/chirp-clover.ogg",
+    category: PlantCategory.Melodic,
   },
   [PlantType.TwangBamboo]: {
     id: PlantType.TwangBamboo,
@@ -145,6 +160,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#C7956D",
     svgPath: "/plants/twang-bamboo.svg",
     audioPath: "/audio/twang-bamboo.ogg",
+    category: PlantCategory.Melodic,
   },
   [PlantType.FrostOrchid]: {
     id: PlantType.FrostOrchid,
@@ -154,6 +170,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#B8D4E3",
     svgPath: "/plants/frost-orchid.svg",
     audioPath: "/audio/frost-orchid.ogg",
+    category: PlantCategory.Melodic,
   },
   [PlantType.SparkDaisy]: {
     id: PlantType.SparkDaisy,
@@ -163,6 +180,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#E8B960",
     svgPath: "/plants/spark-daisy.svg",
     audioPath: "/audio/spark-daisy.ogg",
+    category: PlantCategory.Rhythmic,
   },
   [PlantType.GrooveRoot]: {
     id: PlantType.GrooveRoot,
@@ -172,6 +190,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#8B6C5C",
     svgPath: "/plants/groove-root.svg",
     audioPath: "/audio/groove-root.ogg",
+    category: PlantCategory.Rhythmic,
   },
   [PlantType.BubbleKelp]: {
     id: PlantType.BubbleKelp,
@@ -181,7 +200,35 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     color: "#4CA1A3",
     svgPath: "/plants/bubble-kelp.svg",
     audioPath: "/audio/bubble-kelp.ogg",
+    category: PlantCategory.Rhythmic,
   },
 };
 
 export const PLANT_LIST = Object.values(PLANT_REGISTRY);
+
+export const PLANT_CATEGORIES: {
+  category: PlantCategory;
+  label: string;
+  plants: PlantDefinition[];
+}[] = [
+  {
+    category: PlantCategory.Ambient,
+    label: "Ambient",
+    plants: PLANT_LIST.filter((p) => p.category === PlantCategory.Ambient),
+  },
+  {
+    category: PlantCategory.Melodic,
+    label: "Melodic",
+    plants: PLANT_LIST.filter((p) => p.category === PlantCategory.Melodic),
+  },
+  {
+    category: PlantCategory.Rhythmic,
+    label: "Rhythmic",
+    plants: PLANT_LIST.filter((p) => p.category === PlantCategory.Rhythmic),
+  },
+  {
+    category: PlantCategory.Pads,
+    label: "Pads",
+    plants: PLANT_LIST.filter((p) => p.category === PlantCategory.Pads),
+  },
+];

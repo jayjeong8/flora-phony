@@ -21,6 +21,13 @@ export enum PlantType {
   BubbleKelp = "bubble-kelp",
 }
 
+export enum PlantCategory {
+  Ambient = "ambient",
+  Melodic = "melodic",
+  Rhythmic = "rhythmic",
+  Pads = "pads",
+}
+
 export interface PlantDefinition {
   id: PlantType;
   name: string;
@@ -29,4 +36,5 @@ export interface PlantDefinition {
   color: string;
   svgPath: string;
   audioPath: string;
+  category: PlantCategory;
 }

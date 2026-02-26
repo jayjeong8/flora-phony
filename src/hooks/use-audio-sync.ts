@@ -30,8 +30,14 @@ export function useAudioSync(isAudioReady: boolean) {
       const manager = new PlantSoundManager();
       managerRef.current = manager;
 
-      const initialVolume = useGardenStore.getState().masterVolume;
-      manager.setMasterVolume(initialVolume);
+      const initialState = useGardenStore.getState();
+      manager.setMasterVolume(initialState.masterVolume);
+
+      // Play sounds for plants that already exist when audio starts
+      for (const plant of initialState.plants) {
+        const pan = selectPanValue(plant.x);
+        manager.addPlantSound(plant.plantType, pan);
+      }
 
       unsubscribe = useGardenStore.subscribe((state, prevState) => {
         if (state.masterVolume !== prevState.masterVolume) {

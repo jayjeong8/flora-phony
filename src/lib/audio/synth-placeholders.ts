@@ -31,7 +31,7 @@ function createLofiFernSynth(): SynthNode {
     envelope: { attack: 0.3, decay: 0.8, sustain: 0.4, release: 1.5 },
     volume: -12,
   });
-  synth.maxPolyphony = 4;
+  synth.maxPolyphony = 8;
   const reverb = new Tone.Reverb({ decay: 3, wet: 0.5 });
   const gain = new Tone.Gain(0.5);
   synth.connect(reverb);
@@ -226,7 +226,7 @@ function createShimmerSageSynth(): SynthNode {
     envelope: { attack: 1, decay: 2, sustain: 0.8, release: 2 },
     volume: -18,
   });
-  synth.maxPolyphony = 2;
+  synth.maxPolyphony = 4;
   const tremolo = new Tone.Tremolo({ frequency: 4, depth: 0.6 }).start();
   const gain = new Tone.Gain(0.4);
   synth.connect(tremolo);
@@ -301,7 +301,7 @@ function createDriftWillowSynth(): SynthNode {
     envelope: { attack: 1.5, decay: 2, sustain: 0.7, release: 3 },
     volume: -20,
   });
-  synth.maxPolyphony = 4;
+  synth.maxPolyphony = 8;
   const reverb = new Tone.Reverb({ decay: 5, wet: 0.6 });
   const gain = new Tone.Gain(0.35);
   synth.connect(reverb);
@@ -430,10 +430,12 @@ function createCrystalCactusSynth(): SynthNode {
 }
 
 function createChirpCloverSynth(): SynthNode {
-  const synth = new Tone.PluckSynth({
-    attackNoise: 1,
-    dampening: 4000,
-    resonance: 0.9,
+  const synth = new Tone.FMSynth({
+    harmonicity: 8,
+    modulationIndex: 2,
+    envelope: { attack: 0.001, decay: 0.3, sustain: 0, release: 0.3 },
+    modulation: { type: "square" },
+    modulationEnvelope: { attack: 0.001, decay: 0.2, sustain: 0, release: 0.2 },
     volume: -12,
   });
   const gain = new Tone.Gain(0.4);
@@ -460,10 +462,12 @@ function createChirpCloverSynth(): SynthNode {
 }
 
 function createTwangBambooSynth(): SynthNode {
-  const synth = new Tone.PluckSynth({
-    attackNoise: 2,
-    dampening: 3000,
-    resonance: 0.85,
+  const synth = new Tone.FMSynth({
+    harmonicity: 4,
+    modulationIndex: 3,
+    envelope: { attack: 0.001, decay: 0.4, sustain: 0, release: 0.3 },
+    modulation: { type: "triangle" },
+    modulationEnvelope: { attack: 0.001, decay: 0.3, sustain: 0, release: 0.3 },
     volume: -10,
   });
   const gain = new Tone.Gain(0.35);
