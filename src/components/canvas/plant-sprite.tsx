@@ -2,23 +2,28 @@
 
 import type Konva from "konva";
 import { useEffect, useRef, useState } from "react";
-import { Circle, Group, Image as KonvaImage, Line } from "react-konva";
+import { Circle, Ellipse, Group, Image as KonvaImage, Line } from "react-konva";
 import { PLANT_ANIMATIONS } from "@/data/plant-animations";
 import { PLANT_REGISTRY } from "@/data/plant-registry";
+import { loadPlantImage } from "@/lib/plant-image-cache";
 import type { PlantInstance } from "@/types/garden";
 
 const SPRITE_WIDTH = 48;
 const SPRITE_HEIGHT = 60;
+const SHADOW_RADIUS_X = SPRITE_WIDTH / 2 - 4;
+const SHADOW_RADIUS_Y = 5;
+const SHADOW_OFFSET_Y = SPRITE_HEIGHT / 2 + 2;
 
 function usePlantImage(svgPath: string) {
   const [image, setImage] = useState<HTMLImageElement | null>(null);
 
   useEffect(() => {
-    const img = new window.Image();
-    img.src = svgPath;
-    img.onload = () => setImage(img);
+    let cancelled = false;
+    loadPlantImage(svgPath).then((img) => {
+      if (!cancelled) setImage(img);
+    });
     return () => {
-      img.onload = null;
+      cancelled = true;
     };
   }, [svgPath]);
 
@@ -163,6 +168,16 @@ export function PlantSprite({
       offsetX={0}
       offsetY={0}
     >
+      {/* Ground shadow */}
+      <Ellipse
+        x={0}
+        y={SHADOW_OFFSET_Y}
+        radiusX={SHADOW_RADIUS_X}
+        radiusY={SHADOW_RADIUS_Y}
+        fill="#3a3a2a"
+        opacity={0.15}
+      />
+
       {/* Selection ring */}
       {isSelected && (
         <Circle
