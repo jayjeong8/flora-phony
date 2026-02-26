@@ -1,11 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40" fill="none">
-  <path d="M16 38V10" stroke="#5B9279" stroke-width="2" stroke-linecap="round"/>
-  <path d="M16 10C16 10 12 8 12 6C12 4 14 4 16 6" stroke="#5B9279" stroke-width="1.5" stroke-linecap="round"/>
-  <path d="M16 16C18 14 22 14 22 12C22 10 20 10 18 12" stroke="#5B9279" stroke-width="1.5" stroke-linecap="round"/>
-  <path d="M16 22C14 20 10 20 10 18C10 16 12 16 14 18" stroke="#5B9279" stroke-width="1.5" stroke-linecap="round"/>
-  <path d="M16 28C18 26 22 26 22 24C22 22 20 22 18 24" stroke="#5B9279" stroke-width="1.5" stroke-linecap="round"/>
-  <circle cx="12" cy="5" r="1" fill="#5B9279" opacity="0.5"/>
-  <circle cx="23" cy="11" r="1" fill="#5B9279" opacity="0.5"/>
-  <circle cx="9" cy="17" r="1" fill="#5B9279" opacity="0.5"/>
-  <circle cx="23" cy="23" r="1" fill="#5B9279" opacity="0.5"/>
+  <path d="M16 38V6" stroke="#5B9279" stroke-width="2" stroke-linecap="round"/>
+  <!-- Leaf pairs — top -->
+  <path d="M16 10Q12 6 8 8Q12 10 16 12Z" fill="#5B9279" opacity="0.85"/>
+  <path d="M16 10Q20 6 24 8Q20 10 16 12Z" fill="#5B9279" opacity="0.85"/>
+  <!-- Middle -->
+  <path d="M16 18Q12 14 8 16Q12 18 16 20Z" fill="#5B9279" opacity="0.8"/>
+  <path d="M16 18Q20 14 24 16Q20 18 16 20Z" fill="#5B9279" opacity="0.8"/>
+  <!-- Bottom -->
+  <path d="M16 26Q12 22 8 24Q12 26 16 28Z" fill="#5B9279" opacity="0.75"/>
+  <path d="M16 26Q20 22 24 24Q20 26 16 28Z" fill="#5B9279" opacity="0.75"/>
+  <!-- Highlights -->
+  <path d="M15.5 10.5Q13 8 10 9Q13 10.5 15.5 11.5Z" fill="#82B59A" opacity="0.4"/>
+  <path d="M16.5 10.5Q19 8 22 9Q19 10.5 16.5 11.5Z" fill="#82B59A" opacity="0.4"/>
+  <path d="M15.5 18.5Q13 16 10 17Q13 18.5 15.5 19.5Z" fill="#82B59A" opacity="0.35"/>
+  <path d="M16.5 18.5Q19 16 22 17Q19 18.5 16.5 19.5Z" fill="#82B59A" opacity="0.35"/>
+  <!-- Tendril curl -->
+  <path d="M16 6Q14 4 15 2" stroke="#5B9279" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.6"/>
+  <!-- Accent dots -->
+  <circle cx="9" cy="9" r="1" fill="#82B59A" opacity="0.5"/>
+  <circle cx="23" cy="17" r="1" fill="#82B59A" opacity="0.5"/>
 </svg>

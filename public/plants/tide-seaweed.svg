@@ -1,8 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40" fill="none">
-  <path d="M12 38C12 38 8 30 12 24C16 18 8 12 12 4" stroke="#6B8F9E" stroke-width="2" stroke-linecap="round"/>
-  <path d="M20 38C20 38 24 32 20 26C16 20 24 14 20 6" stroke="#6B8F9E" stroke-width="2" stroke-linecap="round"/>
-  <path d="M16 38C16 38 14 34 16 30C18 26 14 22 16 16" stroke="#6B8F9E" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-  <circle cx="10" cy="8" r="1" fill="#6B8F9E" opacity="0.4"/>
-  <circle cx="22" cy="10" r="1" fill="#6B8F9E" opacity="0.4"/>
-  <circle cx="16" cy="18" r="1.5" fill="#6B8F9E" opacity="0.3"/>
+  <!-- Left frond -->
+  <path d="M9 38Q5 30 11 24Q17 18 7 12Q3 8 9 2L12 2Q6 8 12 12Q18 18 12 24Q6 30 12 38Z" fill="#6B8F9E" opacity="0.8"/>
+  <!-- Right frond -->
+  <path d="M21 38Q27 32 21 26Q15 20 25 14Q29 10 23 4L20 4Q26 10 20 14Q14 20 20 26Q26 32 20 38Z" fill="#6B8F9E" opacity="0.75"/>
+  <!-- Center frond -->
+  <path d="M15 38Q12 34 15 30Q18 26 14 22Q10 18 14 14Q18 10 15 6L17 6Q20 10 17 14Q14 18 17 22Q20 26 17 30Q14 34 17 38Z" fill="#6B8F9E" opacity="0.55"/>
+  <!-- Highlights -->
+  <path d="M10 32Q7 26 11 22Q14 18 10 14L11.5 14Q15.5 18 12 22Q8 26 11 32Z" fill="#94B3BF" opacity="0.35"/>
+  <path d="M21 34Q25 30 21 26Q18 22 21 18L20 18Q17 22 20 26Q24 30 20 34Z" fill="#94B3BF" opacity="0.3"/>
+  <!-- Bubbles -->
+  <circle cx="5" cy="8" r="1.5" fill="#94B3BF" opacity="0.55"/>
+  <circle cx="27" cy="12" r="1.2" fill="#94B3BF" opacity="0.5"/>
+  <circle cx="16" cy="16" r="1" fill="#94B3BF" opacity="0.4"/>
+  <circle cx="7" cy="20" r="1.3" fill="#94B3BF" opacity="0.45"/>
 </svg>

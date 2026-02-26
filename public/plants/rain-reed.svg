@@ -1,8 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40" fill="none">
-  <path d="M16 38V12" stroke="#7BA7BC" stroke-width="2" stroke-linecap="round"/>
-  <path d="M16 12C16 12 10 8 10 4C10 1 13 0 16 2C19 0 22 1 22 4C22 8 16 12 16 12Z" fill="#7BA7BC"/>
-  <circle cx="10" cy="22" r="1.5" fill="#7BA7BC" opacity="0.5"/>
-  <circle cx="22" cy="18" r="1.5" fill="#7BA7BC" opacity="0.5"/>
-  <circle cx="13" cy="28" r="1" fill="#7BA7BC" opacity="0.4"/>
-  <circle cx="20" cy="26" r="1" fill="#7BA7BC" opacity="0.4"/>
+  <!-- Stem -->
+  <path d="M16 38V10" stroke="#7BA7BC" stroke-width="2" stroke-linecap="round"/>
+  <!-- Cattail head -->
+  <ellipse cx="16" cy="6" rx="3" ry="5.5" fill="#7BA7BC"/>
+  <ellipse cx="17" cy="5" rx="1.5" ry="3.5" fill="#A3C4D2" opacity="0.5"/>
+  <!-- Tip spike -->
+  <path d="M16 0.5V2" stroke="#7BA7BC" stroke-width="1" stroke-linecap="round"/>
+  <!-- Left blade leaves -->
+  <path d="M15 16Q10 12 5 14Q10 16 15 18Z" fill="#7BA7BC" opacity="0.75"/>
+  <path d="M15 24Q10 20 6 22Q10 24 15 27Z" fill="#7BA7BC" opacity="0.65"/>
+  <!-- Right blade leaves -->
+  <path d="M17 20Q22 16 27 18Q22 20 17 22Z" fill="#7BA7BC" opacity="0.75"/>
+  <path d="M17 28Q22 24 26 26Q22 28 17 31Z" fill="#7BA7BC" opacity="0.65"/>
+  <!-- Leaf highlights -->
+  <path d="M14.5 16.5Q11 14 8 15Q11 16 14.5 17.5Z" fill="#A3C4D2" opacity="0.4"/>
+  <path d="M17.5 20.5Q21 18 24 19Q21 20 17.5 21.5Z" fill="#A3C4D2" opacity="0.4"/>
+  <!-- Water droplets -->
+  <circle cx="7" cy="17" r="1.2" fill="#A3C4D2" opacity="0.6"/>
+  <circle cx="25" cy="21" r="1" fill="#A3C4D2" opacity="0.5"/>
+  <circle cx="8" cy="26" r="1" fill="#A3C4D2" opacity="0.4"/>
 </svg>
