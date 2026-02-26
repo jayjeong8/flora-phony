@@ -16,7 +16,7 @@ interface AboutModalProps {
 export function AboutModal({ open, onOpenChange }: AboutModalProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md" onOpenAutoFocus={(e) => e.preventDefault()}>
         <DialogHeader>
           <DialogTitle className="font-display text-2xl text-flora-green">FloraPhony</DialogTitle>
           <DialogDescription>Plants don&apos;t just grow. They sing.</DialogDescription>

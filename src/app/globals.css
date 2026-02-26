@@ -119,11 +119,11 @@
 
 .garden-bg-washes {
   background:
-    radial-gradient(ellipse 60% 50% at 15% 20%, rgba(107, 142, 35, 0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 60% at 80% 30%, rgba(107, 142, 35, 0.1) 0%, transparent 70%),
-    radial-gradient(ellipse 55% 45% at 50% 70%, rgba(212, 163, 115, 0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 45% 55% at 25% 80%, rgba(243, 237, 228, 0.14) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 50% at 70% 60%, rgba(107, 142, 35, 0.13) 0%, transparent 70%);
+    radial-gradient(ellipse 60% 50% at 15% 20%, rgba(107, 142, 35, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 80% 30%, rgba(107, 142, 35, 0.16) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 45% at 50% 70%, rgba(212, 163, 115, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 55% at 25% 80%, rgba(243, 237, 228, 0.22) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 50% at 70% 60%, rgba(107, 142, 35, 0.2) 0%, transparent 70%);
   animation: garden-wash-drift 30s ease-in-out infinite alternate;
 }
 
@@ -131,9 +131,9 @@
   background: linear-gradient(
     to bottom,
     transparent 55%,
-    rgba(107, 142, 35, 0.06) 70%,
-    rgba(212, 163, 115, 0.1) 85%,
-    rgba(160, 120, 70, 0.14) 100%
+    rgba(107, 142, 35, 0.12) 70%,
+    rgba(212, 163, 115, 0.18) 85%,
+    rgba(160, 120, 70, 0.22) 100%
   );
 }
 
@@ -145,8 +145,8 @@
 
 .garden-bg-dots {
   background:
-    radial-gradient(circle 1.5px at 30px 40px, rgba(107, 142, 35, 0.18) 1.5px, transparent 1.5px),
-    radial-gradient(circle 1px at 50px 20px, rgba(212, 163, 115, 0.15) 1px, transparent 1px);
+    radial-gradient(circle 1.5px at 30px 40px, rgba(107, 142, 35, 0.25) 1.5px, transparent 1.5px),
+    radial-gradient(circle 1px at 50px 20px, rgba(212, 163, 115, 0.22) 1px, transparent 1px);
   background-size:
     97px 89px,
     73px 67px;
@@ -168,7 +168,7 @@
 .garden-bg-particles::before {
   width: 8px;
   height: 8px;
-  background: rgba(107, 142, 35, 0.25);
+  background: rgba(107, 142, 35, 0.32);
   filter: blur(3px);
   top: 20%;
   left: 30%;
@@ -178,7 +178,7 @@
 .garden-bg-particles::after {
   width: 7px;
   height: 7px;
-  background: rgba(212, 163, 115, 0.2);
+  background: rgba(212, 163, 115, 0.28);
   filter: blur(3px);
   top: 60%;
   left: 65%;
@@ -208,19 +208,19 @@
   0%,
   100% {
     transform: translate(0, 0) scale(1);
-    opacity: 0.15;
+    opacity: 0.25;
   }
   25% {
     transform: translate(40px, -30px) scale(1.2);
-    opacity: 0.25;
+    opacity: 0.35;
   }
   50% {
     transform: translate(-20px, -50px) scale(0.9);
-    opacity: 0.1;
+    opacity: 0.18;
   }
   75% {
     transform: translate(30px, 20px) scale(1.1);
-    opacity: 0.2;
+    opacity: 0.3;
   }
 }
 
@@ -228,15 +228,15 @@
   0%,
   100% {
     transform: translate(0, 0) scale(1);
-    opacity: 0.12;
+    opacity: 0.2;
   }
   33% {
     transform: translate(-35px, 25px) scale(1.15);
-    opacity: 0.2;
+    opacity: 0.3;
   }
   66% {
     transform: translate(25px, -40px) scale(0.85);
-    opacity: 0.08;
+    opacity: 0.15;
   }
 }
 

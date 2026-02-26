@@ -11,12 +11,26 @@ export function ShareButton() {
 
   const handleShare = useCallback(async () => {
     const url = generateShareUrl();
+    const shareData = {
+      title: "FloraPhony — My Garden Soundscape",
+      text: "I grew a garden that sings. Check out my lo-fi soundscape on FloraPhony!",
+      url,
+    };
+
+    if (navigator.share && navigator.canShare?.(shareData)) {
+      try {
+        await navigator.share(shareData);
+        return;
+      } catch (err) {
+        if (err instanceof Error && err.name === "AbortError") return;
+      }
+    }
+
     try {
       await navigator.clipboard.writeText(url);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Fallback: prompt with the URL
       window.prompt("Share this URL:", url);
     }
   }, [generateShareUrl]);
