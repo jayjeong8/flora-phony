@@ -7,9 +7,10 @@ import { Button } from "@/components/ui/button";
 interface TopBarProps {
   onAboutClick?: () => void;
   onClearClick?: () => void;
+  isClearDisabled?: boolean;
 }
 
-export function TopBar({ onAboutClick, onClearClick }: TopBarProps) {
+export function TopBar({ onAboutClick, onClearClick, isClearDisabled }: TopBarProps) {
   return (
     <header className="flex items-center justify-between border-b border-flora-border bg-flora-bg px-4 py-3">
       <h1 className="font-display text-xl font-bold text-flora-green">FloraPhony</h1>
@@ -23,7 +24,14 @@ export function TopBar({ onAboutClick, onClearClick }: TopBarProps) {
         <Button variant="ghost" size="icon" onClick={onAboutClick} aria-label="About">
           <Info className="h-5 w-5 text-flora-text-muted" />
         </Button>
-        <Button variant="ghost" size="icon" onClick={onClearClick} aria-label="Clear All">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={onClearClick}
+          disabled={isClearDisabled}
+          aria-label="Clear All"
+          className="disabled:opacity-30 disabled:pointer-events-none"
+        >
           <Trash2 className="h-5 w-5 text-flora-text-muted" />
         </Button>
       </div>

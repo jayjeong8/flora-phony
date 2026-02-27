@@ -87,7 +87,7 @@ export default function Home() {
     <div onKeyDown={handleKeyDown} tabIndex={0} className="outline-none">
       <AudioGateModal />
 
-      <GardenLayout onAboutClick={() => setAboutOpen(true)} onClearClick={handleClear}>
+      <GardenLayout onAboutClick={() => setAboutOpen(true)} onClearClick={handleClear} isClearDisabled={plants.length === 0}>
         <GardenCanvas
           snapshotRef={canvasContainerRef}
           renderPlants={(size) =>
