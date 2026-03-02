@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { PLANT_LIST } from "@/data/plant-registry";
+import { PLANT_CATEGORIES, PLANT_LIST } from "@/data/plant-registry";
 import { cn } from "@/lib/utils";
 import { PlantCategory, type PlantDefinition } from "@/types/plant";
 
@@ -85,7 +85,7 @@ export function PlantCatalog() {
           The FloraPhony Plant Collection
         </h1>
         <p className="mx-auto mt-3 max-w-lg text-sm text-flora-text-muted sm:text-base">
-          {PLANT_LIST.length} unique sound plants across 4 categories. Each one generates its own lo-fi sound layer.
+          {PLANT_LIST.length} unique sound plants across {PLANT_CATEGORIES.length} categories. Each one generates its own lo-fi sound layer.
         </p>
       </section>
 
