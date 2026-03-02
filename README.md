@@ -4,11 +4,11 @@
 
 Plant sounds, not seeds — a lo-fi ambient music garden you can grow right in your browser.
 
-<a href="https://flora-phony.vercel.app" target="_blank">Try it now</a> · [한국어](./README.ko.md)
+[Try it now](https://flora-phony.vercel.app) · [한국어](./README.ko.md)
 
 ![FloraPhony Preview](docs/images/preview.png)
 
-<a href="https://flora-phony.vercel.app/?g=BBJKBAdPBBpLBCVKBC5OBDhJBENNBExIBFNPBFlHBF5QEQc_ERUjETAQEUUYEVQoEWE_DRE2DSMhDT8iASgcATAiATkcAxIMAw5BEFIMEFU7Ag5VAhc6AiA7EkE7Ekw7ElNXEx8hEyUXEzkVE0IcCxwtCyg3CzY5C0YxC04nDBcUDAsQDAUsDEsUDFoSDF0z" target="_blank">Preview my garden</a>
+[Preview my garden](https://flora-phony.vercel.app/?g=BBJKBAdPBBpLBCVKBC5OBDhJBENNBExIBFNPBFlHBF5QEQc_ERUjETAQEUUYEVQoEWE_DRE2DSMhDT8iASgcATAiATkcAxIMAw5BEFIMEFU7Ag5VAhc6AiA7EkE7Ekw7ElNXEx8hEyUXEzkVE0IcCxwtCyg3CzY5C0YxC04nDBcUDAsQDAUsDEsUDFoSDF0z)
 
 ---
 
