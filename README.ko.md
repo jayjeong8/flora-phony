@@ -48,3 +48,8 @@ npm run dev
 ```
 
 [http://localhost:3000](http://localhost:3000)에서 확인하세요.
+
+## 라이선스
+
+- 소스 코드는 [MIT 라이선스](./LICENSE)를 따릅니다.
+- 시각 에셋(`public/plants/`), 사운드 디자인 파라미터(`src/lib/audio/synth-placeholders.ts`), 식물 정의(`src/data/plant-registry.ts`)는 [CC BY-NC-SA 4.0](./LICENSE-ASSETS)을 따릅니다.

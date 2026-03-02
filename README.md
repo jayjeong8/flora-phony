@@ -48,3 +48,8 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+## License
+
+- Source code is licensed under the [MIT License](./LICENSE).
+- Creative assets (`public/plants/`), sound design parameters (`src/lib/audio/synth-placeholders.ts`), and plant definitions (`src/data/plant-registry.ts`) are licensed under [CC BY-NC-SA 4.0](./LICENSE-ASSETS).
