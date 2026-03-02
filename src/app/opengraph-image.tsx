@@ -3,7 +3,7 @@ import { PLANT_REGISTRY } from "@/data/plant-registry";
 import { deserialize, deserializeCompact } from "@/lib/garden-serializer";
 import { PlantType } from "@/types/plant";
 
-export const runtime = "edge";
+export const dynamic = "force-dynamic";
 
 export const alt = "FloraPhony — Plant a garden, grow a soundscape";
 export const size = { width: 1200, height: 630 };
