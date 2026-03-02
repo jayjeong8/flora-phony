@@ -125,6 +125,7 @@ export default function Home() {
             isViewingShared={isViewingShared}
             onSave={saveMyGarden}
           />
+          <div className="mx-1 border-t border-flora-border" />
           <ShareButton />
           <SnapshotButton containerRef={canvasContainerRef} />
         </div>
