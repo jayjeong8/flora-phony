@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 import { PLANT_REGISTRY } from "@/data/plant-registry";
-import { deserialize } from "@/lib/garden-serializer";
+import { deserialize, deserializeCompact } from "@/lib/garden-serializer";
 import { PlantType } from "@/types/plant";
 
 export const runtime = "edge";
@@ -50,11 +50,14 @@ const PLANT_SIZE = 70;
 export default async function OgImage({
   searchParams,
 }: {
-  searchParams: Promise<{ garden?: string }>;
+  searchParams: Promise<{ garden?: string; g?: string }>;
 }) {
   const params = await searchParams;
-  const gardenParam = params.garden;
-  const plants = gardenParam ? deserialize(gardenParam) : [];
+  const plants = params.g
+    ? deserializeCompact(params.g)
+    : params.garden
+      ? deserialize(params.garden)
+      : [];
   const hasGarden = plants.length > 0;
 
   const displayPlants = hasGarden
