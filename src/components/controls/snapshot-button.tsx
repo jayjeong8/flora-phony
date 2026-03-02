@@ -72,9 +72,9 @@ export function SnapshotButton({ containerRef, stageRef }: SnapshotButtonProps) 
       await drawImage(stageDataUrl);
     }
 
-    const finalDataUrl = offscreen.toDataURL("image/png");
+    const finalDataUrl = offscreen.toDataURL("image/jpeg", 0.85);
     const link = document.createElement("a");
-    link.download = `flora-phony-garden-${Date.now()}.png`;
+    link.download = `flora-phony-garden-${Date.now()}.jpg`;
     link.href = finalDataUrl;
     link.click();
   }, [containerRef, stageRef]);
