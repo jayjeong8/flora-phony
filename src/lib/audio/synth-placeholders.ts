@@ -66,9 +66,9 @@ function createLofiFernSynth(): SynthNode {
 
 function createPulseMossSynth(): SynthNode {
   const synth = new Tone.Synth({
-    oscillator: { type: "sine" },
+    oscillator: { type: "triangle" },
     envelope: { attack: 0.1, decay: 0.6, sustain: 0.3, release: 0.8 },
-    volume: -8,
+    volume: -6,
   });
   const gain = new Tone.Gain(0.35);
   synth.connect(gain);
@@ -544,9 +544,9 @@ function createSparkDaisySynth(): SynthNode {
     modulationIndex: 16,
     resonance: 3000,
     octaves: 1,
-    volume: -22,
+    volume: -14,
   });
-  const gain = new Tone.Gain(0.3);
+  const gain = new Tone.Gain(0.35);
   synth.connect(gain);
 
   const pattern = [1, 0, 0, 1, 0, 0, 0, 1];
@@ -576,9 +576,9 @@ function createGrooveRootSynth(): SynthNode {
     pitchDecay: 0.05,
     octaves: 6,
     envelope: { attack: 0.001, decay: 0.4, sustain: 0, release: 0.3 },
-    volume: -10,
+    volume: -8,
   });
-  const filter = new Tone.Filter({ frequency: 100, type: "lowpass" });
+  const filter = new Tone.Filter({ frequency: 250, type: "lowpass" });
   const gain = new Tone.Gain(0.35);
   synth.connect(filter);
   filter.connect(gain);
