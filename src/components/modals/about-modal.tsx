@@ -37,7 +37,19 @@ export function AboutModal({ open, onOpenChange }: AboutModalProps) {
               <li>Click on the canvas to plant it</li>
               <li>Drag plants to change their stereo position</li>
               <li>Drag plants outside the canvas to remove them</li>
-              <li>Share your garden via the Share button</li>
+            </ul>
+          </div>
+          <div className="space-y-1 pt-2">
+            <p className="font-medium text-flora-text">Saving &amp; sharing:</p>
+            <ul className="list-inside list-disc space-y-1">
+              <li>Your garden is always reflected in the URL &mdash; copy it anytime to share</li>
+              <li>
+                Click <span className="font-medium">Save</span> to keep your garden for next visit
+              </li>
+              <li>Shared links open without overwriting your saved garden</li>
+              <li>
+                Click <span className="font-medium">Save as Mine</span> to keep a shared garden
+              </li>
             </ul>
           </div>
         </div>

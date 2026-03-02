@@ -1,32 +1,9 @@
-import { createJSONStorage, type PersistStorage, type StateStorage } from "zustand/middleware";
 import type { PlantInstance } from "@/types/garden";
 import { PlantType } from "@/types/plant";
 
-const DEBOUNCE_MS = 500;
+const STORAGE_KEY = "flora-phony-garden";
 
 const VALID_PLANT_TYPES = new Set<string>(Object.values(PlantType));
-
-export function createDebouncedStorage<S>(): PersistStorage<S> | undefined {
-  let timer: ReturnType<typeof setTimeout> | null = null;
-
-  const rawStorage: StateStorage = {
-    getItem(name: string): string | null {
-      return localStorage.getItem(name);
-    },
-    setItem(name: string, value: string): void {
-      if (timer) clearTimeout(timer);
-      timer = setTimeout(() => {
-        localStorage.setItem(name, value);
-      }, DEBOUNCE_MS);
-    },
-    removeItem(name: string): void {
-      if (timer) clearTimeout(timer);
-      localStorage.removeItem(name);
-    },
-  };
-
-  return createJSONStorage<S>(() => rawStorage);
-}
 
 function isValidPlant(p: unknown): p is PlantInstance {
   if (typeof p !== "object" || p === null) return false;
@@ -45,7 +22,7 @@ function isValidPlant(p: unknown): p is PlantInstance {
   );
 }
 
-export function validatePersistedState(persisted: unknown): {
+function validatePersistedState(persisted: unknown): {
   plants?: PlantInstance[];
   masterVolume?: number;
 } {
@@ -63,4 +40,36 @@ export function validatePersistedState(persisted: unknown): {
   }
 
   return result;
+}
+
+export function saveToLocalStorage(data: { plants: PlantInstance[]; masterVolume: number }): void {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  } catch {
+    // localStorage might be full or unavailable
+  }
+}
+
+export function loadFromLocalStorage(): { plants?: PlantInstance[]; masterVolume?: number } {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw);
+    // Support both old format (wrapped in { state: ... }) and new format
+    const state = parsed?.state ?? parsed;
+    return validatePersistedState(state);
+  } catch {
+    return {};
+  }
+}
+
+export function hasSavedGarden(): boolean {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return false;
+    const loaded = loadFromLocalStorage();
+    return (loaded.plants?.length ?? 0) > 0;
+  } catch {
+    return false;
+  }
 }
