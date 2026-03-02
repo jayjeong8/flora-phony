@@ -20,7 +20,7 @@ No sign-up. No download. Just open, plant, and listen.
 
 ## Features
 
-- **20 Unique Sound Plants** — Choose from 4 categories: Ambient, Melodic, Rhythmic, and Pads. Each plant has its own distinct synthesized voice.
+- **24 Unique Sound Plants** — Choose from 4 categories: Ambient, Melodic, Rhythmic, and Pads. Each plant has its own distinct synthesized voice.
 - **Drag & Drop Composition** — Place plants anywhere on the canvas. Arranging your garden is the act of composing.
 - **Real-time Audio Synthesis** — All sounds are generated in real time using Tone.js. No loops, no samples — every moment is unique.
 - **URL Sharing** — Your entire garden is encoded in the URL. Copy and share it with anyone — they'll hear exactly what you built.
@@ -32,8 +32,8 @@ No sign-up. No download. Just open, plant, and listen.
 | Category | Plants |
 |----------|--------|
 | **Ambient** | Rain Reed, Haze Lily, Rustle Ivy, Tide Seaweed, Shimmer Sage |
-| **Melodic** | Lofi Fern, Bell Flower, Crystal Cactus, Chirp Clover, Twang Bamboo, Frost Orchid |
-| **Rhythmic** | Pulse Moss, Wind Wood, Groove Root, Spark Daisy, Bubble Kelp |
+| **Melodic** | Lofi Fern, Bell Flower, Crystal Cactus, Chirp Clover, Twang Bamboo, Frost Orchid, Smoky Jasmine, Croon Magnolia |
+| **Rhythmic** | Pulse Moss, Wind Wood, Groove Root, Spark Daisy, Bubble Kelp, Stroll Mangrove, Brush Thistle |
 | **Pads** | Echo Vine, Drift Willow, Hum Lotus, Ember Thorn |
 
 ## Tech Stack

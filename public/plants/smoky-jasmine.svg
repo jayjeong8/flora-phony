@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40" fill="none">
+  <!-- Ground plane -->
+  <ellipse cx="16" cy="38" rx="3.5" ry="1" fill="#8B7A45" opacity="0.25"/>
+  <!-- Main stem -->
+  <path d="M16 38C15.5 32 16.8 24 16 14" stroke="#8B7A45" stroke-width="2" stroke-linecap="round"/>
+  <!-- Stem highlight -->
+  <path d="M16.4 36C15.9 30 17 23 16.3 15" stroke="#C4A265" stroke-width="0.6" stroke-linecap="round" opacity="0.35"/>
+  <!-- Side leaves (asymmetric) -->
+  <path d="M14.5 26C11 24 7.5 24 7 25.5C9 27 12 27.5 14.5 27Z" fill="#8B7A45" opacity="0.75"/>
+  <path d="M17.5 24C21 22.5 24 22.5 25 23.5C23 25 20 25.5 17.5 25Z" fill="#8B7A45" opacity="0.7"/>
+  <!-- Leaf veins -->
+  <path d="M14 26.5C11.5 25 9 24.5 7.5 25" stroke="#8B7A45" stroke-width="0.5" stroke-linecap="round" opacity="0.3"/>
+  <path d="M18 24.5C20.5 23.5 23 23 24 23.5" stroke="#8B7A45" stroke-width="0.45" stroke-linecap="round" opacity="0.25"/>
+  <!-- Translucent side petals (wide, light gold) -->
+  <path d="M15 14C12 10 7 5 9 2C11 3 14 8 16 14Z" fill="#DFC07A" opacity="0.7"/>
+  <path d="M17 14C20 9.5 25 4.5 23 1.5C21 3 18 8 16 14Z" fill="#DFC07A" opacity="0.65"/>
+  <!-- 5 petals — bold, wide reach -->
+  <!-- Petal 1: left -->
+  <path d="M16 14C13 12 8 9.5 6.5 11C8 13.5 12 15 15 15Z" fill="#C4A265"/>
+  <!-- Petal 2: right -->
+  <path d="M16 14C19.5 11.5 24 9.5 25.5 10.5C24 13 20 15 17 15Z" fill="#C4A265" opacity="0.95"/>
+  <!-- Petal 3: top (wide) -->
+  <path d="M16 14C13 10.5 12 6 15 3.5C18 6 19 10.5 16 14Z" fill="#C4A265"/>
+  <!-- Petal 4: lower-left -->
+  <path d="M16 14C11 13 7 11 6.5 8.5C9 9.5 13 12 16 14Z" fill="#C4A265" opacity="0.9"/>
+  <!-- Petal 5: lower-right -->
+  <path d="M16 14C21.5 12 25 10 25.5 7.5C23 9 19 12 16 14Z" fill="#C4A265" opacity="0.85"/>
+  <!-- Petal highlights -->
+  <path d="M14 13.5C12 12 9 10.5 8 11.2C9 13 12 14.5 14 14.5Z" fill="#DFC07A" opacity="0.5"/>
+  <path d="M18 13.5C20 11.5 23 10 24 11C23 13 20 14.5 18 14.5Z" fill="#DFC07A" opacity="0.45"/>
+  <path d="M15.5 11C15 9 14.5 7 15 5C15.8 7 16 9.5 15.8 11.5Z" fill="#DFC07A" opacity="0.55"/>
+  <!-- Petal veins -->
+  <path d="M15 14C12.5 12 9 10.5 7 10.5" stroke="#8B7A45" stroke-width="0.5" stroke-linecap="round" opacity="0.3"/>
+  <path d="M17 14C19.5 12 23 10 25 10" stroke="#8B7A45" stroke-width="0.45" stroke-linecap="round" opacity="0.28"/>
+  <path d="M16 13C15.5 10 15 7.5 15 4" stroke="#8B7A45" stroke-width="0.4" stroke-linecap="round" opacity="0.25"/>
+  <!-- Center -->
+  <circle cx="16" cy="14" r="2" fill="#DFC07A" opacity="0.8"/>
+  <circle cx="16" cy="14" r="0.8" fill="#8B7A45" opacity="0.55"/>
+</svg>

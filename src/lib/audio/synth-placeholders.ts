@@ -636,6 +636,219 @@ function createBubbleKelpSynth(): SynthNode {
   };
 }
 
+function createSmokyJasmineSynth(): SynthNode {
+  const synth = new Tone.PolySynth(Tone.FMSynth, {
+    harmonicity: 3,
+    modulationIndex: 0.8,
+    envelope: { attack: 0.08, decay: 1.2, sustain: 0.3, release: 2 },
+    volume: -12,
+  });
+  synth.maxPolyphony = 8;
+  const filter = new Tone.Filter({ frequency: 2800, type: "lowpass" });
+  const chorus = new Tone.Chorus({ frequency: 0.8, depth: 0.4, wet: 0.3 }).start();
+  const reverb = new Tone.Reverb({ decay: 3.5, wet: 0.35 });
+  const gain = new Tone.Gain(0.35);
+  synth.connect(filter);
+  filter.connect(chorus);
+  chorus.connect(reverb);
+  reverb.connect(gain);
+
+  const chords: string[][] = [
+    ["E3", "A3", "C4", "F4"],
+    ["F3", "A3", "B3", "E4"],
+    ["E3", "G3", "B3", "D4"],
+    ["E3", "A3", "C4", "Eb4"],
+  ];
+  let chordIndex = 0;
+
+  const loop = new Tone.Loop((time) => {
+    synth.releaseAll(time);
+    const chord = chords[chordIndex % chords.length];
+    chord.forEach((note, i) => {
+      synth.triggerAttackRelease(note, "2n", time + i * 0.015);
+    });
+    chordIndex++;
+  }, "1m");
+  loop.start(0);
+
+  return {
+    output: gain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      synth.releaseAll();
+      synth.dispose();
+      filter.dispose();
+      chorus.dispose();
+      reverb.dispose();
+      gain.dispose();
+    },
+  };
+}
+
+function createStrollMangroveSynth(): SynthNode {
+  const synth = new Tone.Synth({
+    oscillator: { type: "triangle" },
+    envelope: { attack: 0.02, decay: 0.5, sustain: 0.2, release: 0.4 },
+    volume: -10,
+  });
+  const filter = new Tone.Filter({ frequency: 600, type: "lowpass", rolloff: -24 });
+  const reverb = new Tone.Reverb({ decay: 1.5, wet: 0.15 });
+  const gain = new Tone.Gain(0.35);
+  synth.connect(filter);
+  filter.connect(reverb);
+  reverb.connect(gain);
+
+  const walkingLine = [
+    "D2", "F2", "A2", "Db2",
+    "G2", "B2", "D3", "Ab2",
+    "C2", "E2", "G2", "B1",
+    "F2", "A2", "C3", "Eb2",
+  ];
+  let noteIndex = 0;
+
+  const loop = new Tone.Loop((time) => {
+    const note = walkingLine[noteIndex % walkingLine.length];
+    const swing = noteIndex % 2 === 1 ? 0.04 : 0;
+    synth.triggerAttackRelease(note, "8n", time + swing);
+    noteIndex++;
+  }, "4n");
+  loop.start(0);
+
+  return {
+    output: gain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      synth.dispose();
+      filter.dispose();
+      reverb.dispose();
+      gain.dispose();
+    },
+  };
+}
+
+function createBrushThistleSynth(): SynthNode {
+  const brushNoise = new Tone.Noise("pink");
+  const brushFilter = new Tone.AutoFilter({
+    frequency: "2n",
+    baseFrequency: 600,
+    octaves: 3,
+  }).start();
+  const brushGain = new Tone.Gain(0.12);
+  brushNoise.connect(brushFilter);
+  brushFilter.connect(brushGain);
+  brushNoise.start();
+
+  const ride = new Tone.MetalSynth({
+    envelope: { attack: 0.001, decay: 0.3, release: 0.15 },
+    harmonicity: 5.1,
+    resonance: 4500,
+    octaves: 0.5,
+    volume: -22,
+  });
+  const rideHpf = new Tone.Filter({ frequency: 8000, type: "highpass" });
+  const rideGain = new Tone.Gain(0.22);
+  ride.connect(rideHpf);
+  rideHpf.connect(rideGain);
+
+  const ghost = new Tone.NoiseSynth({
+    noise: { type: "white" },
+    envelope: { attack: 0.001, decay: 0.08, sustain: 0, release: 0.05 },
+    volume: -14,
+  });
+  const ghostGain = new Tone.Gain(0.16);
+  ghost.connect(ghostGain);
+
+  const reverb = new Tone.Reverb({ decay: 2, wet: 0.25 });
+  const masterGain = new Tone.Gain(0.35);
+  brushGain.connect(reverb);
+  rideGain.connect(reverb);
+  ghostGain.connect(reverb);
+  reverb.connect(masterGain);
+
+  let step = 0;
+  const loop = new Tone.Loop((time) => {
+    const beat = step % 8;
+    if (beat === 2 || beat === 6) {
+      ride.triggerAttackRelease("16n", time);
+    }
+    if (beat % 2 === 1 && Math.random() < 0.25) {
+      ghost.triggerAttackRelease("32n", time);
+    }
+    step++;
+  }, "8n");
+  loop.start(0);
+
+  return {
+    output: masterGain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      brushNoise.stop();
+      brushNoise.dispose();
+      brushFilter.dispose();
+      brushGain.dispose();
+      ride.dispose();
+      rideHpf.dispose();
+      rideGain.dispose();
+      ghost.dispose();
+      ghostGain.dispose();
+      reverb.dispose();
+      masterGain.dispose();
+    },
+  };
+}
+
+function createCroonMagnoliaSynth(): SynthNode {
+  const synth = new Tone.Synth({
+    oscillator: { type: "sawtooth" },
+    envelope: { attack: 0.15, decay: 0.6, sustain: 0.4, release: 1.2 },
+    volume: -18,
+  });
+  const muteFilter = new Tone.Filter({ frequency: 1200, type: "lowpass", Q: 2 });
+  const vibrato = new Tone.Vibrato({ frequency: 5, depth: 0.15 });
+  const delay = new Tone.FeedbackDelay({ delayTime: "8n.", feedback: 0.2, wet: 0.25 });
+  const reverb = new Tone.Reverb({ decay: 3, wet: 0.3 });
+  const gain = new Tone.Gain(0.35);
+  synth.connect(muteFilter);
+  muteFilter.connect(vibrato);
+  vibrato.connect(delay);
+  delay.connect(reverb);
+  reverb.connect(gain);
+
+  const melody: (string | null)[] = [
+    "D4", "F4", "A4", null,
+    "B3", "D4", "F4", "Ab4",
+    "G4", "E4", "Eb4", "C4",
+    "A3", "C4", "E4", null,
+  ];
+  let noteIndex = 0;
+
+  const loop = new Tone.Loop((time) => {
+    const note = melody[noteIndex % melody.length];
+    if (note) {
+      synth.triggerAttackRelease(note, "4n", time);
+    }
+    noteIndex++;
+  }, "4n");
+  loop.start(0);
+
+  return {
+    output: gain,
+    dispose: () => {
+      loop.stop();
+      loop.dispose();
+      synth.dispose();
+      muteFilter.dispose();
+      vibrato.dispose();
+      delay.dispose();
+      reverb.dispose();
+      gain.dispose();
+    },
+  };
+}
+
 export const SYNTH_PLACEHOLDERS: Record<PlantType, AudioAsset> = {
   [PlantType.RainReed]: {
     mode: "synth",
@@ -716,5 +929,21 @@ export const SYNTH_PLACEHOLDERS: Record<PlantType, AudioAsset> = {
   [PlantType.BubbleKelp]: {
     mode: "synth",
     createNode: createBubbleKelpSynth,
+  },
+  [PlantType.SmokyJasmine]: {
+    mode: "synth",
+    createNode: createSmokyJasmineSynth,
+  },
+  [PlantType.StrollMangrove]: {
+    mode: "synth",
+    createNode: createStrollMangroveSynth,
+  },
+  [PlantType.BrushThistle]: {
+    mode: "synth",
+    createNode: createBrushThistleSynth,
+  },
+  [PlantType.CroonMagnolia]: {
+    mode: "synth",
+    createNode: createCroonMagnoliaSynth,
   },
 };

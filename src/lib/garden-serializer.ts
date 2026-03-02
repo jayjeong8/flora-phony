@@ -22,6 +22,10 @@ const PLANT_TYPE_TO_ID: Record<PlantType, number> = {
   [PlantType.SparkDaisy]: 17,
   [PlantType.GrooveRoot]: 18,
   [PlantType.BubbleKelp]: 19,
+  [PlantType.SmokyJasmine]: 20,
+  [PlantType.StrollMangrove]: 21,
+  [PlantType.BrushThistle]: 22,
+  [PlantType.CroonMagnolia]: 23,
 };
 
 const ID_TO_PLANT_TYPE: Record<number, PlantType> = {
@@ -45,6 +49,10 @@ const ID_TO_PLANT_TYPE: Record<number, PlantType> = {
   17: PlantType.SparkDaisy,
   18: PlantType.GrooveRoot,
   19: PlantType.BubbleKelp,
+  20: PlantType.SmokyJasmine,
+  21: PlantType.StrollMangrove,
+  22: PlantType.BrushThistle,
+  23: PlantType.CroonMagnolia,
 };
 
 export function serialize(plants: PlantInstance[]): string {

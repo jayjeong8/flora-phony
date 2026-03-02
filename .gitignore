@@ -40,6 +40,7 @@ yarn-error.log*
 .vercel
 
 .claude
+CLAUDE.md
 
 # typescript
 *.tsbuildinfo

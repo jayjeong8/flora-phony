@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40" fill="none">
+  <!-- Ground plane -->
+  <ellipse cx="16" cy="38" rx="3.5" ry="1" fill="#7B5873" opacity="0.2"/>
+  <!-- Shadow trumpet (back layer) -->
+  <path d="M14 22C13 17 16 9 23 4C26 3 28 5 27 8C25 12 19 18 16 22Z" fill="#A882A0" opacity="0.12"/>
+  <!-- Main stem (C curve, slight leftward lean) -->
+  <path d="M16 38C15.5 33 14.5 27 14 20" stroke="#7B5873" stroke-width="2" stroke-linecap="round"/>
+  <!-- Stem highlight -->
+  <path d="M16.3 36C15.8 31 14.8 26 14.4 21" stroke="#A882A0" stroke-width="0.6" stroke-linecap="round" opacity="0.3"/>
+  <!-- Trumpet body outer — asymmetric horn: narrow throat → flared bell -->
+  <path d="M13 19C12 14 16 7 22 3C24 1.5 27 2 28 4C29 6.5 28 9 25 11C21 14 17 19 15 21Z" fill="#A882A0" opacity="0.8"/>
+  <!-- Trumpet mid highlight -->
+  <path d="M14 20C13.5 16 16.5 9 22 5C23.5 3.5 25.5 4 26.5 5.5C27.5 7.5 26 10 24 11.5C20.5 14 16.5 19 15 20.5Z" fill="#CEADC5" opacity="0.35"/>
+  <!-- Trumpet inner highlight (bell area glow) -->
+  <path d="M22 5.5C23.5 4 25.5 4.5 26 6C26.5 7.5 25.5 9.5 24 11C22 10 21.5 8 22 6Z" fill="#CEADC5" opacity="0.5"/>
+  <!-- Bell rim highlights (flared edge glow) -->
+  <path d="M22 3C24 1.5 27 2 28 3.5" stroke="#CEADC5" stroke-width="0.7" stroke-linecap="round" opacity="0.55"/>
+  <path d="M28 5C29 6.5 28 8.5 26 10" stroke="#CEADC5" stroke-width="0.6" stroke-linecap="round" opacity="0.4"/>
+  <!-- Tube veins (midrib along trumpet body) -->
+  <path d="M14 18.5C15 14 17 9 22 5" stroke="#7B5873" stroke-width="0.5" stroke-linecap="round" opacity="0.22"/>
+  <path d="M15 17.5C16 13 18 9 23 6" stroke="#7B5873" stroke-width="0.4" stroke-linecap="round" opacity="0.18"/>
+  <!-- Bell interior vein -->
+  <path d="M23 7C24.5 5.5 26 5.5 27 6.5" stroke="#7B5873" stroke-width="0.4" stroke-linecap="round" opacity="0.2"/>
+  <!-- Left leaf (lower, C bezier) -->
+  <path d="M13 28C10 26 7 25.5 6.5 27C8.5 29 11 29 13 28.5Z" fill="#7B5873" opacity="0.4"/>
+  <!-- Right leaf (higher position, different angle) -->
+  <path d="M15 25C17.5 23.5 20 23.5 20.5 25C18.5 26.5 16.5 26 15 25.5Z" fill="#7B5873" opacity="0.35"/>
+  <!-- Leaf veins -->
+  <path d="M12.5 27.5C10 26.5 8 26 7 27" stroke="#7B5873" stroke-width="0.4" stroke-linecap="round" opacity="0.2"/>
+  <path d="M15.5 25.5C17.5 24 19.5 23.5 20 24.5" stroke="#7B5873" stroke-width="0.35" stroke-linecap="round" opacity="0.18"/>
+  <!-- Throat accent (glow where tube narrows) -->
+  <path d="M13.5 19C13 17.5 13 16 13.5 14.5" stroke="#CEADC5" stroke-width="0.5" stroke-linecap="round" opacity="0.3"/>
+  <!-- Stamen at bell opening -->
+  <circle cx="25" cy="4.5" r="0.8" fill="#CEADC5" opacity="0.55"/>
+  <circle cx="27" cy="5.5" r="0.5" fill="#7B5873" opacity="0.35"/>
+</svg>

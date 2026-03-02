@@ -27,4 +27,8 @@ export const AUDIO_REGISTRY: Record<PlantType, AudioAsset> = {
   [PlantType.SparkDaisy]: SYNTH_PLACEHOLDERS[PlantType.SparkDaisy],
   [PlantType.GrooveRoot]: SYNTH_PLACEHOLDERS[PlantType.GrooveRoot],
   [PlantType.BubbleKelp]: SYNTH_PLACEHOLDERS[PlantType.BubbleKelp],
+  [PlantType.SmokyJasmine]: SYNTH_PLACEHOLDERS[PlantType.SmokyJasmine],
+  [PlantType.StrollMangrove]: SYNTH_PLACEHOLDERS[PlantType.StrollMangrove],
+  [PlantType.BrushThistle]: SYNTH_PLACEHOLDERS[PlantType.BrushThistle],
+  [PlantType.CroonMagnolia]: SYNTH_PLACEHOLDERS[PlantType.CroonMagnolia],
 };

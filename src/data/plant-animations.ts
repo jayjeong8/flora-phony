@@ -98,4 +98,22 @@ export const PLANT_ANIMATIONS: Record<PlantType, PlantAnimationConfig> = {
     rotation: { amplitude: 3, period: 2500 },
     float: { amplitude: 2, period: 3500 },
   },
+
+  // --- Jazz Quartet ---
+  [PlantType.SmokyJasmine]: {
+    rotation: { amplitude: 2, period: 3000 },
+    sway: { amplitude: 1.5, period: 3750 },
+  },
+  [PlantType.StrollMangrove]: {
+    sway: { amplitude: 2, period: 1500 },
+    scale: { amplitude: 0.03, period: 1500 },
+  },
+  [PlantType.BrushThistle]: {
+    rotation: { amplitude: 3, period: 1500 },
+    scale: { amplitude: 0.02, period: 750 },
+  },
+  [PlantType.CroonMagnolia]: {
+    float: { amplitude: 2, period: 4000 },
+    rotation: { amplitude: 1.5, period: 3000 },
+  },
 };

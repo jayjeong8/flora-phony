@@ -19,6 +19,10 @@ export enum PlantType {
   SparkDaisy = "spark-daisy",
   GrooveRoot = "groove-root",
   BubbleKelp = "bubble-kelp",
+  SmokyJasmine = "smoky-jasmine",
+  StrollMangrove = "stroll-mangrove",
+  BrushThistle = "brush-thistle",
+  CroonMagnolia = "croon-magnolia",
 }
 
 export enum PlantCategory {

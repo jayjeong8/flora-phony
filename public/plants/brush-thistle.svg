@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40" fill="none">
+  <!-- Shadow spines (back layer) -->
+  <path d="M16 12C13 6 10 2 9 3C11 6 14 9 16 12Z" fill="#8B7D6B" opacity="0.12"/>
+  <path d="M16 12C19 5 22.5 2 23 3.5C21 7 18 10 16 12Z" fill="#8B7D6B" opacity="0.1"/>
+  <!-- Main stem (C bezier gentle curve) -->
+  <path d="M16 38C15.7 32 16.3 22 16 14" stroke="#6B5F50" stroke-width="2" stroke-linecap="round"/>
+  <!-- Stem highlight -->
+  <path d="M16.3 36C16.1 30 16.6 21 16.3 15" stroke="#A89880" stroke-width="0.6" stroke-linecap="round" opacity="0.3"/>
+  <!-- Thistle head — 6 varied spines (each unique curvature) -->
+  <!-- Spine 1: wide sweep left, tapered -->
+  <path d="M16 14C14 9 11 4 10 2C11.5 6 13.5 10 16 14Z" fill="#8B7D6B" opacity="0.7"/>
+  <!-- Spine 2: tight curl right, thinner -->
+  <path d="M16 14C18 8 20.5 4 21.5 2C20 6.5 18 10 16 14Z" fill="#8B7D6B" opacity="0.65"/>
+  <!-- Spine 3: low angle left, broad -->
+  <path d="M16 14C12 10 8 6.5 6.5 5.5C9 8.5 12.5 11 16 14Z" fill="#8B7D6B" opacity="0.6"/>
+  <!-- Spine 4: high angle right, narrow arc -->
+  <path d="M16 14C19.5 9 24 5.5 25.5 5C23 8 20 11.5 16 14Z" fill="#8B7D6B" opacity="0.55"/>
+  <!-- Spine 5: low horizontal left, stubby -->
+  <path d="M16 14C12 11 8 9 5.5 9C8 11 12.5 12.5 16 14Z" fill="#8B7D6B" opacity="0.55"/>
+  <!-- Spine 6: low horizontal right, elongated -->
+  <path d="M16 14C20.5 11 24.5 9.5 27 9.5C24 11 20 12.5 16 14Z" fill="#8B7D6B" opacity="0.5"/>
+  <!-- Center brush tip strokes (varied widths, max 0.8px) -->
+  <path d="M14 14C13.5 10 14.2 6 13 3" stroke="#6B5F50" stroke-width="0.7" stroke-linecap="round" opacity="0.5"/>
+  <path d="M18 14C18.5 9.5 17.8 5 19 2.5" stroke="#6B5F50" stroke-width="0.6" stroke-linecap="round" opacity="0.45"/>
+  <path d="M16 14C16 9 15.8 5 16.2 1.5" stroke="#6B5F50" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+  <!-- Spine highlights -->
+  <path d="M15 11C14.2 8 14.5 5 13.5 3.5" stroke="#A89880" stroke-width="0.4" stroke-linecap="round" opacity="0.3"/>
+  <path d="M17 11C17.8 8 17.5 5 18.5 3" stroke="#A89880" stroke-width="0.35" stroke-linecap="round" opacity="0.25"/>
+  <!-- Thistle tuft tips -->
+  <circle cx="13" cy="2.5" r="1" fill="#A89880" opacity="0.45"/>
+  <circle cx="19.5" cy="2" r="0.9" fill="#A89880" opacity="0.4"/>
+  <circle cx="16" cy="1.5" r="1.2" fill="#A89880" opacity="0.5"/>
+  <!-- Side leaf pair (asymmetric) -->
+  <path d="M14 26C11 24 8.5 24 8 25.5C9.5 27 12 27 14 26.5Z" fill="#6B5F50" opacity="0.4"/>
+  <path d="M18 24C21 22.5 23.5 22.5 24.5 23.5C23 25 20 25 18 24.5Z" fill="#6B5F50" opacity="0.35"/>
+  <!-- Leaf veins (midrib) -->
+  <path d="M13.5 26C11.5 24.5 9.5 24.5 8.5 25" stroke="#6B5F50" stroke-width="0.45" stroke-linecap="round" opacity="0.2"/>
+  <path d="M18.5 24.5C20.5 23.5 22.5 23 23.5 23.5" stroke="#6B5F50" stroke-width="0.4" stroke-linecap="round" opacity="0.18"/>
+  <!-- Ground plane -->
+  <ellipse cx="16" cy="38" rx="3" ry="1" fill="#6B5F50" opacity="0.2"/>
+</svg>
