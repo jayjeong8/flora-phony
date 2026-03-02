@@ -42,13 +42,18 @@ export function AboutModal({ open, onOpenChange }: AboutModalProps) {
           <div className="space-y-1 pt-2">
             <p className="font-medium text-flora-text">Saving &amp; sharing:</p>
             <ul className="list-inside list-disc space-y-1">
-              <li>Your garden is always reflected in the URL &mdash; copy it anytime to share</li>
               <li>
-                Click <span className="font-medium">Save</span> to keep your garden for next visit
+                <span className="font-medium">Save</span> keeps your garden in this browser for your
+                next visit
+              </li>
+              <li>
+                <span className="font-medium">Copy Link</span> copies the current URL &mdash; you
+                can share it without saving
               </li>
               <li>Shared links open without overwriting your saved garden</li>
               <li>
-                Click <span className="font-medium">Save as Mine</span> to keep a shared garden
+                Click <span className="font-medium">Keep This</span> on a shared garden to make it
+                yours
               </li>
             </ul>
           </div>

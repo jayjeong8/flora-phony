@@ -45,7 +45,7 @@ export function ShareButton() {
       ) : (
         <>
           <Link2 className="h-4 w-4" />
-          <span className="text-xs">Share</span>
+          <span className="text-xs">Copy Link</span>
         </>
       )}
     </Button>

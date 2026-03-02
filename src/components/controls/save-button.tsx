@@ -20,7 +20,8 @@ export function SaveButton({ hasUnsavedChanges, isViewingShared, onSave }: SaveB
   }, [onSave]);
 
   const showDot = hasUnsavedChanges || isViewingShared;
-  const label = isViewingShared ? "Save as Mine" : "Save";
+  const label = isViewingShared ? "Keep This" : "Save";
+  const feedback = isViewingShared ? "Kept!" : "Saved!";
 
   return (
     <Button
@@ -32,7 +33,7 @@ export function SaveButton({ hasUnsavedChanges, isViewingShared, onSave }: SaveB
       {saved ? (
         <>
           <Check className="h-4 w-4 text-flora-green" />
-          <span className="text-xs">Saved!</span>
+          <span className="text-xs">{feedback}</span>
         </>
       ) : (
         <>
