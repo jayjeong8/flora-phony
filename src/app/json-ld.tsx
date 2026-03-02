@@ -29,7 +29,7 @@ const jsonLd = {
       url: siteUrl,
       potentialAction: {
         "@type": "SearchAction",
-        target: `${siteUrl}/?garden={search_term_string}`,
+        target: `${siteUrl}/?g={search_term_string}`,
         "query-input": "required name=search_term_string",
       },
     },

@@ -6,14 +6,19 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://flora-phony.vercel.
 export async function generateMetadata({
   searchParams,
 }: {
-  searchParams: Promise<{ garden?: string }>;
+  searchParams: Promise<{ garden?: string; g?: string }>;
 }): Promise<Metadata> {
   const params = await searchParams;
-  const gardenParam = params.garden;
 
-  if (!gardenParam) return {};
+  const ogParam = params.g
+    ? `g=${encodeURIComponent(params.g)}`
+    : params.garden
+      ? `garden=${encodeURIComponent(params.garden)}`
+      : null;
 
-  const ogImageUrl = `${siteUrl}/opengraph-image?garden=${encodeURIComponent(gardenParam)}`;
+  if (!ogParam) return {};
+
+  const ogImageUrl = `${siteUrl}/opengraph-image?${ogParam}`;
 
   return {
     title: "Listen to this garden",

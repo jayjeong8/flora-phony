@@ -58,7 +58,8 @@ export function serialize(plants: PlantInstance[]): string {
     .join("|");
 }
 
-const MAX_ENCODED_LENGTH = 500;
+const MAX_ENCODED_LENGTH = 2000;
+const MAX_PLANTS = 100;
 
 export function deserialize(encoded: string): PlantInstance[] {
   if (!encoded || encoded.trim() === "" || encoded.length > MAX_ENCODED_LENGTH) return [];
@@ -81,7 +82,86 @@ export function deserialize(encoded: string): PlantInstance[] {
 
     if (x < 0 || x > 100 || y < 0 || y > 100) continue;
 
-    if (plants.length >= 20) break;
+    if (plants.length >= MAX_PLANTS) break;
+
+    plants.push({
+      id: `plant-restored-${plants.length}-${Date.now()}`,
+      plantType,
+      x,
+      y,
+      createdAt: Date.now(),
+    });
+  }
+
+  return plants;
+}
+
+// --- Compact binary format ---
+// Each plant = 3 bytes: [typeId (0-19), x (0-100), y (0-100)]
+// Encoded as base64url (no padding, URL-safe)
+
+function uint8ToBase64url(bytes: Uint8Array): string {
+  let binary = "";
+  for (let i = 0; i < bytes.length; i++) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+  return btoa(binary)
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/, "");
+}
+
+function base64urlToUint8(str: string): Uint8Array {
+  let base64 = str.replace(/-/g, "+").replace(/_/g, "/");
+  while (base64.length % 4 !== 0) {
+    base64 += "=";
+  }
+  const binary = atob(base64);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) {
+    bytes[i] = binary.charCodeAt(i);
+  }
+  return bytes;
+}
+
+export function serializeCompact(plants: PlantInstance[]): string {
+  const capped = plants.slice(0, MAX_PLANTS);
+  if (capped.length === 0) return "";
+  const bytes = new Uint8Array(capped.length * 3);
+  for (let i = 0; i < capped.length; i++) {
+    const p = capped[i];
+    bytes[i * 3] = PLANT_TYPE_TO_ID[p.plantType];
+    bytes[i * 3 + 1] = Math.round(p.x);
+    bytes[i * 3 + 2] = Math.round(p.y);
+  }
+  return uint8ToBase64url(bytes);
+}
+
+const MAX_COMPACT_LENGTH = 600;
+
+export function deserializeCompact(encoded: string): PlantInstance[] {
+  if (!encoded || encoded.length > MAX_COMPACT_LENGTH) return [];
+
+  let bytes: Uint8Array;
+  try {
+    bytes = base64urlToUint8(encoded);
+  } catch {
+    return [];
+  }
+
+  if (bytes.length % 3 !== 0) return [];
+
+  const plants: PlantInstance[] = [];
+  const count = Math.min(bytes.length / 3, MAX_PLANTS);
+
+  for (let i = 0; i < count; i++) {
+    const typeId = bytes[i * 3];
+    const x = bytes[i * 3 + 1];
+    const y = bytes[i * 3 + 2];
+
+    const plantType = ID_TO_PLANT_TYPE[typeId];
+    if (!plantType) continue;
+    if (x > 100 || y > 100) continue;
 
     plants.push({
       id: `plant-restored-${plants.length}-${Date.now()}`,
