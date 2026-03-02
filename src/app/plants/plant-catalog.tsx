@@ -85,7 +85,7 @@ export function PlantCatalog() {
           The FloraPhony Plant Collection
         </h1>
         <p className="mx-auto mt-3 max-w-lg text-sm text-flora-text-muted sm:text-base">
-          20 unique sound plants across 4 categories. Each one generates its own lo-fi sound layer.
+          {PLANT_LIST.length} unique sound plants across 4 categories. Each one generates its own lo-fi sound layer.
         </p>
       </section>
 

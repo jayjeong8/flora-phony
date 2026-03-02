@@ -7,9 +7,8 @@ export const dynamic = "force-static";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://flora-phony.vercel.app";
 
 export const metadata: Metadata = {
-  title: "Plant Collection — 20 Unique Lo-fi Sound Plants",
-  description:
-    "Browse all 20 musical plants in FloraPhony: ambient rain reeds, melodic bell flowers, rhythmic pulse moss, and more. Each plant generates a unique lo-fi sound layer for your garden soundscape.",
+  title: `Plant Collection — ${PLANT_LIST.length} Unique Lo-fi Sound Plants`,
+  description: `Browse all ${PLANT_LIST.length} musical plants in FloraPhony: ambient rain reeds, melodic bell flowers, rhythmic pulse moss, and more. Each plant generates a unique lo-fi sound layer for your garden soundscape.`,
   keywords: [
     "lo-fi sound plants",
     "ambient garden plants",
@@ -24,9 +23,8 @@ export const metadata: Metadata = {
     canonical: "/plants",
   },
   openGraph: {
-    title: "Plant Collection — 20 Unique Lo-fi Sound Plants | FloraPhony",
-    description:
-      "Browse all 20 musical plants in FloraPhony. Each plant generates a unique lo-fi sound layer for your garden soundscape.",
+    title: `Plant Collection — ${PLANT_LIST.length} Unique Lo-fi Sound Plants | FloraPhony`,
+    description: `Browse all ${PLANT_LIST.length} musical plants in FloraPhony. Each plant generates a unique lo-fi sound layer for your garden soundscape.`,
     url: "/plants",
   },
 };
@@ -35,7 +33,7 @@ const itemListJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "FloraPhony Sound Plants",
-  description: "20 unique musical plants for lo-fi garden soundscapes",
+  description: `${PLANT_LIST.length} unique musical plants for lo-fi garden soundscapes`,
   numberOfItems: PLANT_LIST.length,
   itemListElement: PLANT_LIST.map((plant, index) => ({
     "@type": "ListItem",

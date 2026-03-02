@@ -1,3 +1,5 @@
+import { PLANT_LIST } from "@/data/plant-registry";
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://flora-phony.vercel.app";
 
 const jsonLd = {
@@ -8,7 +10,7 @@ const jsonLd = {
       name: "FloraPhony",
       url: siteUrl,
       description:
-        "Plant musical flowers, mix ambient layers, and grow your own lo-fi soundscape — all in your browser. 20 unique sound plants, drag-and-drop garden, no sign-up needed. Try FloraPhony free.",
+        `Plant musical flowers, mix ambient layers, and grow your own lo-fi soundscape — all in your browser. ${PLANT_LIST.length} unique sound plants, drag-and-drop garden, no sign-up needed. Try FloraPhony free.`,
       applicationCategory: "MultimediaApplication",
       operatingSystem: "Any",
       offers: {
@@ -65,7 +67,7 @@ const jsonLd = {
           name: "What makes FloraPhony different from lo-fi YouTube streams?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Unlike passive lo-fi streams, FloraPhony lets you compose your own soundscape by dragging and dropping 20 unique musical plants onto a canvas. Every garden is unique, generative, and shareable via a single URL.",
+            text: `Unlike passive lo-fi streams, FloraPhony lets you compose your own soundscape by dragging and dropping ${PLANT_LIST.length} unique musical plants onto a canvas. Every garden is unique, generative, and shareable via a single URL.`,
           },
         },
       ],

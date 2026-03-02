@@ -1,9 +1,11 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
+import { PLANT_LIST } from "@/data/plant-registry";
 import { JsonLd } from "./json-ld";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://flora-phony.vercel.app";
+const siteDescription = `Plant musical flowers, mix ambient layers, and grow your own lo-fi soundscape — all in your browser. ${PLANT_LIST.length} unique sound plants, drag-and-drop garden, no sign-up needed. Try FloraPhony free.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -11,8 +13,7 @@ export const metadata: Metadata = {
     default: "FloraPhony — Free Lo-fi Garden Music Generator & Ambient Soundscape Creator",
     template: "%s | FloraPhony",
   },
-  description:
-    "Plant musical flowers, mix ambient layers, and grow your own lo-fi soundscape — all in your browser. 20 unique sound plants, drag-and-drop garden, no sign-up needed. Try FloraPhony free.",
+  description: siteDescription,
   keywords: [
     "lo-fi music generator",
     "ambient soundscape creator",
@@ -40,8 +41,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "FloraPhony — Free Lo-fi Garden Music Generator & Ambient Soundscape Creator",
-    description:
-      "Plant musical flowers, mix ambient layers, and grow your own lo-fi soundscape — all in your browser. 20 unique sound plants, drag-and-drop garden, no sign-up needed. Try FloraPhony free.",
+    description: siteDescription,
     type: "website",
     siteName: "FloraPhony",
     locale: "en_US",
@@ -50,8 +50,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "FloraPhony — Free Lo-fi Garden Music Generator & Ambient Soundscape Creator",
-    description:
-      "Plant musical flowers, mix ambient layers, and grow your own lo-fi soundscape — all in your browser. 20 unique sound plants, drag-and-drop garden, no sign-up needed. Try FloraPhony free.",
+    description: siteDescription,
     creator: "@floraphony",
   },
   robots: {
