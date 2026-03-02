@@ -11,6 +11,7 @@ const GardenCanvas = dynamic(
 );
 
 import { ControlPanel } from "@/components/controls/control-panel";
+import { SaveButton } from "@/components/controls/save-button";
 import { ShareButton } from "@/components/controls/share-button";
 import { SnapshotButton } from "@/components/controls/snapshot-button";
 import { GardenLayout } from "@/components/layout/garden-layout";
@@ -27,8 +28,9 @@ export default function Home() {
   const [clearConfirmOpen, setClearConfirmOpen] = useState(false);
   const canvasContainerRef = useRef<HTMLDivElement>(null);
 
-  // Initialize URL restoration
-  useGardenUrl();
+  // Initialize URL restoration & persistence
+  const { isViewingShared, hasUnsavedChanges, hasSaved, saveMyGarden, loadMyGarden } =
+    useGardenUrl();
 
   // Initialize audio sync
   useAudioSync(isAudioReady);
@@ -87,7 +89,14 @@ export default function Home() {
     <div onKeyDown={handleKeyDown} tabIndex={0} className="outline-none">
       <AudioGateModal />
 
-      <GardenLayout onAboutClick={() => setAboutOpen(true)} onClearClick={handleClear} isClearDisabled={plants.length === 0}>
+      <GardenLayout
+        onAboutClick={() => setAboutOpen(true)}
+        onClearClick={handleClear}
+        isClearDisabled={plants.length === 0}
+        isViewingShared={isViewingShared}
+        hasSavedGarden={hasSaved}
+        onBackToMyGarden={loadMyGarden}
+      >
         <GardenCanvas
           snapshotRef={canvasContainerRef}
           renderPlants={(size) =>
@@ -111,6 +120,11 @@ export default function Home() {
         <ControlPanel />
 
         <div className="fixed right-4 top-32 z-30 flex flex-col gap-1 rounded-xl border border-flora-border bg-white/80 p-2 shadow-md backdrop-blur-md">
+          <SaveButton
+            hasUnsavedChanges={hasUnsavedChanges}
+            isViewingShared={isViewingShared}
+            onSave={saveMyGarden}
+          />
           <ShareButton />
           <SnapshotButton containerRef={canvasContainerRef} />
         </div>
