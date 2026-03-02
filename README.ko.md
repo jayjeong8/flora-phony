@@ -6,8 +6,9 @@
 
 [바로 시작하기](https://flora-phony.vercel.app) · [English](./README.md)
 
-<!-- TODO: 실제 스크린샷으로 교체 -->
 ![FloraPhony 미리보기](docs/images/preview.png)
+
+[내 정원 미리듣기](https://flora-phony.vercel.app/?g=BBJKBAdPBBpLBCVKBC5OBDhJBENNBExIBFNPBFlHBF5QEQc_ERUjETAQEUUYEVQoEWE_DRE2DSMhDT8iASgcATAiATkcAxIMAw5BEFIMEFU7Ag5VAhc6AiA7EkE7Ekw7ElNXEx8hEyUXEzkVE0IcCxwtCyg3CzY5C0YxC04nDBcUDAsQDAUsDEsUDFoSDF0z)
 
 ---
 
@@ -16,9 +17,6 @@
 FloraPhony는 브라우저에서 바로 즐기는 인터랙티브 뮤직 가든입니다. 캔버스 위에 음악 식물을 드래그 앤 드롭하면 나만의 로파이 앰비언트 사운드스케이프가 만들어집니다. 각 식물은 고유한 합성 사운드를 가지고 있으며, 함께 어우러져 살아 숨쉬는 음악 정원이 됩니다.
 
 회원가입도, 다운로드도 필요 없습니다. 열고, 심고, 듣기만 하면 됩니다.
-
-<!-- TODO: 실제 데모 GIF 또는 스크린샷으로 교체 -->
-![FloraPhony 데모](docs/images/demo.gif)
 
 ## 주요 기능
 

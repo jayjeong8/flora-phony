@@ -6,8 +6,9 @@ Plant sounds, not seeds — a lo-fi ambient music garden you can grow right in y
 
 [Try it now](https://flora-phony.vercel.app) · [한국어](./README.ko.md)
 
-<!-- TODO: Replace with actual screenshot -->
 ![FloraPhony Preview](docs/images/preview.png)
+
+[Preview my garden](https://flora-phony.vercel.app/?g=BBJKBAdPBBpLBCVKBC5OBDhJBENNBExIBFNPBFlHBF5QEQc_ERUjETAQEUUYEVQoEWE_DRE2DSMhDT8iASgcATAiATkcAxIMAw5BEFIMEFU7Ag5VAhc6AiA7EkE7Ekw7ElNXEx8hEyUXEzkVE0IcCxwtCyg3CzY5C0YxC04nDBcUDAsQDAUsDEsUDFoSDF0z)
 
 ---
 
@@ -16,9 +17,6 @@ Plant sounds, not seeds — a lo-fi ambient music garden you can grow right in y
 FloraPhony is a browser-based interactive music garden where you drag and drop musical plants onto a canvas to create your own lo-fi ambient soundscape. Each plant produces a unique synthesized sound, and together they blend into a living, breathing garden of music.
 
 No sign-up. No download. Just open, plant, and listen.
-
-<!-- TODO: Replace with actual demo gif or screenshot -->
-![FloraPhony Demo](docs/images/demo.gif)
 
 ## Features
 
