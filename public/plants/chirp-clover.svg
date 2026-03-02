@@ -1,22 +1,42 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40" fill="none">
-  <path d="M16 38V16" stroke="#95B46A" stroke-width="2" stroke-linecap="round"/>
-  <path d="M16 16V10" stroke="#95B46A" stroke-width="1.5" stroke-linecap="round"/>
-  <!-- Clover leaves -->
-  <circle cx="12" cy="11" r="5" fill="#95B46A" opacity="0.8"/>
-  <circle cx="20" cy="11" r="5" fill="#95B46A" opacity="0.8"/>
-  <circle cx="16" cy="6" r="5" fill="#95B46A" opacity="0.85"/>
-  <!-- Leaf highlights -->
-  <circle cx="13" cy="10" r="2.5" fill="#B4CC91" opacity="0.45"/>
-  <circle cx="21" cy="10" r="2.5" fill="#B4CC91" opacity="0.45"/>
-  <circle cx="16.5" cy="5.5" r="2.5" fill="#B4CC91" opacity="0.5"/>
+  <!-- Ground plane -->
+  <ellipse cx="16" cy="38" rx="3" ry="1" fill="#95B46A" opacity="0.2"/>
+  <!-- Stem (gentle C curve) -->
+  <path d="M16 38C15.5 34 15 28 15.5 22C16 18 16 16 16 14" stroke="#95B46A" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+  <!-- Stem highlight -->
+  <path d="M16 34C15.8 30 15.5 26 16 20" stroke="#B4CC91" stroke-width="0.7" stroke-linecap="round" opacity="0.35"/>
+  <!-- Shadow leaves (back layer) -->
+  <path d="M10 12C8 10 7.5 7 9 5C10.5 3 13 4 14 6C15 8 14 11 12 13C11.5 13.5 11 13 10 12Z" fill="#95B46A" opacity="0.18"/>
+  <path d="M22 12C24 10 24.5 7 23 5C21.5 3 19 4 18 6C17 8 18 11 20 13C20.5 13.5 21 13 22 12Z" fill="#95B46A" opacity="0.15"/>
+  <!-- Left clover leaf (heart-shaped) -->
+  <path d="M11 12C9 10.5 8 8 9 5.5C10 3.5 12.5 3.5 14 5.5C14.5 6.2 14.8 7 15 8C14.5 10 13 12 11 13Z" fill="#95B46A" opacity="0.8"/>
+  <!-- Right clover leaf (heart-shaped, slightly smaller) -->
+  <path d="M21 12C23 10.5 24 8 23 5.5C22 3.5 19.5 3.5 18 5.5C17.5 6.2 17.2 7 17 8C17.5 10 19 12 21 13Z" fill="#95B46A" opacity="0.75"/>
+  <!-- Top clover leaf (heart-shaped) -->
+  <path d="M13 7C12 4.5 12.5 2 15 1C16 0.5 17 0.5 18 1.5C19.5 3 19.5 5.5 18 7.5C17 9 16.5 9.5 16 10C15.5 9.5 14 8.5 13 7Z" fill="#95B46A" opacity="0.85"/>
+  <!-- Left leaf mid highlight -->
+  <path d="M11.5 10.5C10 9 9.5 7 10.5 5.5C11.5 4.5 13 5 13.5 6.5C14 8 13 10 11.5 11Z" fill="#B4CC91" opacity="0.4"/>
+  <!-- Right leaf mid highlight -->
+  <path d="M20.5 10.5C22 9 22.5 7 21.5 5.5C20.5 4.5 19 5 18.5 6.5C18 8 19 10 20.5 11Z" fill="#B4CC91" opacity="0.35"/>
+  <!-- Top leaf mid highlight -->
+  <path d="M14.5 6C14 4 14.5 2.5 16 1.8C17 2 17.5 3 17.5 5C17 6.5 16.5 8 16 9C15.5 8 15 7 14.5 6Z" fill="#B4CC91" opacity="0.42"/>
+  <!-- Leaf veins (midribs radiating from center) -->
+  <path d="M16 10C14 9 12 7.5 10.5 5.5" stroke="#7A9455" stroke-width="0.5" stroke-linecap="round" opacity="0.3"/>
+  <path d="M16 10C18 9 20 7.5 21.5 5.5" stroke="#7A9455" stroke-width="0.5" stroke-linecap="round" opacity="0.25"/>
+  <path d="M16 10C16 8 15.5 5 16 2" stroke="#7A9455" stroke-width="0.5" stroke-linecap="round" opacity="0.3"/>
+  <!-- Lateral veins (left leaf) -->
+  <path d="M13 8C12 7 11 6.5 10.5 6" stroke="#7A9455" stroke-width="0.3" stroke-linecap="round" opacity="0.18"/>
+  <path d="M13.5 10C12.5 9.5 11 9 10.5 9" stroke="#7A9455" stroke-width="0.3" stroke-linecap="round" opacity="0.15"/>
+  <!-- Lateral veins (right leaf) -->
+  <path d="M19 8C20 7 21 6.5 21.5 6" stroke="#7A9455" stroke-width="0.3" stroke-linecap="round" opacity="0.18"/>
+  <path d="M18.5 10C19.5 9.5 21 9 21.5 9" stroke="#7A9455" stroke-width="0.3" stroke-linecap="round" opacity="0.15"/>
   <!-- Center hub -->
-  <circle cx="16" cy="10" r="2" fill="#95B46A"/>
-  <circle cx="16" cy="10" r="1" fill="#B4CC91" opacity="0.5"/>
-  <!-- Leaf veins -->
-  <path d="M16 10L12 7" stroke="#B4CC91" stroke-width="0.7" stroke-linecap="round" opacity="0.35"/>
-  <path d="M16 10L20 7" stroke="#B4CC91" stroke-width="0.7" stroke-linecap="round" opacity="0.35"/>
-  <path d="M16 10L16 4" stroke="#B4CC91" stroke-width="0.7" stroke-linecap="round" opacity="0.35"/>
-  <!-- Side leaves -->
-  <path d="M14 28Q10 26 8 28Q10 29 14 29Z" fill="#95B46A" opacity="0.45"/>
-  <path d="M18 30Q22 28 24 30Q22 31 18 31Z" fill="#95B46A" opacity="0.45"/>
+  <circle cx="16" cy="10" r="1.8" fill="#95B46A" opacity="0.95"/>
+  <circle cx="16" cy="10" r="0.9" fill="#B4CC91" opacity="0.55"/>
+  <!-- Side leaves on stem (organic, asymmetric) -->
+  <path d="M14.5 26C11 24.5 8.5 25 8 27C9.5 27.5 12 27 14.5 26.5Z" fill="#95B46A" opacity="0.5"/>
+  <path d="M17 30C20 28.5 22.5 29 23.5 31C22 31 19.5 30.5 17 30.5Z" fill="#95B46A" opacity="0.45"/>
+  <!-- Side leaf veins -->
+  <path d="M14 26.5C12 26 10 26.5 8.5 27" stroke="#7A9455" stroke-width="0.25" stroke-linecap="round" opacity="0.15"/>
+  <path d="M17.5 30.5C19.5 30 21.5 30 23 31" stroke="#7A9455" stroke-width="0.25" stroke-linecap="round" opacity="0.15"/>
 </svg>

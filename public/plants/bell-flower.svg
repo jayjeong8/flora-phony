@@ -1,20 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40" fill="none">
-  <path d="M16 38V16" stroke="#9B7DB8" stroke-width="2" stroke-linecap="round"/>
-  <!-- Bell flower head -->
-  <path d="M16 16C16 16 8 14 8 8C8 4 12 2 16 6C20 2 24 4 24 8C24 14 16 16 16 16Z" fill="#C9A0DC"/>
-  <!-- Inner petal highlight -->
-  <path d="M16 14C16 14 11 12 11 8C11 6 13 5 16 7C19 5 21 6 21 8C21 12 16 14 16 14Z" fill="#E8D5F0" opacity="0.45"/>
+  <!-- Shadow flower (back layer) -->
+  <path d="M16.5 17C16.5 17 9 15 9 9C9 5 12.5 3 16.5 7C20.5 3 24 5 24 9C24 15 16.5 17 16.5 17Z" fill="#C9A0DC" opacity="0.18"/>
+  <!-- Main stem (gentle C curve) -->
+  <path d="M16 38C15.5 32 16.5 24 16 16" stroke="#9B7DB8" stroke-width="2" stroke-linecap="round"/>
+  <!-- Stem highlight -->
+  <path d="M16.3 36C15.8 30 16.8 23 16.3 17" stroke="#C9A0DC" stroke-width="0.6" stroke-linecap="round" opacity="0.3"/>
+  <!-- Bell flower head — base -->
+  <path d="M16 16C16 16 8 14 8 8C8 4 12 2 16 6C20 2 24 4 24 8C24 14 16 16 16 16Z" fill="#C9A0DC" opacity="0.8"/>
+  <!-- Bell flower head — mid highlight -->
+  <path d="M16 14C16 14 11 12 11 8C11 6 13 5 16 7C19 5 21 6 21 8C21 12 16 14 16 14Z" fill="#E8D5F0" opacity="0.4"/>
+  <!-- Bell flower head — top highlight -->
+  <path d="M16 11.5C16 11.5 13 10.5 13 8C13 7 14 6.5 16 7.5C18 6.5 19 7 19 8C19 10.5 16 11.5 16 11.5Z" fill="#E8D5F0" opacity="0.55"/>
+  <!-- Petal veins (thin strokes from center outward) -->
+  <path d="M16 8C14 7 11 8.5 9 10" stroke="#9B7DB8" stroke-width="0.4" stroke-linecap="round" opacity="0.25"/>
+  <path d="M16 8C18 7 21 8.5 23 10" stroke="#9B7DB8" stroke-width="0.4" stroke-linecap="round" opacity="0.2"/>
+  <path d="M16 8C15 10 14 12 14.5 14" stroke="#9B7DB8" stroke-width="0.35" stroke-linecap="round" opacity="0.2"/>
+  <path d="M16 8C17 10 18 12 17.5 14" stroke="#9B7DB8" stroke-width="0.35" stroke-linecap="round" opacity="0.18"/>
   <!-- Center -->
   <circle cx="16" cy="8" r="2" fill="#E8D5F0"/>
   <circle cx="16" cy="8" r="0.8" fill="#9B7DB8" opacity="0.6"/>
-  <!-- Side bud stems -->
-  <path d="M12 26L7 22" stroke="#9B7DB8" stroke-width="1.5" stroke-linecap="round"/>
-  <path d="M20 26L25 22" stroke="#9B7DB8" stroke-width="1.5" stroke-linecap="round"/>
-  <!-- Side buds -->
-  <path d="M7 22Q5 20 7 18Q9 20 7 22Z" fill="#C9A0DC" opacity="0.7"/>
-  <path d="M25 22Q23 20 25 18Q27 20 25 22Z" fill="#C9A0DC" opacity="0.7"/>
-  <circle cx="7" cy="20" r="1" fill="#E8D5F0" opacity="0.4"/>
-  <circle cx="25" cy="20" r="1" fill="#E8D5F0" opacity="0.4"/>
-  <!-- Leaf -->
-  <path d="M15 32Q11 30 9 32Q11 33 15 33Z" fill="#9B7DB8" opacity="0.4"/>
+  <!-- Side bud stems (C curves) -->
+  <path d="M13 26C11 24 9 23 7 22" stroke="#9B7DB8" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M19.5 25C21.5 23.5 23 22.5 25.5 22.5" stroke="#9B7DB8" stroke-width="1.4" stroke-linecap="round"/>
+  <!-- Side buds (asymmetric angles) -->
+  <path d="M7 22C5.5 20 5 18.5 7 17.5C9 19 8.5 20.5 7 22Z" fill="#C9A0DC" opacity="0.7"/>
+  <path d="M25.5 22.5C24 20 23.5 18 25.5 17.5C27.5 19.5 27 21 25.5 22.5Z" fill="#C9A0DC" opacity="0.65"/>
+  <!-- Bud highlights -->
+  <circle cx="7" cy="19.5" r="1" fill="#E8D5F0" opacity="0.4"/>
+  <circle cx="25.5" cy="19.8" r="0.9" fill="#E8D5F0" opacity="0.35"/>
+  <!-- Leaf (C bezier) -->
+  <path d="M15 32C12 30.5 9.5 30 9 31.5C10 33 12.5 33.5 15 33Z" fill="#9B7DB8" opacity="0.4"/>
+  <!-- Leaf vein -->
+  <path d="M14.5 32.5C12.5 31.5 10.5 31 9.5 31.5" stroke="#9B7DB8" stroke-width="0.35" stroke-linecap="round" opacity="0.25"/>
+  <!-- Ground plane -->
+  <ellipse cx="16" cy="38" rx="3" ry="1" fill="#9B7DB8" opacity="0.2"/>
 </svg>

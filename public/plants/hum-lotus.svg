@@ -1,20 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40" fill="none">
-  <path d="M16 38V22" stroke="#D4A0A0" stroke-width="2" stroke-linecap="round"/>
-  <!-- Back petals -->
-  <path d="M16 20C16 20 8 16 6 12C5 10 7 9 10 11C10 8 12 7 14 9Q15 14 16 20Z" fill="#D4A0A0" opacity="0.65"/>
-  <path d="M16 20C16 20 24 16 26 12C27 10 25 9 22 11C22 8 20 7 18 9Q17 14 16 20Z" fill="#D4A0A0" opacity="0.65"/>
-  <!-- Front petal -->
-  <path d="M16 22C16 22 12 18 12 14C12 12 14 12 16 14C18 12 20 12 20 14C20 18 16 22 16 22Z" fill="#D4A0A0"/>
-  <!-- Petal highlights -->
-  <path d="M16 20Q12 16 9 13C8.5 11.5 10 11 11.5 12.5Q14 16 16 18Z" fill="#E8C4C4" opacity="0.35"/>
-  <path d="M16 20Q20 16 23 13C23.5 11.5 22 11 20.5 12.5Q18 16 16 18Z" fill="#E8C4C4" opacity="0.35"/>
-  <path d="M16 20C16 20 13.5 17 13.5 14.5C13.5 13.5 14.5 13 16 14.5C17.5 13 18.5 13.5 18.5 14.5C18.5 17 16 20 16 20Z" fill="#E8C4C4" opacity="0.4"/>
-  <!-- Center -->
-  <circle cx="16" cy="14" r="1.8" fill="#E8C4C4"/>
-  <circle cx="16" cy="14" r="0.8" fill="#D4A0A0" opacity="0.5"/>
+  <!-- Water ripples (ground plane) -->
+  <ellipse cx="16" cy="36" rx="10" ry="1.2" fill="#D4A0A0" opacity="0.12"/>
+  <ellipse cx="16" cy="37.5" rx="7" ry="0.8" fill="#D4A0A0" opacity="0.1"/>
+  <!-- Stem with C curve -->
+  <path d="M16 34C15.5 30 15.8 26 16 22" stroke="#D4A0A0" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M16.3 33C16 29 16.2 25.5 16.3 23" stroke="#E8C4C4" stroke-width="0.6" stroke-linecap="round" opacity="0.35"/>
+  <!-- Shadow petals (back layer) -->
+  <path d="M16 20C14 18 7 14 5 11C4 8 7 8 9 10C10 7 13 6 15 9L16 20Z" fill="#D4A0A0" opacity="0.2"/>
+  <path d="M16 20C18 18 25 14 27 11C28 8 25 8 23 10C22 7 19 6 17 9L16 20Z" fill="#D4A0A0" opacity="0.18"/>
+  <!-- Base petals -->
+  <path d="M16 20C15 18 8.5 15 6.5 12C5.5 9.5 7.5 9 10 11C10 8 12.5 7 14.5 9.5C15 14 16 20 16 20Z" fill="#D4A0A0" opacity="0.7"/>
+  <path d="M16 20C17 18 23.5 15 25.5 12C26.5 9.5 24.5 9 22 11C22 8 19.5 7 17.5 9.5C17 14 16 20 16 20Z" fill="#D4A0A0" opacity="0.65"/>
+  <!-- Front center petal -->
+  <path d="M16 22C15 20 12.5 17 12.5 14C12.5 12 14 11.5 16 14C18 11.5 19.5 12 19.5 14C19.5 17 17 20 16 22Z" fill="#D4A0A0" opacity="0.85"/>
+  <!-- Mid highlight petals -->
+  <path d="M16 19C14 17 10 14 9 12C8.5 10.5 10 10 11.5 11.5C13 15 16 18 16 19Z" fill="#E8C4C4" opacity="0.35"/>
+  <path d="M16 19C18 17 22 14 23 12C23.5 10.5 22 10 20.5 11.5C19 15 16 18 16 19Z" fill="#E8C4C4" opacity="0.3"/>
+  <!-- Top accent on front petal -->
+  <path d="M16 20C15 18.5 14 16.5 14 14.5C14 13.5 15 13 16 14.5C17 13 18 13.5 18 14.5C18 16.5 17 18.5 16 20Z" fill="#E8C4C4" opacity="0.5"/>
+  <!-- Petal veins -->
+  <path d="M16 20C14 17 11 13 9.5 11" stroke="#E8C4C4" stroke-width="0.35" stroke-linecap="round" opacity="0.25"/>
+  <path d="M16 20C18 17 21 13 22.5 11" stroke="#E8C4C4" stroke-width="0.3" stroke-linecap="round" opacity="0.2"/>
+  <path d="M16 21C15.5 18 14 15.5 13 13.5" stroke="#E8C4C4" stroke-width="0.3" stroke-linecap="round" opacity="0.2"/>
+  <!-- Center stamen detail -->
+  <circle cx="16" cy="14" r="2" fill="#E8C4C4"/>
+  <circle cx="16" cy="14" r="1" fill="#D4A0A0" opacity="0.5"/>
+  <circle cx="16.8" cy="13.5" r="0.35" fill="#D4A0A0" opacity="0.3"/>
   <!-- Lily pad leaves -->
-  <ellipse cx="10" cy="34" rx="5" ry="2.5" fill="#D4A0A0" opacity="0.4"/>
-  <ellipse cx="22" cy="34" rx="5" ry="2.5" fill="#D4A0A0" opacity="0.4"/>
-  <ellipse cx="10.5" cy="33.5" rx="2.5" ry="1.2" fill="#E8C4C4" opacity="0.3"/>
-  <ellipse cx="22.5" cy="33.5" rx="2.5" ry="1.2" fill="#E8C4C4" opacity="0.3"/>
+  <ellipse cx="9.5" cy="34" rx="5.5" ry="2.2" fill="#D4A0A0" opacity="0.4"/>
+  <ellipse cx="23" cy="34.5" rx="5" ry="2" fill="#D4A0A0" opacity="0.35"/>
+  <!-- Lily pad highlights -->
+  <ellipse cx="10" cy="33.5" rx="2.8" ry="1" fill="#E8C4C4" opacity="0.3"/>
+  <ellipse cx="23.5" cy="34" rx="2.3" ry="0.9" fill="#E8C4C4" opacity="0.25"/>
+  <!-- Lily pad veins -->
+  <path d="M9.5 34L7 33" stroke="#E8C4C4" stroke-width="0.3" stroke-linecap="round" opacity="0.2"/>
+  <path d="M9.5 34L12 33" stroke="#E8C4C4" stroke-width="0.3" stroke-linecap="round" opacity="0.2"/>
+  <path d="M23 34.5L21 33.5" stroke="#E8C4C4" stroke-width="0.3" stroke-linecap="round" opacity="0.18"/>
 </svg>

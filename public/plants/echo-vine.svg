@@ -1,22 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40" fill="none">
-  <path d="M16 38V6" stroke="#5B9279" stroke-width="2" stroke-linecap="round"/>
-  <!-- Leaf pairs — top -->
-  <path d="M16 10Q12 6 8 8Q12 10 16 12Z" fill="#5B9279" opacity="0.85"/>
-  <path d="M16 10Q20 6 24 8Q20 10 16 12Z" fill="#5B9279" opacity="0.85"/>
-  <!-- Middle -->
-  <path d="M16 18Q12 14 8 16Q12 18 16 20Z" fill="#5B9279" opacity="0.8"/>
-  <path d="M16 18Q20 14 24 16Q20 18 16 20Z" fill="#5B9279" opacity="0.8"/>
-  <!-- Bottom -->
-  <path d="M16 26Q12 22 8 24Q12 26 16 28Z" fill="#5B9279" opacity="0.75"/>
-  <path d="M16 26Q20 22 24 24Q20 26 16 28Z" fill="#5B9279" opacity="0.75"/>
-  <!-- Highlights -->
-  <path d="M15.5 10.5Q13 8 10 9Q13 10.5 15.5 11.5Z" fill="#82B59A" opacity="0.4"/>
-  <path d="M16.5 10.5Q19 8 22 9Q19 10.5 16.5 11.5Z" fill="#82B59A" opacity="0.4"/>
-  <path d="M15.5 18.5Q13 16 10 17Q13 18.5 15.5 19.5Z" fill="#82B59A" opacity="0.35"/>
-  <path d="M16.5 18.5Q19 16 22 17Q19 18.5 16.5 19.5Z" fill="#82B59A" opacity="0.35"/>
-  <!-- Tendril curl -->
-  <path d="M16 6Q14 4 15 2" stroke="#5B9279" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.6"/>
-  <!-- Accent dots -->
-  <circle cx="9" cy="9" r="1" fill="#82B59A" opacity="0.5"/>
-  <circle cx="23" cy="17" r="1" fill="#82B59A" opacity="0.5"/>
+  <!-- Main vine stem — cascading S-curve (distinctly different from rustle-ivy) -->
+  <path d="M14 2C12 6 20 12 18 18C16 24 22 30 18 38" stroke="#5B9279" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- Stem highlight -->
+  <path d="M14.3 3C12.5 7 20.3 12.5 18.3 18.5C16.3 24.5 22 30 18.3 37" stroke="#82B59A" stroke-width="0.5" stroke-linecap="round" opacity="0.3"/>
+  <!-- Tendril curl — top -->
+  <path d="M14 2C13 1 12.5 1.5 13 3" stroke="#5B9279" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.6"/>
+  <!-- Tendril curl — mid left -->
+  <path d="M18 18C17 17 16 17.5 16.5 19" stroke="#5B9279" stroke-width="0.7" stroke-linecap="round" fill="none" opacity="0.5"/>
+  <!-- Tendril curl — lower right -->
+  <path d="M20 27C21 26.5 21.5 27 21 28" stroke="#5B9279" stroke-width="0.7" stroke-linecap="round" fill="none" opacity="0.45"/>
+  <!-- Echo shadow leaves (fading repeats behind main leaves) -->
+  <path d="M11 10C9 12 7 15 8 16C9.5 15 11 12.5 11.5 10.5Z" fill="#5B9279" opacity="0.1"/>
+  <path d="M22 18C24 20.5 25 23 24 24C22.5 22.5 21.5 20 22 18Z" fill="#5B9279" opacity="0.1"/>
+  <path d="M13 30C11 32 10 34.5 11 35.5C12.5 34 13 31.5 13 30Z" fill="#5B9279" opacity="0.1"/>
+  <!-- Hanging leaf 1 — upper left (drooping downward) -->
+  <path d="M13 8C10.5 9.5 8 12 8.5 14C10 12.5 12 10 13.5 8.5Z" fill="#5B9279" opacity="0.8"/>
+  <path d="M12.5 9C10.5 10.5 9 12.5 9.5 13.5C10.5 12 12 10 12.8 9.2Z" fill="#82B59A" opacity="0.4"/>
+  <!-- Leaf 1 vein -->
+  <path d="M12.8 8.8C10.5 11 9 13 9 13.8" stroke="#3D6B54" stroke-width="0.4" stroke-linecap="round" opacity="0.25"/>
+  <!-- Hanging leaf 2 — right side (drooping) -->
+  <path d="M20 15C23 16.5 25.5 19.5 25 21.5C23 19.5 21 17 20 15.5Z" fill="#5B9279" opacity="0.75"/>
+  <path d="M20.5 16C22.5 17.5 24.5 19.5 24 21C22.5 19 21 17 20.8 16.3Z" fill="#82B59A" opacity="0.35"/>
+  <!-- Leaf 2 vein -->
+  <path d="M20.3 15.8C23 18 24.5 20 24.5 21" stroke="#3D6B54" stroke-width="0.4" stroke-linecap="round" opacity="0.22"/>
+  <!-- Hanging leaf 3 — left mid (larger, drooping) -->
+  <path d="M17 22C14 24 11 27 11.5 29C13.5 27 16 24 17.5 22.5Z" fill="#5B9279" opacity="0.8"/>
+  <path d="M16.5 23C14 25 12 27.5 12.5 28.5C14 27 16 24.5 16.8 23.3Z" fill="#82B59A" opacity="0.4"/>
+  <!-- Leaf 3 vein -->
+  <path d="M17 22.5C14.5 25 12 27.5 12 28.5" stroke="#3D6B54" stroke-width="0.45" stroke-linecap="round" opacity="0.25"/>
+  <!-- Hanging leaf 4 — right lower (drooping) -->
+  <path d="M20 28C22.5 30 24 33 23 34.5C21.5 32.5 20 30 20 28.5Z" fill="#5B9279" opacity="0.7"/>
+  <path d="M20.5 29C22 30.5 23 33 22.5 34C21.5 32 20.5 30 20.7 29.3Z" fill="#82B59A" opacity="0.3"/>
+  <!-- Hanging leaf 5 — left bottom (smallest, trailing) -->
+  <path d="M17 34C15 35.5 13.5 37 14 38C15.5 37 17 35 17.3 34.3Z" fill="#5B9279" opacity="0.6"/>
+  <!-- Ground plane -->
+  <ellipse cx="18" cy="38.5" rx="3" ry="0.8" fill="#5B9279" opacity="0.2"/>
 </svg>

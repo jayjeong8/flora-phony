@@ -167,7 +167,7 @@ export const PLANT_REGISTRY: Record<PlantType, PlantDefinition> = {
     name: "Frost Orchid",
     label: "Frost",
     description: "Crystal high tones with icy delay trails",
-    color: "#B8D4E3",
+    color: "#7BBCD4",
     svgPath: "/plants/frost-orchid.svg",
     audioPath: "/audio/frost-orchid.ogg",
     category: PlantCategory.Melodic,

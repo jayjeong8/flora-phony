@@ -1,22 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40" fill="none">
-  <path d="M16 38V18" stroke="#E8B960" stroke-width="2" stroke-linecap="round"/>
-  <!-- Petals -->
+  <!-- Ground plane -->
+  <ellipse cx="16" cy="38" rx="3.5" ry="1" fill="#E8B960" opacity="0.2"/>
+  <!-- Stem with gentle C curve -->
+  <path d="M16 38C15.5 32 15.2 26 16 18" stroke="#E8B960" stroke-width="2" stroke-linecap="round"/>
+  <path d="M16.4 36C16 30 15.8 25 16.3 19" stroke="#F0D48A" stroke-width="0.6" stroke-linecap="round" opacity="0.35"/>
+  <!-- Shadow petal (back layer) -->
+  <ellipse cx="16" cy="4.5" rx="2.2" ry="5.5" fill="#E8B960" opacity="0.18"/>
+  <!-- Base petals -->
   <ellipse cx="16" cy="5" rx="2" ry="5" fill="#E8B960" opacity="0.8"/>
-  <ellipse cx="10" cy="7" rx="1.8" ry="4.5" fill="#E8B960" opacity="0.75" transform="rotate(30 10 7)"/>
-  <ellipse cx="22" cy="7" rx="1.8" ry="4.5" fill="#E8B960" opacity="0.75" transform="rotate(-30 22 7)"/>
-  <ellipse cx="7" cy="12" rx="1.6" ry="4" fill="#E8B960" opacity="0.7" transform="rotate(60 7 12)"/>
-  <ellipse cx="25" cy="12" rx="1.6" ry="4" fill="#E8B960" opacity="0.7" transform="rotate(-60 25 12)"/>
-  <ellipse cx="8" cy="17" rx="1.5" ry="3.5" fill="#E8B960" opacity="0.65" transform="rotate(80 8 17)"/>
-  <ellipse cx="24" cy="17" rx="1.5" ry="3.5" fill="#E8B960" opacity="0.65" transform="rotate(-80 24 17)"/>
-  <!-- Petal highlights -->
-  <ellipse cx="16" cy="6" rx="1" ry="3" fill="#F0D48A" opacity="0.45"/>
-  <ellipse cx="11" cy="7.5" rx="0.9" ry="2.5" fill="#F0D48A" opacity="0.4" transform="rotate(30 11 7.5)"/>
-  <ellipse cx="21" cy="7.5" rx="0.9" ry="2.5" fill="#F0D48A" opacity="0.4" transform="rotate(-30 21 7.5)"/>
-  <!-- Center disc -->
+  <ellipse cx="10" cy="7" rx="1.9" ry="4.5" fill="#E8B960" opacity="0.75" transform="rotate(32 10 7)"/>
+  <ellipse cx="22" cy="7" rx="1.7" ry="4.5" fill="#E8B960" opacity="0.73" transform="rotate(-28 22 7)"/>
+  <ellipse cx="7" cy="12" rx="1.6" ry="4" fill="#E8B960" opacity="0.7" transform="rotate(62 7 12)"/>
+  <ellipse cx="25" cy="12" rx="1.5" ry="4" fill="#E8B960" opacity="0.68" transform="rotate(-58 25 12)"/>
+  <!-- Mid highlights on petals -->
+  <ellipse cx="16" cy="6" rx="1" ry="3" fill="#F0D48A" opacity="0.4"/>
+  <ellipse cx="11" cy="7.5" rx="0.9" ry="2.5" fill="#F0D48A" opacity="0.35" transform="rotate(32 11 7.5)"/>
+  <!-- Top accent highlight -->
+  <ellipse cx="16" cy="5.5" rx="0.5" ry="1.8" fill="#F0D48A" opacity="0.55"/>
+  <!-- Petal veins -->
+  <path d="M16 12L16 3" stroke="#F0D48A" stroke-width="0.3" stroke-linecap="round" opacity="0.2"/>
+  <path d="M10.5 7.5L8 3" stroke="#F0D48A" stroke-width="0.3" stroke-linecap="round" opacity="0.18" transform="rotate(2 10.5 7.5)"/>
+  <!-- Center disc with seed texture -->
   <circle cx="16" cy="12" r="4" fill="#E8B960"/>
-  <circle cx="16" cy="12" r="2.2" fill="#F0D48A"/>
-  <circle cx="16" cy="11.5" r="1" fill="#E8B960" opacity="0.4"/>
+  <circle cx="16" cy="12" r="2.5" fill="#F0D48A"/>
+  <circle cx="15.2" cy="11.2" r="0.5" fill="#E8B960" opacity="0.35"/>
+  <circle cx="16.8" cy="11.5" r="0.45" fill="#E8B960" opacity="0.3"/>
+  <circle cx="16" cy="10.8" r="0.4" fill="#E8B960" opacity="0.25"/>
   <!-- Side leaves -->
-  <path d="M14 28Q10 26 8 28Q10 29 14 29Z" fill="#E8B960" opacity="0.4"/>
-  <path d="M18 30Q22 28 24 30Q22 31 18 31Z" fill="#E8B960" opacity="0.4"/>
+  <path d="M14 28C11 26 8.5 26.5 8 28C8.5 29.5 12 29.5 14 29Z" fill="#E8B960" opacity="0.45"/>
+  <path d="M14.5 28.5L11 27.5" stroke="#F0D48A" stroke-width="0.3" stroke-linecap="round" opacity="0.2"/>
+  <path d="M18 30C21 28 23.5 28.5 24 30C23.5 31.5 20 31.5 18 31Z" fill="#E8B960" opacity="0.4"/>
+  <path d="M18.5 30.5L21.5 29.5" stroke="#F0D48A" stroke-width="0.3" stroke-linecap="round" opacity="0.18"/>
+  <!-- Spark flash shapes -->
+  <path d="M6 5L5.5 4L6.5 4.5L7 3.5L6.5 5L7.5 5.5L6 5Z" fill="#F0D48A" opacity="0.4"/>
+  <path d="M26 5L25.5 4L26.5 4.5L27 3.5L26.5 5L27.5 5.3L26 5Z" fill="#F0D48A" opacity="0.35"/>
 </svg>

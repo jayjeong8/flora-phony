@@ -1,18 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40" fill="none">
-  <path d="M16 38V14" stroke="#70C1B3" stroke-width="2" stroke-linecap="round"/>
-  <!-- Cactus body -->
-  <path d="M12 34V16Q12 12 16 10Q20 12 20 16V34Q20 36 16 38Q12 36 12 34Z" fill="#70C1B3" opacity="0.75"/>
-  <path d="M14 32V18Q14 14 16 12Q17 14 17 18V32Q17 35 16 36Q15 35 14 32Z" fill="#9AD6CB" opacity="0.4"/>
-  <!-- Crystal crown -->
-  <path d="M12 14L16 2L20 14Z" fill="#70C1B3" opacity="0.85"/>
-  <path d="M14 13L16 4L16 13Z" fill="#9AD6CB" opacity="0.4"/>
-  <!-- Side arms -->
-  <path d="M12 22Q8 20 6 16Q8 16 10 18Q12 20 12 22Z" fill="#70C1B3" opacity="0.65"/>
-  <path d="M20 22Q24 20 26 16Q24 16 22 18Q20 20 20 22Z" fill="#70C1B3" opacity="0.65"/>
-  <path d="M11 21Q9 19 7.5 17Q9 17.5 11 19.5Z" fill="#9AD6CB" opacity="0.35"/>
-  <path d="M21 21Q23 19 24.5 17Q23 17.5 21 19.5Z" fill="#9AD6CB" opacity="0.35"/>
+  <!-- Ground plane -->
+  <ellipse cx="16" cy="38" rx="4" ry="1" fill="#70C1B3" opacity="0.2"/>
+  <!-- Shadow body -->
+  <path d="M12.5 38C12 30 12 22 13 16C13.5 12 15 9 16 8C17 9 18.5 12 19 16C20 22 20 30 19.5 38Z" fill="#70C1B3" opacity="0.18"/>
+  <!-- Main body (cactus column) -->
+  <path d="M13 38C12.5 30 12.5 22 13.5 16C14 12 15.5 9.5 16 9C16.5 9.5 18 12 18.5 16C19.5 22 19.5 30 19 38Z" fill="#70C1B3" opacity="0.8"/>
+  <!-- Body left facet (crystal edge) -->
+  <path d="M13 38C12.5 30 12.5 22 13.5 16L16 9L15 16C14 22 13.5 30 13.5 38Z" fill="#70C1B3" opacity="0.6"/>
+  <!-- Body mid highlight -->
+  <path d="M15 36C14.8 28 15 22 15.5 17C15.8 14 16 11 16 11C16 11 16.2 14 16.5 17C17 22 17.2 28 17 36Z" fill="#9AD6CB" opacity="0.4"/>
+  <!-- Body top highlight -->
+  <path d="M15.5 28C15.3 24 15.5 20 16 15C16.3 20 16.5 24 16.3 28Z" fill="#9AD6CB" opacity="0.55"/>
+  <!-- Left arm (curving UP, saguaro-style) -->
+  <path d="M13.5 26C11.5 25 9.5 22 8.5 18C8 15 8.5 12 9.5 11C10 13 10 16 10.5 18.5C11 21 12 24 13.5 25Z" fill="#70C1B3" opacity="0.7"/>
+  <path d="M13 25C11.5 23 10 20 9.5 17C10 19 11 21.5 12.5 24Z" fill="#9AD6CB" opacity="0.3"/>
+  <!-- Right arm (curving UP, asymmetric) -->
+  <path d="M18.5 24C20.5 23 22.5 20 23.5 16.5C24 14 23.5 11.5 22.5 10.5C22 12.5 22 15 21.5 17C21 19.5 20 22 18.5 23.5Z" fill="#70C1B3" opacity="0.65"/>
+  <path d="M19 23.5C20 22 21.5 19 22 16.5C21.5 18 20.5 20.5 19 23Z" fill="#9AD6CB" opacity="0.28"/>
+  <!-- Crystal tip (angular top spike) -->
+  <path d="M16 9L15 5.5L16 2.5L17 5.5Z" fill="#9AD6CB" opacity="0.65"/>
+  <!-- Crystal tips on arms -->
+  <path d="M9.5 11L9 8.5L10 7L10.5 9.5Z" fill="#9AD6CB" opacity="0.5"/>
+  <path d="M22.5 10.5L23 8L22 7L21.5 9Z" fill="#9AD6CB" opacity="0.45"/>
+  <!-- Vertical facet lines (crystal texture) -->
+  <path d="M14.2 34C14 28 14.2 22 14.8 16" stroke="#9AD6CB" stroke-width="0.4" stroke-linecap="round" opacity="0.25"/>
+  <path d="M17.8 34C18 28 17.8 22 17.2 16" stroke="#9AD6CB" stroke-width="0.4" stroke-linecap="round" opacity="0.2"/>
+  <!-- Cross facets (horizontal crystal bands) -->
+  <path d="M13.8 22L18.2 22" stroke="#9AD6CB" stroke-width="0.3" stroke-linecap="round" opacity="0.18"/>
+  <path d="M14 30L18 30" stroke="#9AD6CB" stroke-width="0.3" stroke-linecap="round" opacity="0.15"/>
   <!-- Crystal sparkles -->
-  <circle cx="16" cy="7" r="1" fill="#9AD6CB" opacity="0.6"/>
-  <circle cx="8" cy="18" r="1" fill="#9AD6CB" opacity="0.5"/>
-  <circle cx="24" cy="18" r="1" fill="#9AD6CB" opacity="0.5"/>
+  <circle cx="16" cy="4" r="0.7" fill="#9AD6CB" opacity="0.6"/>
+  <path d="M9.5 9L10 8L10.5 9L10 10Z" fill="#9AD6CB" opacity="0.5"/>
+  <path d="M22 9L22.5 8L23 9L22.5 10Z" fill="#9AD6CB" opacity="0.45"/>
 </svg>

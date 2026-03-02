@@ -1,22 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40" fill="none">
-  <!-- Stem -->
-  <path d="M16 38V10" stroke="#7BA7BC" stroke-width="2" stroke-linecap="round"/>
-  <!-- Cattail head -->
-  <ellipse cx="16" cy="6" rx="3" ry="5.5" fill="#7BA7BC"/>
-  <ellipse cx="17" cy="5" rx="1.5" ry="3.5" fill="#A3C4D2" opacity="0.5"/>
+  <!-- Shadow/back cattail (depth layer) -->
+  <ellipse cx="14.5" cy="7" rx="2.8" ry="5.2" fill="#7BA7BC" opacity="0.18"/>
+  <!-- Main stem (gentle C curve) -->
+  <path d="M16 38C15.5 30 16.5 22 16 10" stroke="#7BA7BC" stroke-width="2" stroke-linecap="round"/>
+  <!-- Stem highlight -->
+  <path d="M16.3 36C15.8 28 16.8 20 16.3 12" stroke="#A3C4D2" stroke-width="0.7" stroke-linecap="round" opacity="0.35"/>
+  <!-- Cattail head — base shape -->
+  <ellipse cx="16" cy="6" rx="3" ry="5.5" fill="#7BA7BC" opacity="0.8"/>
+  <!-- Cattail head — mid highlight -->
+  <ellipse cx="16.8" cy="5.5" rx="1.8" ry="3.8" fill="#A3C4D2" opacity="0.35"/>
+  <!-- Cattail head — top highlight -->
+  <ellipse cx="17" cy="4.5" rx="1" ry="2.5" fill="#A3C4D2" opacity="0.55"/>
+  <!-- Cattail cross-hatch texture -->
+  <path d="M14.5 3L17.5 4.5" stroke="#5E8A9E" stroke-width="0.3" stroke-linecap="round" opacity="0.3"/>
+  <path d="M14 5L18 6" stroke="#5E8A9E" stroke-width="0.3" stroke-linecap="round" opacity="0.25"/>
+  <path d="M14.2 7L17.8 8" stroke="#5E8A9E" stroke-width="0.3" stroke-linecap="round" opacity="0.25"/>
+  <path d="M14.8 9L17 9.5" stroke="#5E8A9E" stroke-width="0.3" stroke-linecap="round" opacity="0.2"/>
+  <path d="M15.5 2.5L15 5" stroke="#5E8A9E" stroke-width="0.3" stroke-linecap="round" opacity="0.2"/>
+  <path d="M17 3.5L16.5 7" stroke="#5E8A9E" stroke-width="0.3" stroke-linecap="round" opacity="0.2"/>
   <!-- Tip spike -->
   <path d="M16 0.5V2" stroke="#7BA7BC" stroke-width="1" stroke-linecap="round"/>
-  <!-- Left blade leaves -->
-  <path d="M15 16Q10 12 5 14Q10 16 15 18Z" fill="#7BA7BC" opacity="0.75"/>
-  <path d="M15 24Q10 20 6 22Q10 24 15 27Z" fill="#7BA7BC" opacity="0.65"/>
-  <!-- Right blade leaves -->
-  <path d="M17 20Q22 16 27 18Q22 20 17 22Z" fill="#7BA7BC" opacity="0.75"/>
-  <path d="M17 28Q22 24 26 26Q22 28 17 31Z" fill="#7BA7BC" opacity="0.65"/>
+  <!-- Left blade leaves (C beziers, asymmetric) -->
+  <path d="M15 15C12 12 8 11 5 13C8 15.5 12 17 15 18Z" fill="#7BA7BC" opacity="0.75"/>
+  <path d="M15 23C11 20 8 19.5 6 21.5C9 24 12 25.5 15 27Z" fill="#7BA7BC" opacity="0.65"/>
+  <!-- Right blade leaves (C beziers, slight size diff) -->
+  <path d="M17 19C20 16 24 15.5 27 17.5C23.5 19 20 21 17 22Z" fill="#7BA7BC" opacity="0.7"/>
+  <path d="M17 27.5C21 24.5 24 24 26.5 25.5C23 27.5 20 29.5 17 31Z" fill="#7BA7BC" opacity="0.6"/>
   <!-- Leaf highlights -->
-  <path d="M14.5 16.5Q11 14 8 15Q11 16 14.5 17.5Z" fill="#A3C4D2" opacity="0.4"/>
-  <path d="M17.5 20.5Q21 18 24 19Q21 20 17.5 21.5Z" fill="#A3C4D2" opacity="0.4"/>
+  <path d="M14.5 15.5C12.5 13.5 10 13 8 14C10.5 15.5 12.5 16.5 14.5 17Z" fill="#A3C4D2" opacity="0.4"/>
+  <path d="M17.5 19.5C20 17.5 22 17 24 18C22 19.5 20 20.5 17.5 21Z" fill="#A3C4D2" opacity="0.35"/>
+  <!-- Leaf veins (midrib) -->
+  <path d="M15 16.5C12 14 9 13 6.5 13.5" stroke="#5E8A9E" stroke-width="0.5" stroke-linecap="round" opacity="0.3"/>
+  <path d="M17 20.5C20 18 23 17 25.5 17.5" stroke="#5E8A9E" stroke-width="0.5" stroke-linecap="round" opacity="0.25"/>
   <!-- Water droplets -->
-  <circle cx="7" cy="17" r="1.2" fill="#A3C4D2" opacity="0.6"/>
-  <circle cx="25" cy="21" r="1" fill="#A3C4D2" opacity="0.5"/>
-  <circle cx="8" cy="26" r="1" fill="#A3C4D2" opacity="0.4"/>
+  <circle cx="7" cy="16" r="1.2" fill="#A3C4D2" opacity="0.55"/>
+  <circle cx="25.5" cy="20.5" r="1" fill="#A3C4D2" opacity="0.5"/>
+  <circle cx="8" cy="25" r="0.9" fill="#A3C4D2" opacity="0.4"/>
+  <!-- Ground plane -->
+  <ellipse cx="16" cy="38" rx="3" ry="1" fill="#7BA7BC" opacity="0.2"/>
 </svg>

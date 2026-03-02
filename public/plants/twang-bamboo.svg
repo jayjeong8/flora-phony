@@ -1,22 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40" fill="none">
-  <!-- Bamboo culm -->
-  <rect x="14" y="2" width="4" height="36" rx="2" fill="#C7956D" opacity="0.8"/>
-  <rect x="15" y="3" width="1.5" height="34" rx="0.75" fill="#DDB594" opacity="0.35"/>
-  <!-- Nodes -->
-  <rect x="13" y="8" width="6" height="2" rx="1" fill="#C7956D"/>
-  <rect x="13" y="16" width="6" height="2" rx="1" fill="#C7956D"/>
-  <rect x="13" y="24" width="6" height="2" rx="1" fill="#C7956D"/>
-  <rect x="13" y="32" width="6" height="2" rx="1" fill="#C7956D"/>
-  <!-- Right leaf branch -->
-  <path d="M18 8Q22 6 26 2Q22 5 19 8Z" fill="#C7956D" opacity="0.7"/>
-  <path d="M18 8Q22 7 27 6Q23 7.5 19 8Z" fill="#C7956D" opacity="0.6"/>
-  <!-- Left leaf branch -->
-  <path d="M14 16Q10 14 6 10Q10 13 13 16Z" fill="#C7956D" opacity="0.7"/>
-  <path d="M14 16Q10 15 5 14Q9 15.5 13 16Z" fill="#C7956D" opacity="0.6"/>
-  <!-- Leaf highlights -->
-  <path d="M19 8Q22 6.5 24.5 4Q22 6 19.5 8Z" fill="#DDB594" opacity="0.4"/>
-  <path d="M13 16Q10 14.5 7.5 12Q10 14 12.5 16Z" fill="#DDB594" opacity="0.4"/>
+  <!-- Ground plane -->
+  <ellipse cx="16" cy="38.5" rx="3.5" ry="1" fill="#C7956D" opacity="0.2"/>
+  <!-- Shadow culm -->
+  <path d="M17.5 38C17.8 30 18 20 17.5 10C17.3 6 17 3 17 3" stroke="#C7956D" stroke-width="4.5" stroke-linecap="round" opacity="0.15"/>
+  <!-- Bamboo culm (gentle curve, not straight) -->
+  <path d="M16 38C16.2 30 16.5 20 16.2 10C16 6 15.8 3 16 2" stroke="#C7956D" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+  <!-- Culm highlight (upper portion) -->
+  <path d="M16 28C16.2 22 16.3 16 16.1 10C16 7 15.9 4 16 2" stroke="#DDB594" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
+  <!-- Bamboo grain texture (very thin vertical lines) -->
+  <path d="M15 36C15.1 28 15.3 18 15.1 8" stroke="#B07D55" stroke-width="0.25" stroke-linecap="round" opacity="0.15"/>
+  <path d="M17 36C17.1 28 17.2 18 17.1 8" stroke="#B07D55" stroke-width="0.25" stroke-linecap="round" opacity="0.12"/>
+  <!-- Nodes (organic rounded shapes) -->
+  <ellipse cx="16.1" cy="9" rx="3.2" ry="1.2" fill="#C7956D" opacity="0.95"/>
+  <ellipse cx="16.2" cy="17" rx="3" ry="1.1" fill="#C7956D" opacity="0.95"/>
+  <ellipse cx="16.15" cy="25" rx="3.1" ry="1.15" fill="#C7956D" opacity="0.95"/>
+  <ellipse cx="16.1" cy="33" rx="3" ry="1.1" fill="#C7956D" opacity="0.95"/>
   <!-- Node highlights -->
-  <rect x="14" y="8.3" width="4" height="0.8" rx="0.4" fill="#DDB594" opacity="0.4"/>
-  <rect x="14" y="16.3" width="4" height="0.8" rx="0.4" fill="#DDB594" opacity="0.4"/>
+  <ellipse cx="16.1" cy="8.6" rx="2.2" ry="0.5" fill="#DDB594" opacity="0.4"/>
+  <ellipse cx="16.2" cy="16.6" rx="2" ry="0.5" fill="#DDB594" opacity="0.4"/>
+  <ellipse cx="16.15" cy="24.6" rx="2.1" ry="0.5" fill="#DDB594" opacity="0.38"/>
+  <ellipse cx="16.1" cy="32.6" rx="2" ry="0.5" fill="#DDB594" opacity="0.35"/>
+  <!-- Right leaf pair at top node (C bezier, organic) -->
+  <path d="M19 9C22 7 25 4 27 2C25 4.5 22 7 19.5 9" fill="#C7956D" opacity="0.7"/>
+  <path d="M19 9.5C22 8 26 6 28 5C26 7 22 8.5 19.5 9.5" fill="#C7956D" opacity="0.6"/>
+  <path d="M19.5 9C22.5 7.5 25 5 26 3.5C24.5 5.5 22 7.5 20 9" fill="#DDB594" opacity="0.35"/>
+  <!-- Leaf vein (right) -->
+  <path d="M19.5 9C22 7.5 24.5 5 26.5 3" stroke="#B07D55" stroke-width="0.35" stroke-linecap="round" opacity="0.2"/>
+  <!-- Left leaf pair at second node (slightly different angle) -->
+  <path d="M13 17C10 15 7 12 5 9C7 12.5 10 14.5 12.5 17" fill="#C7956D" opacity="0.7"/>
+  <path d="M13 17.5C10 16 6 14 4 12.5C6.5 14.5 10 16 12.5 17.5" fill="#C7956D" opacity="0.55"/>
+  <path d="M12.5 17C10 15 7.5 12.5 5.5 10.5C7.5 12.5 10 15 12.5 17" fill="#DDB594" opacity="0.32"/>
+  <!-- Leaf vein (left) -->
+  <path d="M12.5 17C10 15 7 12 5.5 10" stroke="#B07D55" stroke-width="0.35" stroke-linecap="round" opacity="0.18"/>
+  <!-- Small right leaf at third node -->
+  <path d="M19 25C21 24 23 22.5 24.5 21C23 22.5 21 24 19.5 25" fill="#C7956D" opacity="0.5"/>
+  <!-- Small left leaf at bottom node -->
+  <path d="M13 33C11 32 9 30.5 7.5 29C9 31 11 32 13 33" fill="#C7956D" opacity="0.45"/>
 </svg>

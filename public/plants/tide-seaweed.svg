@@ -1,16 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40" fill="none">
-  <!-- Left frond -->
-  <path d="M9 38Q5 30 11 24Q17 18 7 12Q3 8 9 2L12 2Q6 8 12 12Q18 18 12 24Q6 30 12 38Z" fill="#6B8F9E" opacity="0.8"/>
-  <!-- Right frond -->
-  <path d="M21 38Q27 32 21 26Q15 20 25 14Q29 10 23 4L20 4Q26 10 20 14Q14 20 20 26Q26 32 20 38Z" fill="#6B8F9E" opacity="0.75"/>
-  <!-- Center frond -->
-  <path d="M15 38Q12 34 15 30Q18 26 14 22Q10 18 14 14Q18 10 15 6L17 6Q20 10 17 14Q14 18 17 22Q20 26 17 30Q14 34 17 38Z" fill="#6B8F9E" opacity="0.55"/>
-  <!-- Highlights -->
-  <path d="M10 32Q7 26 11 22Q14 18 10 14L11.5 14Q15.5 18 12 22Q8 26 11 32Z" fill="#94B3BF" opacity="0.35"/>
-  <path d="M21 34Q25 30 21 26Q18 22 21 18L20 18Q17 22 20 26Q24 30 20 34Z" fill="#94B3BF" opacity="0.3"/>
-  <!-- Bubbles -->
-  <circle cx="5" cy="8" r="1.5" fill="#94B3BF" opacity="0.55"/>
-  <circle cx="27" cy="12" r="1.2" fill="#94B3BF" opacity="0.5"/>
-  <circle cx="16" cy="16" r="1" fill="#94B3BF" opacity="0.4"/>
-  <circle cx="7" cy="20" r="1.3" fill="#94B3BF" opacity="0.45"/>
+  <!-- Ground plane -->
+  <ellipse cx="16" cy="38" rx="5" ry="1.2" fill="#6B8F9E" opacity="0.2"/>
+  <!-- Shadow fronds (back layer) -->
+  <path d="M7 38C5 32 3 26 6 20C9 14 5 10 8 3" stroke="#6B8F9E" stroke-width="2.5" stroke-linecap="round" opacity="0.15"/>
+  <path d="M25 38C27 33 28 27 25 21C22 15 26 10 24 4" stroke="#6B8F9E" stroke-width="2.5" stroke-linecap="round" opacity="0.15"/>
+  <!-- Left frond (base) -->
+  <path d="M9 38C6 33 4 28 7 22C10 16 6 11 9 4" stroke="#6B8F9E" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+  <path d="M9 38C7 34 5 29 8 24S11 17 8 13C5 9 8 5 9 4" fill="none" stroke="#6B8F9E" stroke-width="3" stroke-linecap="round" opacity="0.25"/>
+  <!-- Right frond (base) -->
+  <path d="M23 38C26 32 28 26 24 20C20 14 25 8 22 3" stroke="#6B8F9E" stroke-width="2" stroke-linecap="round" opacity="0.75"/>
+  <path d="M23 38C25 33 27 27 24 22S21 16 24 11C27 6 23 4 22 3" fill="none" stroke="#6B8F9E" stroke-width="2.8" stroke-linecap="round" opacity="0.2"/>
+  <!-- Center frond (thinner, foreground) -->
+  <path d="M16 38C14 34 13 30 15 26C17 22 14 18 15 13C16 8 15 5 16 2" stroke="#6B8F9E" stroke-width="1.8" stroke-linecap="round" opacity="0.6"/>
+  <!-- Left frond highlight -->
+  <path d="M9 30C7 26 6 23 8 19C10 15 8 12 9 8" stroke="#94B3BF" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+  <!-- Right frond highlight -->
+  <path d="M23 32C25 28 26 24 24 20C22 16 24 12 23 8" stroke="#94B3BF" stroke-width="1" stroke-linecap="round" opacity="0.45"/>
+  <!-- Center frond highlight -->
+  <path d="M16 28C15 25 14 22 15 19C16 16 15 13 16 10" stroke="#94B3BF" stroke-width="0.7" stroke-linecap="round" opacity="0.5"/>
+  <!-- Wave texture lines -->
+  <path d="M6 28C8 27 10 28 12 27" stroke="#6B8F9E" stroke-width="0.4" stroke-linecap="round" opacity="0.2"/>
+  <path d="M20 24C22 23 24 24 26 23" stroke="#6B8F9E" stroke-width="0.4" stroke-linecap="round" opacity="0.2"/>
+  <path d="M11 18C13 17 15 18 17 17" stroke="#6B8F9E" stroke-width="0.3" stroke-linecap="round" opacity="0.18"/>
+  <!-- Small side tendrils -->
+  <path d="M8 20C5 18 4 16 5 14" stroke="#6B8F9E" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
+  <path d="M24 16C27 14 28 12 27 10" stroke="#6B8F9E" stroke-width="0.8" stroke-linecap="round" opacity="0.35"/>
+  <!-- Bubbles (varied sizes/opacity) -->
+  <circle cx="4" cy="7" r="1.6" fill="#94B3BF" opacity="0.55"/>
+  <circle cx="28" cy="11" r="1.1" fill="#94B3BF" opacity="0.45"/>
+  <circle cx="14" cy="4" r="0.8" fill="#94B3BF" opacity="0.5"/>
+  <circle cx="6" cy="18" r="1.3" fill="#94B3BF" opacity="0.4"/>
+  <circle cx="26" cy="6" r="0.6" fill="#94B3BF" opacity="0.35"/>
+  <circle cx="19" cy="14" r="0.9" fill="#94B3BF" opacity="0.3"/>
 </svg>
