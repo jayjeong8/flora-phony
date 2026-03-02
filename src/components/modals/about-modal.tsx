@@ -57,6 +57,9 @@ export function AboutModal({ open, onOpenChange }: AboutModalProps) {
               </li>
             </ul>
           </div>
+          <p className="pt-4 text-center text-xs text-flora-text-muted/50">
+            &copy; 2026 FloraPhony
+          </p>
         </div>
       </DialogContent>
     </Dialog>
