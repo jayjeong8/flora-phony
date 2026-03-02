@@ -10,6 +10,7 @@ export function loadPlantImage(svgPath: string): Promise<HTMLImageElement> {
 
   const promise = new Promise<HTMLImageElement>((resolve, reject) => {
     const img = new Image();
+    img.crossOrigin = "anonymous";
     img.onload = () => {
       cache.set(svgPath, img);
       loading.delete(svgPath);
