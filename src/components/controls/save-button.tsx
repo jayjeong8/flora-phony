@@ -7,16 +7,18 @@ import { Button } from "@/components/ui/button";
 interface SaveButtonProps {
   hasUnsavedChanges: boolean;
   isViewingShared: boolean;
-  onSave: () => void;
+  onSave: () => boolean;
 }
 
 export function SaveButton({ hasUnsavedChanges, isViewingShared, onSave }: SaveButtonProps) {
   const [saved, setSaved] = useState(false);
 
   const handleSave = useCallback(() => {
-    onSave();
-    setSaved(true);
-    setTimeout(() => setSaved(false), 1500);
+    const didSave = onSave();
+    if (didSave) {
+      setSaved(true);
+      setTimeout(() => setSaved(false), 1500);
+    }
   }, [onSave]);
 
   const showDot = hasUnsavedChanges || isViewingShared;
