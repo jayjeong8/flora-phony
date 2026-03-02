@@ -4,11 +4,11 @@
 
 씨앗 대신 소리를 심는 로파이 앰비언트 뮤직 가든.
 
-[바로 시작하기](https://flora-phony.vercel.app) · [English](./README.md)
+<a href="https://flora-phony.vercel.app" target="_blank">바로 시작하기</a> · [English](./README.md)
 
 ![FloraPhony 미리보기](docs/images/preview.png)
 
-[내 정원 미리듣기](https://flora-phony.vercel.app/?g=BBJKBAdPBBpLBCVKBC5OBDhJBENNBExIBFNPBFlHBF5QEQc_ERUjETAQEUUYEVQoEWE_DRE2DSMhDT8iASgcATAiATkcAxIMAw5BEFIMEFU7Ag5VAhc6AiA7EkE7Ekw7ElNXEx8hEyUXEzkVE0IcCxwtCyg3CzY5C0YxC04nDBcUDAsQDAUsDEsUDFoSDF0z)
+<a href="https://flora-phony.vercel.app/?g=BBJKBAdPBBpLBCVKBC5OBDhJBENNBExIBFNPBFlHBF5QEQc_ERUjETAQEUUYEVQoEWE_DRE2DSMhDT8iASgcATAiATkcAxIMAw5BEFIMEFU7Ag5VAhc6AiA7EkE7Ekw7ElNXEx8hEyUXEzkVE0IcCxwtCyg3CzY5C0YxC04nDBcUDAsQDAUsDEsUDFoSDF0z" target="_blank">내 정원 미리듣기</a>
 
 ---
 
