@@ -23,6 +23,7 @@ export function GardenCanvas({
   const { containerRef, size } = useCanvasSize();
   const internalStageRef = useRef<Konva.Stage>(null);
   const stageRef = externalStageRef ?? internalStageRef;
+  const lastPlantTimeRef = useRef(0);
   const selectedPlantType = useSelectedPlantType();
   const { addPlant, selectPlant } = useGardenActions();
 
@@ -39,6 +40,11 @@ export function GardenCanvas({
   const handleStageClick = useCallback(
     (e: Konva.KonvaEventObject<MouseEvent | TouchEvent>) => {
       if (!selectedPlantType) return;
+
+      // Prevent duplicate from onClick + onTap both firing on touch devices
+      const now = Date.now();
+      if (now - lastPlantTimeRef.current < 300) return;
+      lastPlantTimeRef.current = now;
 
       const stage = e.target.getStage();
       if (!stage) return;
