@@ -18,7 +18,7 @@ export async function generateMetadata({
 
   if (!ogParam) return {};
 
-  const ogImageUrl = `${siteUrl}/opengraph-image?${ogParam}`;
+  const ogImageUrl = `${siteUrl}/api/og?${ogParam}`;
 
   return {
     title: "Listen to this garden",

@@ -1,12 +1,12 @@
 import { ImageResponse } from "next/og";
+import type { NextRequest } from "next/server";
 import { PLANT_REGISTRY } from "@/data/plant-registry";
+import { deserialize, deserializeCompact } from "@/lib/garden-serializer";
 import { PlantType } from "@/types/plant";
 
 export const dynamic = "force-dynamic";
 
-export const alt = "FloraPhony — Plant a garden, grow a soundscape";
-export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
+const IMAGE_SIZE = { width: 1200, height: 630 };
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://flora-phony.vercel.app";
 
@@ -46,13 +46,23 @@ async function fetchPlantSvgDataUris(types: PlantType[]): Promise<Map<PlantType,
 const CANVAS = { top: 90, bottom: 580, left: 60, right: 1140 };
 const PLANT_SIZE = 70;
 
-export default async function OgImage() {
-  const displayPlants = SAMPLE_PLANTS;
+export async function GET(request: NextRequest) {
+  const g = request.nextUrl.searchParams.get("g");
+  const garden = request.nextUrl.searchParams.get("garden");
+
+  const plants = g ? deserializeCompact(g) : garden ? deserialize(garden) : [];
+  const hasGarden = plants.length > 0;
+
+  const displayPlants = hasGarden
+    ? plants.slice(0, 20).map((p) => ({ type: p.plantType, x: p.x, y: p.y }))
+    : SAMPLE_PLANTS;
 
   const uniqueTypes = [...new Set(displayPlants.map((p) => p.type))];
   const svgMap = await fetchPlantSvgDataUris(uniqueTypes);
 
-  const subtitle = "Plant a garden, grow a soundscape";
+  const subtitle = hasGarden
+    ? `A garden with ${plants.length} plant${plants.length !== 1 ? "s" : ""}`
+    : "Plant a garden, grow a soundscape";
 
   return new ImageResponse(
     <div
@@ -233,6 +243,6 @@ export default async function OgImage() {
         flora-phony.vercel.app
       </div>
     </div>,
-    { ...size },
+    { ...IMAGE_SIZE },
   );
 }
