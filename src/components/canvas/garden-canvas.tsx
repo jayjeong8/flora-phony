@@ -12,11 +12,17 @@ import { useGardenActions, useSelectedPlantType } from "@/hooks/use-garden";
 interface GardenCanvasProps {
   renderPlants?: (size: { width: number; height: number }) => React.ReactNode;
   snapshotRef?: React.RefObject<HTMLDivElement | null>;
+  stageRef?: React.RefObject<Konva.Stage | null>;
 }
 
-export function GardenCanvas({ renderPlants, snapshotRef }: GardenCanvasProps) {
+export function GardenCanvas({
+  renderPlants,
+  snapshotRef,
+  stageRef: externalStageRef,
+}: GardenCanvasProps) {
   const { containerRef, size } = useCanvasSize();
-  const stageRef = useRef<Konva.Stage>(null);
+  const internalStageRef = useRef<Konva.Stage>(null);
+  const stageRef = externalStageRef ?? internalStageRef;
   const selectedPlantType = useSelectedPlantType();
   const { addPlant, selectPlant } = useGardenActions();
 
