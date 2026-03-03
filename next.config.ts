@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  outputFileTracingIncludes: {
+    "/api/og": ["./public/plants/**/*.svg"],
+    "/opengraph-image": ["./public/plants/**/*.svg"],
+  },
   async headers() {
     return [
       {

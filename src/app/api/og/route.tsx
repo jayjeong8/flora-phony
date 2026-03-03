@@ -1,3 +1,5 @@
+import * as fs from "node:fs";
+import * as path from "node:path";
 import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
 import { PLANT_REGISTRY } from "@/data/plant-registry";
@@ -7,8 +9,6 @@ import { PlantType } from "@/types/plant";
 export const dynamic = "force-dynamic";
 
 const IMAGE_SIZE = { width: 1200, height: 630 };
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://flora-phony.vercel.app";
 
 const SAMPLE_PLANTS: { type: PlantType; x: number; y: number }[] = [
   { type: PlantType.LofiFern, x: 12, y: 50 },
@@ -23,23 +23,21 @@ const SAMPLE_PLANTS: { type: PlantType; x: number; y: number }[] = [
   { type: PlantType.EmberThorn, x: 90, y: 40 },
 ];
 
-async function fetchPlantSvgDataUris(types: PlantType[]): Promise<Map<PlantType, string>> {
-  const entries = await Promise.all(
-    types.map(async (type) => {
-      const def = PLANT_REGISTRY[type];
-      if (!def) return null;
-      try {
-        const res = await fetch(new URL(def.svgPath, siteUrl));
-        if (!res.ok) return null;
-        const text = await res.text();
-        const uri = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(text)}`;
-        return [type, uri] as const;
-      } catch {
-        return null;
-      }
-    }),
-  );
-  return new Map(entries.filter((e): e is [PlantType, string] => e !== null));
+function loadPlantSvgDataUris(types: PlantType[]): Map<PlantType, string> {
+  const entries: [PlantType, string][] = [];
+  for (const type of types) {
+    const def = PLANT_REGISTRY[type];
+    if (!def) continue;
+    try {
+      const filePath = path.join(process.cwd(), "public", def.svgPath);
+      const text = fs.readFileSync(filePath, "utf-8");
+      const uri = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(text)}`;
+      entries.push([type, uri]);
+    } catch {
+      // skip missing SVGs
+    }
+  }
+  return new Map(entries);
 }
 
 // Canvas area within the 1200x630 image
@@ -58,7 +56,7 @@ export async function GET(request: NextRequest) {
     : SAMPLE_PLANTS;
 
   const uniqueTypes = [...new Set(displayPlants.map((p) => p.type))];
-  const svgMap = await fetchPlantSvgDataUris(uniqueTypes);
+  const svgMap = loadPlantSvgDataUris(uniqueTypes);
 
   const subtitle = hasGarden
     ? `A garden with ${plants.length} plant${plants.length !== 1 ? "s" : ""}`
