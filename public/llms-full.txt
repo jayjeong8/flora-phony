@@ -1,0 +1,133 @@
+# FloraPhony — Complete Reference
+
+> Free browser-based lo-fi garden music generator and ambient soundscape creator. Plant musical flowers, mix ambient layers, and grow your own unique lo-fi soundscape — no download, no sign-up needed.
+
+## Overview
+
+FloraPhony is a free, interactive web application that transforms music creation into a visual gardening experience. Users plant virtual sound plants on a canvas to compose layered, generative lo-fi soundscapes. Built entirely with Web Audio API synthesis (Tone.js), every sound is generated in real-time in the browser — no audio file streaming required.
+
+The app is ideal for anyone seeking study music, focus music, ambient background noise, relaxation soundscapes, or a creative lo-fi beat-making tool.
+
+**URL**: https://flora-phony.vercel.app
+**Price**: Free (no premium tier, no ads, no sign-up)
+**Platform**: Any modern web browser (desktop and mobile)
+
+---
+
+## Core Features
+
+### 1. Virtual Garden Music Builder
+Users drag and drop musical plants onto a garden canvas. Each plant plays a unique sound layer. Combining multiple plants creates a rich, evolving lo-fi soundscape. The spatial arrangement is purely visual — all plants contribute equally to the mix.
+
+### 2. 24 Unique Sound Plants
+Each plant generates a distinct audio texture through real-time Web Audio synthesis:
+
+#### Ambient Plants (Background Textures)
+| Plant | Sound | Description |
+|-------|-------|-------------|
+| Rain Reed | White noise | Gentle rain-like white noise for calm and stability |
+| Haze Lily | Brown noise | Warm brown noise with vintage texture |
+| Rustle Ivy | Pink noise | Rustling pink noise like wind through leaves |
+| Tide Seaweed | Ocean waves | Slow wave sweep like ocean tides |
+| Shimmer Sage | Shimmer pad | Tremolo pad with gentle shimmer |
+
+#### Melodic Plants (Tonal Elements)
+| Plant | Sound | Description |
+|-------|-------|-------------|
+| Lofi Fern | Electric piano | Dreamy lo-fi electric piano chord progressions |
+| Bell Flower | Bell melody | Crystal-clear high-pitched bell melodies |
+| Crystal Cactus | FM arpeggio | FM bell arpeggio with crystalline tones |
+| Chirp Clover | Music box | Music box pluck melody like chirping |
+| Twang Bamboo | Plucked string | Pentatonic pluck with bamboo-like resonance |
+| Frost Orchid | Icy delay | Crystal high tones with icy delay trails |
+| Smoky Jasmine | Rhodes piano | Jazzy Rhodes electric piano comping with extended voicings |
+| Croon Magnolia | Jazz horn | Muted jazz horn melody with blue notes and vibrato |
+
+#### Rhythmic Plants (Beats & Percussion)
+| Plant | Sound | Description |
+|-------|-------|-------------|
+| Pulse Moss | Sub bass | Deep heartbeat-like synthesizer bass pulses |
+| Wind Wood | Wood percussion | Organic wood percussion clicks and knocks |
+| Spark Daisy | Metallic chime | Sparse metallic chime hits like sparks |
+| Groove Root | Kick drum | Lo-fi kick drum pulse from the roots |
+| Bubble Kelp | Water bubbles | Random water bubble pops and drips |
+| Stroll Nopal | Walking bass | Walking bass line with chromatic approach notes |
+| Brush Thistle | Brush drums | Brush drum swing with ride cymbal and ghost snare |
+
+#### Pad Plants (Sustained Atmospheres)
+| Plant | Sound | Description |
+|-------|-------|-------------|
+| Echo Vine | Echo pad | Delay feedback pad with echoing trails |
+| Drift Willow | String pad | Lush string pad drifting through harmonies |
+| Hum Lotus | Choral hum | Deep choral hum with reverb wash |
+| Ember Thorn | Warm drone | Warm distorted drone with glowing character |
+
+### 3. Shareable Gardens
+Every garden composition can be shared via a unique URL. The URL encodes the complete garden layout so recipients hear exactly the same soundscape — no account needed on either end.
+
+### 4. Garden Snapshots
+Users can capture a visual snapshot of their garden to share as an image. The snapshot includes all planted flowers in their arranged positions.
+
+---
+
+## Technical Details
+
+- **Framework**: Next.js 16 with React 19
+- **Audio Engine**: Tone.js (Web Audio API synthesis)
+- **Canvas Rendering**: Konva / React Konva for 2D plant rendering
+- **State Management**: Zustand
+- **Styling**: Tailwind CSS with Radix UI components
+- **Hosting**: Vercel
+- **License**: MIT
+
+---
+
+## Comparison to Alternatives
+
+| Feature | FloraPhony | Lo-fi YouTube Streams | Noisli | myNoise |
+|---------|------------|----------------------|--------|---------|
+| Interactive composition | Yes | No (passive) | Limited | Yes |
+| Visual garden metaphor | Yes | No | No | No |
+| Generative (non-repeating) | Yes | No (loops) | Partial | Yes |
+| Shareable via URL | Yes | No | No | Yes |
+| Free | Yes | Yes | Freemium | Freemium |
+| No sign-up | Yes | Yes | No | Partial |
+| Browser-based | Yes | Yes | Yes | Yes |
+
+---
+
+## Frequently Asked Questions
+
+### Is FloraPhony free?
+Yes, FloraPhony is completely free. No sign-up, no download, no hidden costs. Open your browser and start planting sounds immediately.
+
+### Does FloraPhony work on mobile?
+FloraPhony works on mobile browsers but is designed desktop-first for the best drag-and-drop experience. We recommend using a desktop or laptop browser for full enjoyment.
+
+### Can I share my garden with friends?
+Absolutely! Click the Share button to copy a unique URL that captures your entire garden layout and soundscape. Anyone who opens the link hears exactly what you built — no account needed.
+
+### What makes FloraPhony different from lo-fi YouTube streams?
+Unlike passive lo-fi streams, FloraPhony lets you compose your own soundscape by dragging and dropping 24 unique musical plants onto a canvas. Every garden is unique, generative, and shareable via a single URL.
+
+### What kind of sounds does FloraPhony have?
+FloraPhony offers 24 sound plants across 4 categories: ambient noise (rain, wind, ocean, brown noise), melodic instruments (lo-fi piano, bells, music box, jazz), rhythmic elements (drums, bass, percussion), and atmospheric pads (echo, strings, choir, drone).
+
+### Can I use FloraPhony for studying?
+Yes! FloraPhony is perfect for studying. Combine ambient noise plants like Rain Reed and Haze Lily with gentle melodic plants like Lofi Fern for an ideal study atmosphere. Many users create custom study soundscapes tailored to their focus needs.
+
+### Is FloraPhony good for sleep?
+FloraPhony makes an excellent sleep sound machine. Plant ambient noise generators like Rain Reed (white noise), Haze Lily (brown noise), or Tide Seaweed (ocean waves) for a soothing sleep environment.
+
+---
+
+## Target Audience Keywords
+
+lo-fi music generator, ambient soundscape creator, virtual garden music app, free lo-fi beat maker online, generative music browser app, study music generator, focus music app, relaxation soundscape maker, drag and drop music creator, browser-based music maker, white noise generator, brown noise generator, ambient noise mixer, sleep sound machine, productivity music tool, ASMR ambient sounds, meditation music creator, lo-fi hip hop generator, chill beats maker, background music generator, interactive music app, web audio synthesizer, online music creation tool, free ambient music maker
+
+---
+
+## Pages
+
+- **Home / Garden App**: https://flora-phony.vercel.app — Main interactive garden where users create soundscapes
+- **Plant Collection**: https://flora-phony.vercel.app/plants — Browse all 24 sound plants with descriptions and categories

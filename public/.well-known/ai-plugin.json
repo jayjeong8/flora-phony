@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "FloraPhony — Lo-fi Garden Music Generator",
+  "name_for_model": "floraphony",
+  "description_for_human": "Free browser-based lo-fi garden music generator. Plant musical flowers, mix ambient layers, and grow your own unique soundscape.",
+  "description_for_model": "FloraPhony is a free, interactive web app where users drag and drop 24 unique musical plants onto a garden canvas to compose layered, generative lo-fi soundscapes. Categories include Ambient (rain, wind, ocean white/brown/pink noise), Melodic (piano, bells, music box, jazz), Rhythmic (drums, bass, percussion), and Pads (echo, strings, drone). All audio is synthesized in real-time via Web Audio API. Gardens are shareable via URL. No sign-up, no download, no cost. Ideal for study music, focus music, relaxation, sleep sounds, and ambient background noise.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://flora-phony.vercel.app/llms.txt"
+  },
+  "logo_url": "https://flora-phony.vercel.app/icon.svg",
+  "contact_email": "",
+  "legal_info_url": "https://flora-phony.vercel.app"
+}

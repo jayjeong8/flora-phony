@@ -1,0 +1,36 @@
+# FloraPhony
+
+> Free browser-based lo-fi garden music generator and ambient soundscape creator. Plant musical flowers, mix ambient layers, and grow your own unique lo-fi soundscape — no download, no sign-up.
+
+FloraPhony is an interactive web application that lets users create personalized lo-fi music by planting virtual sound plants on a garden canvas. Each plant generates a unique audio layer — from ambient rain and wind textures to melodic piano chords, bell arpeggios, and rhythmic drum patterns. Users drag and drop plants to compose generative soundscapes perfect for studying, focus, relaxation, and productivity.
+
+## Key Features
+
+- **24 Unique Sound Plants**: Ambient noise (rain, wind, ocean waves), melodic instruments (piano, bells, music box, jazz horn), rhythmic elements (drums, bass, percussion), and atmospheric pads (echo, shimmer, drone)
+- **Drag-and-Drop Garden Builder**: Place and arrange sound plants on a visual canvas to compose music
+- **Generative Lo-fi Music**: Each plant produces evolving, non-repetitive audio through Web Audio synthesis
+- **Shareable Gardens**: Copy a unique URL to share your garden soundscape with anyone — no account needed
+- **100% Free & Browser-Based**: Works on desktop and mobile browsers with zero installation
+- **No Sign-Up Required**: Start creating music immediately without registration
+
+## Plant Categories
+
+- **Ambient**: Rain Reed, Haze Lily, Rustle Ivy, Tide Seaweed, Shimmer Sage — white noise, brown noise, pink noise, ocean waves, atmospheric textures
+- **Melodic**: Lofi Fern, Bell Flower, Crystal Cactus, Chirp Clover, Twang Bamboo, Frost Orchid, Smoky Jasmine, Croon Magnolia — piano, bells, arpeggios, music box, Rhodes keys, jazz horn
+- **Rhythmic**: Pulse Moss, Wind Wood, Spark Daisy, Groove Root, Bubble Kelp, Stroll Nopal, Brush Thistle — bass, drums, percussion, walking bass, brush drums
+- **Pads**: Echo Vine, Drift Willow, Hum Lotus, Ember Thorn — echo pads, string pads, choral hum, warm drone
+
+## Use Cases
+
+- Study music and focus aid for students
+- Background ambient music for work and productivity
+- Relaxation and meditation soundscapes
+- Creative lo-fi beat composition
+- ASMR-like ambient noise mixing
+- Sleep and white noise generator
+
+## Links
+
+- Main App: https://flora-phony.vercel.app
+- Plant Collection: https://flora-phony.vercel.app/plants
+- Full Documentation: https://flora-phony.vercel.app/llms-full.txt
