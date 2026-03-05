@@ -13,6 +13,7 @@ interface GardenLayoutProps {
   isViewingShared?: boolean;
   hasSavedGarden?: boolean;
   onBackToMyGarden?: () => void;
+  mobileActions?: ReactNode;
 }
 
 export function GardenLayout({
@@ -23,6 +24,7 @@ export function GardenLayout({
   isViewingShared,
   hasSavedGarden,
   onBackToMyGarden,
+  mobileActions,
 }: GardenLayoutProps) {
   return (
     <div className="flex h-svh flex-col overflow-hidden bg-flora-bg">
@@ -30,6 +32,7 @@ export function GardenLayout({
         onAboutClick={onAboutClick}
         onClearClick={onClearClick}
         isClearDisabled={isClearDisabled}
+        mobileActions={mobileActions}
       />
       {isViewingShared && (
         <SharedGardenBanner
