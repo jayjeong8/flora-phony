@@ -2,15 +2,22 @@
 
 import { Info, Leaf, Trash2 } from "lucide-react";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 
 interface TopBarProps {
   onAboutClick?: () => void;
   onClearClick?: () => void;
   isClearDisabled?: boolean;
+  mobileActions?: ReactNode;
 }
 
-export function TopBar({ onAboutClick, onClearClick, isClearDisabled }: TopBarProps) {
+export function TopBar({
+  onAboutClick,
+  onClearClick,
+  isClearDisabled,
+  mobileActions,
+}: TopBarProps) {
   return (
     <header className="flex items-center justify-between border-b border-flora-border bg-flora-bg px-4 py-3">
       <h1 className="font-display text-xl font-bold text-flora-green">FloraPhony</h1>
@@ -34,6 +41,7 @@ export function TopBar({ onAboutClick, onClearClick, isClearDisabled }: TopBarPr
         >
           <Trash2 className="h-5 w-5 text-flora-text-muted" />
         </Button>
+        {mobileActions}
       </div>
     </header>
   );

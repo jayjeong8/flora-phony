@@ -13,6 +13,7 @@ const GardenCanvas = dynamic(
 
 import { ControlPanel } from "@/components/controls/control-panel";
 import { LoadButton } from "@/components/controls/load-button";
+import { MobileToolsPopover } from "@/components/controls/mobile-tools-popover";
 import { SaveButton } from "@/components/controls/save-button";
 import { ShareButton } from "@/components/controls/share-button";
 import { SnapshotButton } from "@/components/controls/snapshot-button";
@@ -128,6 +129,17 @@ export default function HomeClient() {
         isViewingShared={isViewingShared}
         hasSavedGarden={hasSaved}
         onBackToMyGarden={loadMyGarden}
+        mobileActions={
+          <MobileToolsPopover
+            hasUnsavedChanges={hasUnsavedChanges}
+            isViewingShared={isViewingShared}
+            hasSaved={hasSaved}
+            onSave={handleSaveClick}
+            onLoad={handleLoadClick}
+            containerRef={canvasContainerRef}
+            stageRef={stageRef}
+          />
+        }
       >
         <GardenCanvas
           snapshotRef={canvasContainerRef}
@@ -152,7 +164,7 @@ export default function HomeClient() {
 
         <ControlPanel />
 
-        <div className="fixed right-4 top-32 z-30 flex flex-col gap-1 rounded-xl border border-flora-border bg-white/80 p-2 shadow-md backdrop-blur-md">
+        <div className="fixed right-4 top-32 z-30 hidden flex-col gap-1 rounded-xl border border-flora-border bg-white/80 p-2 shadow-md backdrop-blur-md sm:flex">
           <SaveButton
             hasUnsavedChanges={hasUnsavedChanges}
             isViewingShared={isViewingShared}
