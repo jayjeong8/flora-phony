@@ -175,6 +175,74 @@ Electron으로 데스크톱 앱을 만듭니다. Chromium을 내장하여 Web Au
 
 ---
 
+## 웹뷰 기반 실시간 업데이트 전략
+
+앱스토어 심사 없이 제품을 즉시 업데이트할 수 있는지 여부는 앱 구조에 따라 다릅니다.
+
+### 옵션별 실시간 업데이트 가능 여부
+
+| 옵션 | 실시간 업데이트 | 방법 |
+|------|----------------|------|
+| **PWA** | **가능** | 웹 배포만 하면 자동 반영 (Service Worker 캐시 갱신) |
+| **Capacitor (로컬 번들)** | **불가** | 웹 에셋이 앱에 번들됨 → 스토어 재배포 필요 |
+| **Capacitor (원격 URL)** | **가능** | 웹뷰가 원격 서버 로드 → 즉시 반영 |
+| **Capacitor + Live Update** | **가능** | Capgo/Appflow로 OTA 업데이트 푸시 |
+| **Tauri (로컬 번들)** | **불가** | 웹 에셋이 바이너리에 포함 → 재빌드 필요 |
+| **Electron** | **부분 가능** | auto-updater로 자동 업데이트 가능하나 재빌드 필요 |
+
+### 추천: 하이브리드 구조 (Capacitor 원격 URL 방식)
+
+앱스토어 심사 없이 즉시 업데이트하려면, **Capacitor에서 로컬 번들 대신 원격 URL을 로드**하는 방식이 가장 효과적입니다.
+
+```typescript
+// capacitor.config.ts
+import type { CapacitorConfig } from '@capacitor/cli';
+
+const config: CapacitorConfig = {
+  appId: 'com.floraphony.app',
+  appName: 'FloraPhony',
+  // 로컬 번들 대신 원격 URL 로드
+  server: {
+    url: 'https://flora-phony.vercel.app',
+    cleartext: false,  // HTTPS만 허용
+  },
+};
+
+export default config;
+```
+
+**이 방식의 장점:**
+- Vercel에 배포하면 앱에 즉시 반영
+- 앱스토어 재심사 불필요 (네이티브 코드 변경이 없는 한)
+- 기존 Next.js SSR/API Routes 그대로 사용 가능 (Static Export 불필요!)
+- OG 이미지 생성 API도 그대로 동작
+
+**이 방식의 단점:**
+- 오프라인 사용 불가 (인터넷 필수)
+- Apple 가이드라인 주의: 앱의 핵심 기능이 단순 웹뷰 래핑이면 리젝 가능성 있음
+- 네트워크 지연으로 네이티브 앱보다 느린 체감
+
+**Apple 리젝 회피 전략:**
+- 네이티브 기능 1-2개 추가 (진동 피드백, 로컬 알림 등)
+- 오프라인 폴백 화면 제공
+- 앱 아이콘, 스플래시 스크린 등 네이티브 UX 요소 적용
+
+### 대안: Capacitor Live Update (OTA)
+
+로컬 번들 + OTA 업데이트를 조합하면 오프라인 지원과 실시간 업데이트를 모두 달성할 수 있습니다.
+
+```bash
+# Capgo (오픈소스 OTA 서비스) 설치
+pnpm add @capgo/capacitor-updater
+npx cap sync
+```
+
+- 앱이 로컬 번들로 시작 → 백그라운드에서 새 버전 확인 → 다음 실행 시 적용
+- 네이티브 코드 변경 없이 웹 에셋만 교체 가능
+- Apple/Google 가이드라인 준수
+
+---
+
 ## 주의사항
 
 ### FloraPhony 특화 고려사항
@@ -187,10 +255,15 @@ Electron으로 데스크톱 앱을 만듭니다. Chromium을 내장하여 Web Au
    - 모든 옵션에서 정상 동작
    - 모바일에서 터치 이벤트 이미 지원됨
 
-3. **Static Export 전환 시 확인사항**
-   - `src/app/api/` 디렉토리의 API Routes → 외부 서비스로 분리 또는 클라이언트 사이드 처리
-   - `@vercel/analytics` → 조건부 로딩 또는 대체 분석 도구 사용
-   - 동적 라우팅이 있다면 `generateStaticParams` 필요
+3. **Static Export 전환 시 확인사항 (Capacitor 로컬 번들 / Tauri 사용 시)**
+   - `src/app/api/og/route.tsx` — OG 이미지 동적 생성 API (`force-dynamic`). Static Export 불가 → Vercel에 OG 전용 서버로 유지하거나, 빌드 타임에 정적 OG 이미지 생성으로 대체
+   - `src/app/opengraph-image.tsx` — `fs.readFileSync()` 사용 (서버 전용). Static Export 시 제거 필요 (앱 내에서는 OG 이미지 불필요)
+   - `src/app/page.tsx`의 `generateMetadata()` — `searchParams`로 동적 메타데이터 생성. Static Export 시 제거하거나 클라이언트 사이드로 대체 필요
+   - `next.config.ts`의 `headers()` 함수 — Static Export와 호환 불가. 제거하거나 `vercel.json`으로 이전 필요
+   - `@vercel/analytics` (`src/app/layout.tsx`) — 앱 환경에서는 동작하지 않음. 환경 변수로 조건부 렌더링 처리 필요
+   - **참고:** 동적 라우트(`[slug]` 등)는 없으므로 `generateStaticParams`는 불필요
+
+   > **원격 URL 방식(하이브리드)을 사용하면 위 항목들을 모두 신경 쓸 필요 없음**
 
 4. **오프라인 지원 (PWA)**
    - Tone.js는 별도 CDN 리소스 불필요 (번들에 포함)
