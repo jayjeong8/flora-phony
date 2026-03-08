@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { ImageResponse } from "next/og";
 import { PLANT_REGISTRY } from "@/data/plant-registry";
 import { PlantType } from "@/types/plant";
@@ -7,8 +9,6 @@ export const revalidate = 3600;
 export const alt = "FloraPhony — Plant a garden, grow a soundscape";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://flora-phony.vercel.app";
 
 const SAMPLE_PLANTS: { type: PlantType; x: number; y: number }[] = [
   { type: PlantType.LofiFern, x: 12, y: 50 },
@@ -23,23 +23,22 @@ const SAMPLE_PLANTS: { type: PlantType; x: number; y: number }[] = [
   { type: PlantType.EmberThorn, x: 90, y: 40 },
 ];
 
-async function fetchPlantSvgDataUris(types: PlantType[]): Promise<Map<PlantType, string>> {
-  const entries = await Promise.all(
-    types.map(async (type) => {
+function readPlantSvgDataUris(types: PlantType[]): Map<PlantType, string> {
+  const entries = types
+    .map((type) => {
       const def = PLANT_REGISTRY[type];
       if (!def) return null;
       try {
-        const res = await fetch(new URL(def.svgPath, siteUrl));
-        if (!res.ok) return null;
-        const text = await res.text();
-        const uri = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(text)}`;
+        const filePath = path.join(process.cwd(), "public", def.svgPath);
+        const buf = fs.readFileSync(filePath);
+        const uri = `data:image/svg+xml;base64,${buf.toString("base64")}`;
         return [type, uri] as const;
       } catch {
         return null;
       }
-    }),
-  );
-  return new Map(entries.filter((e): e is [PlantType, string] => e !== null));
+    })
+    .filter((e): e is [PlantType, string] => e !== null);
+  return new Map(entries);
 }
 
 // Canvas area within the 1200x630 image
@@ -50,7 +49,7 @@ export default async function OgImage() {
   const displayPlants = SAMPLE_PLANTS;
 
   const uniqueTypes = [...new Set(displayPlants.map((p) => p.type))];
-  const svgMap = await fetchPlantSvgDataUris(uniqueTypes);
+  const svgMap = readPlantSvgDataUris(uniqueTypes);
 
   const subtitle = "Plant a garden, grow a soundscape";
 
@@ -182,7 +181,7 @@ export default async function OgImage() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <div style={{ fontSize: 36, display: "flex" }}>🌿</div>
+          <div style={{ fontSize: 36, color: "#6B8E23", display: "flex" }}>♣</div>
           <div
             style={{
               fontSize: 36,
