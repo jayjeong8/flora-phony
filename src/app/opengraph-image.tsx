@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { PLANT_REGISTRY } from "@/data/plant-registry";
 import { PlantType } from "@/types/plant";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export const alt = "FloraPhony — Plant a garden, grow a soundscape";
 export const size = { width: 1200, height: 630 };

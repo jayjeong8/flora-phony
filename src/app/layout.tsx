@@ -46,12 +46,14 @@ export const metadata: Metadata = {
     siteName: "FloraPhony",
     locale: "en_US",
     url: "/",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "FloraPhony — Free Lo-fi Garden Music Generator & Ambient Soundscape Creator",
     description: siteDescription,
     creator: "@floraphony",
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
