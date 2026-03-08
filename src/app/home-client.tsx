@@ -2,7 +2,7 @@
 
 import type Konva from "konva";
 import dynamic from "next/dynamic";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AudioGateModal } from "@/components/audio-gate-modal";
 import { PlantSprite } from "@/components/canvas/plant-sprite";
 
@@ -23,6 +23,7 @@ import { ClearConfirmModal } from "@/components/modals/clear-confirm-modal";
 import { ConfirmModal } from "@/components/modals/confirm-modal";
 import { useAudioContext } from "@/hooks/use-audio-context";
 import { useAudioSync } from "@/hooks/use-audio-sync";
+import { audioContextManager } from "@/lib/audio/audio-context";
 import { useGardenActions, useGardenPlants, useSelectedPlantId } from "@/hooks/use-garden";
 import { useGardenUrl } from "@/hooks/use-garden-url";
 
@@ -38,6 +39,36 @@ export default function HomeClient() {
   // Initialize URL restoration & persistence
   const { isViewingShared, hasUnsavedChanges, hasSaved, saveMyGarden, loadMyGarden } =
     useGardenUrl();
+
+  // Mute audio when page is hidden (tab switch / app background),
+  // unmute + resume AudioContext when visible again.
+  useEffect(() => {
+    if (!isAudioReady) return;
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        audioContextManager.resume();
+      } else {
+        audioContextManager.suspend();
+      }
+    };
+
+    // iOS requires a real user gesture to resume an "interrupted"
+    // AudioContext after backgrounding. We listen on touchstart,
+    // touchend, and click to cover all browsers.
+    const handleGesture = () => audioContextManager.handleUserGesture();
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    document.addEventListener("touchstart", handleGesture, true);
+    document.addEventListener("touchend", handleGesture, true);
+    document.addEventListener("click", handleGesture, true);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      document.removeEventListener("touchstart", handleGesture, true);
+      document.removeEventListener("touchend", handleGesture, true);
+      document.removeEventListener("click", handleGesture, true);
+    };
+  }, [isAudioReady]);
 
   // Initialize audio sync
   useAudioSync(isAudioReady);
