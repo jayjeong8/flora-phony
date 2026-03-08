@@ -30,8 +30,15 @@ class AudioContextManager {
   private _needsGestureResume = false;
   private limiter: Tone.Limiter | null = null;
   private masterVolume: Tone.Volume | null = null;
+  private stateChangeHandler: (() => void) | null = null;
 
   private constructor() {}
+
+  private ensureTransportRunning(): void {
+    if (Tone.getTransport().state !== "started") {
+      Tone.getTransport().start();
+    }
+  }
 
   static getInstance(): AudioContextManager {
     if (!AudioContextManager.instance) {
@@ -54,15 +61,14 @@ class AudioContextManager {
     // Safety net: auto-recover when browser/OS transitions context
     // back to "running" (e.g. after a phone call ends).
     const ctx = getNativeContext();
-    ctx.addEventListener("statechange", () => {
+    this.stateChangeHandler = () => {
       if (!this._isReady) return;
       if (ctx.state === "running") {
         Tone.Destination.mute = false;
-        if (Tone.getTransport().state !== "started") {
-          Tone.getTransport().start();
-        }
+        this.ensureTransportRunning();
       }
-    });
+    };
+    ctx.addEventListener("statechange", this.stateChangeHandler);
 
     this._isReady = true;
   }
@@ -88,9 +94,7 @@ class AudioContextManager {
     if (ctx.state === "suspended") {
       ctx.resume();
     }
-    if (Tone.getTransport().state !== "started") {
-      Tone.getTransport().start();
-    }
+    this.ensureTransportRunning();
   }
 
   /**
@@ -135,9 +139,7 @@ class AudioContextManager {
 
     // 3) Ensure Tone.js output and transport are running
     Tone.Destination.mute = false;
-    if (Tone.getTransport().state !== "started") {
-      Tone.getTransport().start();
-    }
+    this.ensureTransportRunning();
   }
 
   get isReady(): boolean {
@@ -162,6 +164,10 @@ class AudioContextManager {
   dispose(): void {
     if (this._isReady) {
       Tone.getTransport().stop();
+      if (this.stateChangeHandler) {
+        getNativeContext().removeEventListener("statechange", this.stateChangeHandler);
+        this.stateChangeHandler = null;
+      }
     }
     this.masterVolume?.dispose();
     this.limiter?.dispose();

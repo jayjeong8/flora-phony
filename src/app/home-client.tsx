@@ -23,9 +23,9 @@ import { ClearConfirmModal } from "@/components/modals/clear-confirm-modal";
 import { ConfirmModal } from "@/components/modals/confirm-modal";
 import { useAudioContext } from "@/hooks/use-audio-context";
 import { useAudioSync } from "@/hooks/use-audio-sync";
-import { audioContextManager } from "@/lib/audio/audio-context";
 import { useGardenActions, useGardenPlants, useSelectedPlantId } from "@/hooks/use-garden";
 import { useGardenUrl } from "@/hooks/use-garden-url";
+import { audioContextManager } from "@/lib/audio/audio-context";
 
 export default function HomeClient() {
   const { isAudioReady } = useAudioContext();
@@ -54,18 +54,16 @@ export default function HomeClient() {
     };
 
     // iOS requires a real user gesture to resume an "interrupted"
-    // AudioContext after backgrounding. We listen on touchstart,
-    // touchend, and click to cover all browsers.
+    // AudioContext after backgrounding. touchstart covers iOS,
+    // click covers desktop browsers.
     const handleGesture = () => audioContextManager.handleUserGesture();
 
     document.addEventListener("visibilitychange", handleVisibilityChange);
     document.addEventListener("touchstart", handleGesture, true);
-    document.addEventListener("touchend", handleGesture, true);
     document.addEventListener("click", handleGesture, true);
     return () => {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
       document.removeEventListener("touchstart", handleGesture, true);
-      document.removeEventListener("touchend", handleGesture, true);
       document.removeEventListener("click", handleGesture, true);
     };
   }, [isAudioReady]);
